@@ -1,0 +1,156 @@
+{
+  "waves": [
+    {
+      "searches": [
+        "comparaison moteurs jeu 3d godot unity unreal",
+        "best game engine for 3d horror game",
+        "godot 4 3d performance",
+        "unreal engine 5 beginner tutorial fps",
+        "unity vs godot for 3d first person",
+        "open source 3d game engine"
+      ],
+      "urls": [
+        "https://godotengine.org",
+        "https://docs.godotengine.org/en/stable/",
+        "https://www.unrealengine.com/en-US/unreal-engine-5",
+        "https://docs.unrealengine.com/",
+        "https://unity.com",
+        "https://learn.unity.com",
+        "https://gamedevacademy.org/unity-vs-godot/",
+        "https://www.gdquest.com/tutorial/godot/"
+      ],
+      "keywords": [
+        {
+          "term": "Godot 4",
+          "type": "tech",
+          "description": "Version récente du moteur Godot, open source, supportant la 3D et le scripting en GDScript ou C#."
+        },
+        {
+          "term": "Unreal Engine 5",
+          "type": "tech",
+          "description": "Moteur 3D AAA très puissant, utilisé dans l’industrie, avec un système de scripting visuel (Blueprints)."
+        },
+        {
+          "term": "Unity",
+          "type": "tech",
+          "description": "Moteur de jeu très populaire, surtout pour les jeux 3D et mobiles, utilisant majoritairement le C#."
+        },
+        {
+          "term": "GDScript",
+          "type": "tech",
+          "description": "Langage de script intégré à Godot, proche de Python, utilisé pour programmer la logique du jeu."
+        },
+        {
+          "term": "Blueprints",
+          "type": "tech",
+          "description": "Système de scripting visuel d’Unreal Engine qui permet de créer du gameplay sans écrire directement du C++."
+        },
+        {
+          "term": "Asset Store",
+          "type": "tech",
+          "description": "Boutique d’assets (3D, scripts, sons, etc.), très développée pour Unity, plus limitée pour Godot."
+        }
+      ]
+    },
+    {
+      "searches": [
+        "godot 4 3d first person controller tutorial",
+        "godot 4 fps controller github",
+        "godot 4 3d navigationagent3d ai",
+        "godot 4 horror game lighting",
+        "godot 4 audio bus reverb 3d",
+        "godot 4 performance tips 3d"
+      ],
+      "urls": [
+        "https://docs.godotengine.org/en/stable/tutorials/3d/fps_tutorial/",
+        "https://docs.godotengine.org/en/stable/tutorials/navigation/navigation_using_navigationagents.html",
+        "https://docs.godotengine.org/en/stable/tutorials/3d/",
+        "https://www.youtube.com/results?search_query=godot+4+fps+tutorial",
+        "https://kidscancode.org/godot_recipes/3.x/",
+        "https://godotshaders.com/"
+      ],
+      "keywords": [
+        {
+          "term": "CharacterBody3D",
+          "type": "tech",
+          "description": "Node de Godot 4 utilisé pour les personnages en 3D (incluant les contrôleurs FPS)."
+        },
+        {
+          "term": "NavigationRegion3D / NavigationAgent3D",
+          "type": "tech",
+          "description": "Système de navigation de Godot 4 pour permettre à un ennemi de trouver son chemin dans un environnement 3D."
+        },
+        {
+          "term": "Scene / Node",
+          "type": "tech",
+          "description": "Modèle de composition de Godot. Tout est organisé en scènes et nœuds (Joueur, Ennemi, Station, etc.)."
+        },
+        {
+          "term": "Baked light / GI",
+          "type": "tech",
+          "description": "Méthodes d’éclairage en 3D dans Godot (lumière précalculée ou éclairage global) pour améliorer le rendu et les performances."
+        },
+        {
+          "term": "Audio Bus",
+          "type": "tech",
+          "description": "Système de mixage audio de Godot permettant de gérer volumes, effets (reverb), etc. pour l’ambiance sonore."
+        },
+        {
+          "term": "Open source engine",
+          "type": "community",
+          "description": "Moteur dont le code source est ouvert, avec une communauté pouvant contribuer et corriger des bugs (cas de Godot)."
+        }
+      ]
+    },
+    {
+      "searches": [
+        "godot 4 quest system tutorial",
+        "godot inventory system 3d",
+        "procedural objectives game design",
+        "phasmophobia gameplay loop analysis",
+        "roguelite progression system design",
+        "godot save system json"
+      ],
+      "urls": [
+        "https://docs.godotengine.org/en/stable/tutorials/scripting/singletons_autoload.html",
+        "https://docs.godotengine.org/en/stable/tutorials/io/saving_games.html",
+        "https://docs.godotengine.org/en/stable/tutorials/4_quick_start/first_2d_rpg/index.html",
+        "https://www.youtube.com/results?search_query=godot+inventory+system",
+        "https://www.gamasutra.com/blogs/tags/roguelike",
+        "https://www.youtube.com/results?search_query=phasmophobia+game+design+analysis"
+      ],
+      "keywords": [
+        {
+          "term": "Game loop (boucle de jeu)",
+          "type": "example",
+          "description": "Séquence répétée dans chaque partie (préparation → mission → récompenses → amélioration) qui structure le gameplay."
+        },
+        {
+          "term": "Quest / Objective system",
+          "type": "tech",
+          "description": "Système de gestion d’objectifs (principaux et secondaires) avec états : en cours, complété, échoué."
+        },
+        {
+          "term": "Inventory system",
+          "type": "tech",
+          "description": "Système de gestion d’objets possédés par le joueur (équipement acheté, objets trouvés)."
+        },
+        {
+          "term": "Roguelite progression",
+          "type": "example",
+          "description": "Type de progression où on rejoue plusieurs runs, en gardant des améliorations permanentes (équipement, argent, compétences)."
+        },
+        {
+          "term": "Save / Load (JSON)",
+          "type": "tech",
+          "description": "Utilisation de fichiers JSON pour sauvegarder l’état du joueur (argent, équipement débloqué, options)."
+        },
+        {
+          "term": "Difficulty scaling",
+          "type": "example",
+          "description": "Techniques pour adapter la difficulté (ennemi plus rapide, plus d’objectifs, récompenses plus grandes)."
+        }
+      ]
+    }
+  ]
+}
