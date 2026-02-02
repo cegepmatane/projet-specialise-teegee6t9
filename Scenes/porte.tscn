@@ -1,0 +1,87 @@
+[gd_scene load_steps=9 format=3 uid="uid://b8ggufg22bc1l"]
+
+[ext_resource type="Script" uid="uid://bkcexbpvmpnci" path="res://Scripts/porte.gd" id="1_pdras"]
+[ext_resource type="Material" uid="uid://bgqm3jx6bmw8d" path="res://Matériaux/porte.tres" id="2_mlnpr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ysxpw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_thsx8"]
+
+[sub_resource type="Animation" id="Animation_i0xak"]
+resource_name = "Ouvrir"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Charnière:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5707964, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_iwie7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Charnière:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_86tqd"]
+resource_name = "Fermer"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Charnière:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ob2ff"]
+_data = {
+&"Fermer": SubResource("Animation_86tqd"),
+&"Ouvrir": SubResource("Animation_i0xak"),
+&"RESET": SubResource("Animation_iwie7")
+}
+
+[node name="Door" type="Node3D"]
+
+[node name="Charnière" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 1.058, -1.5)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Charnière"]
+transform = Transform3D(0.085, 0, 0, 0, 2.3, 0, 0, 0, 1.5, -0.1, 0.09200001, 0.75)
+script = ExtResource("1_pdras")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Charnière/StaticBody3D"]
+shape = SubResource("BoxShape3D_ysxpw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Charnière/StaticBody3D"]
+mesh = SubResource("BoxMesh_thsx8")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Charnière/StaticBody3D"]
+transform = Transform3D(1.9094768, 0, 0, 0, 0.16744256, 0, 0, 0, 0.065366864, 0, 0, 0.36305323)
+material_override = ExtResource("2_mlnpr")
+mesh = SubResource("BoxMesh_thsx8")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ob2ff")
+}
