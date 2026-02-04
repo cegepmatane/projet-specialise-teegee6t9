@@ -4,7 +4,7 @@ var basculer = false
 var interactive = true
 @export var animation_joueur: AnimationPlayer
 
-func intract():
+func interact():
 	if interactive == true:
 		interactive = false
 		basculer = !basculer

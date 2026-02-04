@@ -1,0 +1,94 @@
+[gd_scene load_steps=4 format=3 uid="uid://btirb8ax0u6mo"]
+
+[ext_resource type="Script" uid="uid://d2n3pbmgcnhur" path="res://Scenes/lobby.gd" id="1_nvaej"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vuo3o"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8iya3"]
+
+[node name="lobby" type="Node3D"]
+script = ExtResource("1_nvaej")
+
+[node name="sol" type="StaticBody3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 0.4, 0, 0, 0, 4, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sol"]
+shape = SubResource("BoxShape3D_vuo3o")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="sol"]
+mesh = SubResource("BoxMesh_8iya3")
+
+[node name="toit" type="StaticBody3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 0.4, 0, 0, 0, 4, 0, 3.6, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="toit"]
+shape = SubResource("BoxShape3D_vuo3o")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="toit"]
+mesh = SubResource("BoxMesh_8iya3")
+
+[node name="Mur" type="StaticBody3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 3.2, 0, 0, 0, 3.6, 1.9, 1.8, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mur"]
+shape = SubResource("BoxShape3D_vuo3o")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mur"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0076236725, 0.0008479357, -3.83291e-05)
+mesh = SubResource("BoxMesh_8iya3")
+
+[node name="Mur2" type="StaticBody3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 3.2, 0, 0, 0, 3.6, -1.9, 1.8, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mur2"]
+shape = SubResource("BoxShape3D_vuo3o")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mur2"]
+mesh = SubResource("BoxMesh_8iya3")
+
+[node name="Mur3" type="StaticBody3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 3.2, 0, 0, 0, 0.2, 0, 1.8, 1.9)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mur3"]
+shape = SubResource("BoxShape3D_vuo3o")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mur3"]
+mesh = SubResource("BoxMesh_8iya3")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Mur3"]
+transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 0, -19.018967)
+mesh = SubResource("BoxMesh_8iya3")
+
+[node name="Mur4_1" type="StaticBody3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 3.2, 0, 0, 0, 0.2, 0, 1.8, -1.9)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mur4_1"]
+transform = Transform3D(0.313, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, 0.345, 0, 0)
+shape = SubResource("BoxShape3D_vuo3o")
+
+[node name="Mur4_2" type="StaticBody3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 3.2, 0, 0, 0, 0.2, -2.75, 1.8, -1.9)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mur4_2"]
+transform = Transform3D(0.313, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, 0.345, 0, 0)
+shape = SubResource("BoxShape3D_vuo3o")
+
+[node name="Mur4_3" type="StaticBody3D" parent="."]
+transform = Transform3D(4.8, 0, 0, 0, 0.9, 0, 0, 0, 0.2, -1.65, 2.973, -1.9)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mur4_3"]
+transform = Transform3D(0.313, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, 0.345, 0, 0)
+shape = SubResource("BoxShape3D_vuo3o")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0320342, 0)
+light_color = Color(0.83, 0.83, 0.83, 1)
+light_energy = 1.472
+omni_attenuation = -0.509
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="pointApparition" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24482703, 0)
