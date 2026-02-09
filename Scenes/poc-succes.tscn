@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5ttnam0xds76"]
+[gd_scene load_steps=9 format=3 uid="uid://b5ttnam0xds76"]
 
 [ext_resource type="PackedScene" uid="uid://b8ggufg22bc1l" path="res://Scenes/porte.tscn" id="1_8ev4a"]
+[ext_resource type="Script" uid="uid://uerqnjiui3x1" path="res://Scripts/show_success_popup.gd" id="1_sjb4t"]
 [ext_resource type="PackedScene" uid="uid://c66jo7yxv25dq" path="res://Scenes/joueur.tscn" id="2_30skp"]
 [ext_resource type="PackedScene" uid="uid://bhdwi1u3eafmq" path="res://Scenes/maison.tscn" id="3_30skp"]
 [ext_resource type="Material" uid="uid://bn56jasfvlr3o" path="res://Matériaux/lumiere.tres" id="4_5vwr2"]
@@ -11,6 +12,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_sjb4t"]
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_sjb4t")
 
 [node name="Door" parent="." instance=ExtResource("1_8ev4a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.82, 0.4, 2.75)
@@ -37,3 +39,33 @@ script = ExtResource("5_mgfm0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerSortie"]
 shape = SubResource("BoxShape3D_sjb4t")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="EcranNoir" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="NotificationPanel" type="Panel" parent="CanvasLayer"]
+visible = false
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 100.0
+grow_horizontal = 2
+
+[node name="Text" type="Label" parent="CanvasLayer/NotificationPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Succès débloqué !
+S'échapper pour la première fois"
+horizontal_alignment = 1
+vertical_alignment = 1
