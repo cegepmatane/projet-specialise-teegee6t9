@@ -22,3 +22,8 @@
 - Forum : Godot Engine Forum – https://forum.godotengine.org/
 - Blog : GDQuest – https://www.gdquest.com/
 - YouTube : GDQuest – https://www.youtube.com/c/Gdquest
+
+### Collection Raindrop.io
+
+- Collection : Veille Godot / Game Dev
+- Flux RSS de la collection : [<URL RSS générée par Raindrop>](https://bg.raindrop.io/rss/public/66679972)
