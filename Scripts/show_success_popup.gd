@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var black_screen := $CanvasLayer/EcranNoir
+@onready var black_screen := $CanvasLayer/EcranBlanc
 @onready var notification_panel := $CanvasLayer/NotificationPanel
 @onready var notification_label := $CanvasLayer/NotificationPanel/Text
 
