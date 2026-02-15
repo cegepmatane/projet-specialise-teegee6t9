@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5ttnam0xds76"]
+[gd_scene load_steps=11 format=3 uid="uid://b5ttnam0xds76"]
 
 [ext_resource type="PackedScene" uid="uid://b8ggufg22bc1l" path="res://Scenes/porte.tscn" id="1_8ev4a"]
 [ext_resource type="Script" uid="uid://uerqnjiui3x1" path="res://Scripts/show_success_popup.gd" id="1_sjb4t"]
@@ -6,10 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://bhdwi1u3eafmq" path="res://Scenes/maison.tscn" id="3_30skp"]
 [ext_resource type="Material" uid="uid://bn56jasfvlr3o" path="res://Matériaux/lumiere.tres" id="4_5vwr2"]
 [ext_resource type="Script" uid="uid://mk0h0oyuaqkj" path="res://Scripts/trigger_sortie.gd" id="5_mgfm0"]
+[ext_resource type="Script" path="res://Scripts/trigger_secret.gd" id="6_secret"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_mgfm0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sjb4t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_secret"]
+size = Vector3(1.2, 1.5, 1.2)
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_sjb4t")
@@ -39,6 +43,13 @@ script = ExtResource("5_mgfm0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerSortie"]
 shape = SubResource("BoxShape3D_sjb4t")
+
+[node name="TriggerSecret" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.5, 2.2)
+script = ExtResource("6_secret")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerSecret"]
+shape = SubResource("BoxShape3D_secret")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

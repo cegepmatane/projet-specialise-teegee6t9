@@ -1,29 +1,27 @@
 extends Node3D
 
-@onready var black_screen := $CanvasLayer/EcranBlanc
+## Écran blanc = écran de chargement uniquement (ex: pendant un changement de scène).
+## Les succès n'affichent que la popup, sauf si on demande explicitement l'écran de chargement (ex: succès "sortie" pendant le chargement).
+
+@onready var loading_screen := $CanvasLayer/EcranBlanc
 @onready var notification_panel := $CanvasLayer/NotificationPanel
 @onready var notification_label := $CanvasLayer/NotificationPanel/Text
 
 var _is_showing := false
 
 func _ready() -> void:
-	print("show_success_popup.gd READY")
-	print("  black_screen:", black_screen)
-	print("  notification_panel:", notification_panel)
-	print("  notification_label:", notification_label)
-	black_screen.visible = false
+	loading_screen.visible = false
 	notification_panel.visible = false
 
-
-func show_success_with_transition(text: String, duration: float = 2.0) -> void:
+## Affiche la popup de succès. Si use_loading_screen est true, l'écran blanc (chargement) est affiché derrière
+## et reste visible après la popup (pour un changement de scène juste après).
+func show_success_with_transition(text: String, duration: float = 2.0, use_loading_screen: bool = false) -> void:
 	if _is_showing:
 		return
 	_is_showing = true
 
 	notification_label.text = text
-	print("  label final text:", notification_label.text)
-
-	black_screen.visible = true
+	loading_screen.visible = use_loading_screen
 	notification_panel.visible = true
 
 	var rect: Rect2 = notification_panel.get_rect()
@@ -45,5 +43,6 @@ func show_success_with_transition(text: String, duration: float = 2.0) -> void:
 	await tween_up.finished
 
 	notification_panel.visible = false
-	black_screen.visible = false
+	if not use_loading_screen:
+		loading_screen.visible = false
 	_is_showing = false

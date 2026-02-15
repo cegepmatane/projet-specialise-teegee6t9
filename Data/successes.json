@@ -1,0 +1,12 @@
+[
+  {
+	"id": "escape_first_time",
+	"title": "S'échapper pour la première fois",
+	"description": "Sortez de la salle en franchissant la porte."
+  },
+  {
+	"id": "find_secret",
+	"title": "Trouver le secret",
+	"description": "Découvrez ce qui se cache dans la salle."
+  }
+]

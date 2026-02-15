@@ -139,7 +139,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8244863, -1.7648568)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.72120833, 0)
 text = "Mes succès 0/1"
 
-[node name="SuccesEscape3D" type="Label3D" parent="MurSucces"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20672369, 0)
-text = "Succès verrouillé 🔒"
-font_size = 24
+[node name="ListeSucces" type="Node3D" parent="MurSucces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
