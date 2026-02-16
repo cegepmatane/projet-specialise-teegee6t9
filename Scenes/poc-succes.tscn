@@ -18,7 +18,7 @@ size = Vector3(1.2, 1.5, 1.2)
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_sjb4t")
 
-[node name="Door" parent="." instance=ExtResource("1_8ev4a")]
+[node name="Porte" parent="." instance=ExtResource("1_8ev4a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.82, 0.4, 2.75)
 
 [node name="Joueur" parent="." instance=ExtResource("2_30skp")]
@@ -37,18 +37,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.371717, 1.8671482, 2.097793
 omni_range = 3644.138
 omni_attenuation = 0.057
 
-[node name="TriggerSortie" type="Area3D" parent="."]
+[node name="DeclencheurSortie" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.77717555, 0, 0, 0, 1.5200913, 4.5, 0.4, 2)
 script = ExtResource("5_mgfm0")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerSortie"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeclencheurSortie"]
 shape = SubResource("BoxShape3D_sjb4t")
 
-[node name="TriggerSecret" type="Area3D" parent="."]
+[node name="DeclencheurSecret" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.5, 2.2)
 script = ExtResource("6_secret")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerSecret"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeclencheurSecret"]
 shape = SubResource("BoxShape3D_secret")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -61,14 +61,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="NotificationPanel" type="Panel" parent="CanvasLayer"]
+[node name="PanneauNotification" type="Panel" parent="CanvasLayer"]
 visible = false
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 100.0
 grow_horizontal = 2
 
-[node name="Text" type="Label" parent="CanvasLayer/NotificationPanel"]
+[node name="Texte" type="Label" parent="CanvasLayer/PanneauNotification"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

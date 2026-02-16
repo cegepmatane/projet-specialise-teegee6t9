@@ -1,48 +1,43 @@
 extends Node3D
 
-## Écran blanc = écran de chargement uniquement (ex: pendant un changement de scène).
-## Les succès n'affichent que la popup, sauf si on demande explicitement l'écran de chargement (ex: succès "sortie" pendant le chargement).
+@onready var ecran_chargement := $CanvasLayer/EcranBlanc
+@onready var panneau_notification := $CanvasLayer/PanneauNotification
+@onready var label_notification := $CanvasLayer/PanneauNotification/Texte
 
-@onready var loading_screen := $CanvasLayer/EcranBlanc
-@onready var notification_panel := $CanvasLayer/NotificationPanel
-@onready var notification_label := $CanvasLayer/NotificationPanel/Text
-
-var _is_showing := false
+var _en_affichage := false
 
 func _ready() -> void:
-	loading_screen.visible = false
-	notification_panel.visible = false
+	ecran_chargement.visible = false
+	panneau_notification.visible = false
 
-## Affiche la popup de succès. Si use_loading_screen est true, l'écran blanc (chargement) est affiché derrière
-## et reste visible après la popup (pour un changement de scène juste après).
-func show_success_with_transition(text: String, duration: float = 2.0, use_loading_screen: bool = false) -> void:
-	if _is_showing:
+func afficher_succes_avec_transition(texte: String, duree: float = 2.0, utiliser_ecran_chargement: bool = false) -> void:
+	if _en_affichage:
 		return
-	_is_showing = true
+	_en_affichage = true
 
-	notification_label.text = text
-	loading_screen.visible = use_loading_screen
-	notification_panel.visible = true
+	label_notification.text = texte
+	ecran_chargement.visible = utiliser_ecran_chargement
+	panneau_notification.visible = true
 
-	var rect: Rect2 = notification_panel.get_rect()
-	var start_pos: Vector2 = Vector2(0, -rect.size.y)
-	var target_pos: Vector2 = Vector2(0, 0)
+	var rect: Rect2 = panneau_notification.get_rect()
+	var pos_depart: Vector2 = Vector2(0, -rect.size.y)
+	var pos_cible: Vector2 = Vector2(0, 0)
 
-	notification_panel.position = start_pos
+	panneau_notification.position = pos_depart
 
 	var tween := create_tween()
-	tween.tween_property(notification_panel, "position", target_pos, 0.4)\
+	tween.tween_property(panneau_notification, "position", pos_cible, 0.4)\
 		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 
 	await tween.finished
-	await get_tree().create_timer(duration).timeout
+	await get_tree().create_timer(duree).timeout
 
-	var tween_up := create_tween()
-	tween_up.tween_property(notification_panel, "position", start_pos, 0.4)\
+	var tween_haut := create_tween()
+	tween_haut.tween_property(panneau_notification, "position", pos_depart, 0.4)\
 		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
-	await tween_up.finished
+	await tween_haut.finished
 
-	notification_panel.visible = false
-	if not use_loading_screen:
-		loading_screen.visible = false
-	_is_showing = false
+	panneau_notification.visible = false
+	if not utiliser_ecran_chargement:
+		ecran_chargement.visible = false
+	_en_affichage = false

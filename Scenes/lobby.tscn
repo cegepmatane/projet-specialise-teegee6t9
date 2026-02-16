@@ -20,7 +20,7 @@
 [node name="lobby" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14154887, 0, 0)
 script = ExtResource("1_nvaej")
-player_scene = ExtResource("2_y0s6v")
+scene_joueur = ExtResource("2_y0s6v")
 
 [node name="sol" type="StaticBody3D" parent="."]
 transform = Transform3D(4, 0, 0, 0, 0.4, 0, 0, 0, 4, 0, 0, 0)
@@ -102,33 +102,33 @@ omni_attenuation = -0.509
 [node name="pointApparition" type="Marker3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.117723, 0.24482703, 0)
 
-[node name="StartButtonRoot" type="StaticBody3D" parent="."]
+[node name="BoutonLancer" type="StaticBody3D" parent="."]
 script = ExtResource("3_u1o2k")
 
-[node name="ButtonLabel" type="Label3D" parent="StartButtonRoot"]
+[node name="LibelleBouton" type="Label3D" parent="BoutonLancer"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.4907607, 1.8290482, 0)
 text = "Lancer la partie"
 
-[node name="ButtonMesh" type="MeshInstance3D" parent="StartButtonRoot"]
+[node name="MaillageBouton" type="MeshInstance3D" parent="BoutonLancer"]
 transform = Transform3D(0.30000004, 0, 0, 0, 0.4, 0, 0, 0, 1.5, 1.6510699, 1.8232338, 0)
 mesh = SubResource("BoxMesh_avk8s")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StartButtonRoot"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoutonLancer"]
 transform = Transform3D(0.2987451, 0, 0, 0, 0.38525146, 0, 0, 0, 1.4889123, 1.651, 1.823, 0)
 shape = SubResource("BoxShape3D_avk8s")
 
-[node name="QuitButtonRoot" type="StaticBody3D" parent="."]
+[node name="BoutonQuitter" type="StaticBody3D" parent="."]
 script = ExtResource("4_avk8s")
 
-[node name="ButtonLabel" type="Label3D" parent="QuitButtonRoot"]
+[node name="LibelleBouton" type="Label3D" parent="BoutonQuitter"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.4748286, 1.0045294, 0)
 text = "Quitter le jeu"
 
-[node name="ButtonMesh" type="MeshInstance3D" parent="QuitButtonRoot"]
+[node name="MaillageBouton" type="MeshInstance3D" parent="BoutonQuitter"]
 transform = Transform3D(0.3, 0, 0, 0, 0.4, 0, 0, 0, 1.5, 1.644, 1, 0)
 mesh = SubResource("BoxMesh_ruji2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="QuitButtonRoot"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoutonQuitter"]
 transform = Transform3D(0.3, 0, 0, 0, 0.4, 0, 0, 0, 1.5, 1.644, 1, 0)
 shape = SubResource("BoxShape3D_ruji2")
 

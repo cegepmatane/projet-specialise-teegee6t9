@@ -5,7 +5,7 @@ const VITESSE_SAUT = 3.5
 
 var gravite = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-@onready var interact_ray: RayCast3D = $tete/Camera3D/RayCast3D
+@onready var rayon_interaction: RayCast3D = $tete/Camera3D/RayCast3D
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -28,29 +28,28 @@ func _physics_process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		_try_interact()
+		_tenter_interaction()
 
 
-func _try_interact() -> void:
-	if interact_ray == null:
+func _tenter_interaction() -> void:
+	if rayon_interaction == null:
 		return
 
-	if not interact_ray.is_colliding():
+	if not rayon_interaction.is_colliding():
 		return
 
-	var hit: Object = interact_ray.get_collider()  # on donne un type
-	if hit == null:
+	var touche: Object = rayon_interaction.get_collider()
+	if touche == null:
 		return
 
-	# On remonte éventuellement au parent pour trouver un node avec une méthode `interact`
-	var node: Object = hit
+	var noeud: Object = touche
 	for i in range(4):
-		if node == null:
+		if noeud == null:
 			break
-		if node.has_method("interact"):
-			node.interact()
+		if noeud.has_method("interact"):
+			noeud.interact()
 			return
-		if node is Node:
-			node = (node as Node).get_parent()
+		if noeud is Node:
+			noeud = (noeud as Node).get_parent()
 		else:
 			break
