@@ -1,0 +1,916 @@
+[gd_scene format=3 uid="uid://bcx76jl6xxl3m"]
+
+[ext_resource type="Script" uid="uid://cbgmfa62wxps8" path="res://Scripts/carte_vaisseau.gd" id="1_carte"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sol"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_sol"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mur"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_mur"]
+
+[sub_resource type="StandardMaterial3D" id="Mat_baie_vitree"]
+transparency = 1
+albedo_color = Color(0.8, 0.9, 1, 0.2)
+roughness = 0.1
+
+[node name="Level" type="Node3D" unique_id=1285596670]
+
+[node name="CarteVaisseau" type="CanvasLayer" parent="." unique_id=30486724]
+script = ExtResource("1_carte")
+
+[node name="PanelCarte" type="Panel" parent="CarteVaisseau" unique_id=2036948560]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelCarte" type="Label" parent="CarteVaisseau/PanelCarte" unique_id=91950741]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Carte du vaisseau"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PointApparition" type="Marker3D" parent="." unique_id=1753979405]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Eclairage" type="Node3D" parent="." unique_id=2143362200]
+
+[node name="LumiereCentrale" type="OmniLight3D" parent="Eclairage" unique_id=364772912]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+light_color = Color(0.9, 0.85, 0.7, 1)
+omni_range = 30.0
+omni_attenuation = 0.3
+
+[node name="LumiereNord1" type="OmniLight3D" parent="Eclairage" unique_id=1950124067]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 4, 34)
+light_color = Color(0.8, 0.8, 0.9, 1)
+light_energy = 0.8
+omni_range = 20.0
+omni_attenuation = 0.4
+
+[node name="LumiereNord2" type="OmniLight3D" parent="Eclairage" unique_id=273492563]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 4, 34)
+light_color = Color(0.8, 0.8, 0.9, 1)
+light_energy = 0.8
+omni_range = 20.0
+omni_attenuation = 0.4
+
+[node name="LumiereSud1" type="OmniLight3D" parent="Eclairage" unique_id=2013649440]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 4, -34)
+light_color = Color(0.9, 0.8, 0.8, 1)
+light_energy = 0.8
+omni_range = 20.0
+omni_attenuation = 0.4
+
+[node name="LumiereSud2" type="OmniLight3D" parent="Eclairage" unique_id=1854017286]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 4, -34)
+light_color = Color(0.9, 0.8, 0.8, 1)
+light_energy = 0.8
+omni_range = 20.0
+omni_attenuation = 0.4
+
+[node name="LumiereEst1" type="OmniLight3D" parent="Eclairage" unique_id=1246671194]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 4, -8)
+light_color = Color(0.8, 0.9, 0.8, 1)
+light_energy = 0.8
+omni_range = 20.0
+omni_attenuation = 0.4
+
+[node name="LumiereEst2" type="OmniLight3D" parent="Eclairage" unique_id=546721968]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 4, 8)
+light_color = Color(0.8, 0.9, 0.8, 1)
+light_energy = 0.8
+omni_range = 20.0
+omni_attenuation = 0.4
+
+[node name="LumiereOuest1" type="OmniLight3D" parent="Eclairage" unique_id=3655286]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 4, -8)
+light_color = Color(0.9, 0.85, 0.75, 1)
+light_energy = 0.8
+omni_range = 20.0
+omni_attenuation = 0.4
+
+[node name="LumiereOuest2" type="OmniLight3D" parent="Eclairage" unique_id=1301102279]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 4, 8)
+light_color = Color(0.9, 0.85, 0.75, 1)
+light_energy = 0.8
+omni_range = 20.0
+omni_attenuation = 0.4
+
+[node name="Structure" type="Node3D" parent="." unique_id=128236697]
+
+[node name="SalleCentrale" type="Node3D" parent="Structure" unique_id=1727718540]
+
+[node name="Sol" type="StaticBody3D" parent="Structure/SalleCentrale" unique_id=1098673280]
+transform = Transform3D(20, 0, 0, 0, 0.2, 0, 0, 0, 20, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/SalleCentrale/Sol" unique_id=1647635663]
+shape = SubResource("BoxShape3D_sol")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/SalleCentrale/Sol" unique_id=1248814166]
+mesh = SubResource("BoxMesh_sol")
+
+[node name="Toit" type="StaticBody3D" parent="Structure/SalleCentrale" unique_id=528426181]
+transform = Transform3D(20, 0, 0, 0, 0.2, 0, 0, 0, 20, 0, 5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/SalleCentrale/Toit" unique_id=1515996730]
+shape = SubResource("BoxShape3D_sol")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/SalleCentrale/Toit" unique_id=912977170]
+mesh = SubResource("BoxMesh_sol")
+
+[node name="MurNord_Gauche" type="StaticBody3D" parent="Structure/SalleCentrale" unique_id=1435634606]
+transform = Transform3D(7, 0, 0, 0, 5, 0, 0, 0, 0.2, -6.5, 2.5, 10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/SalleCentrale/MurNord_Gauche" unique_id=834565770]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/SalleCentrale/MurNord_Gauche" unique_id=548724876]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurNord_Droit" type="StaticBody3D" parent="Structure/SalleCentrale" unique_id=96094702]
+transform = Transform3D(7, 0, 0, 0, 5, 0, 0, 0, 0.2, 6.5, 2.5, 10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/SalleCentrale/MurNord_Droit" unique_id=616782824]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/SalleCentrale/MurNord_Droit" unique_id=901473068]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurSud_Gauche" type="StaticBody3D" parent="Structure/SalleCentrale" unique_id=28796992]
+transform = Transform3D(7, 0, 0, 0, 5, 0, 0, 0, 0.2, -6.5, 2.5, -10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/SalleCentrale/MurSud_Gauche" unique_id=1948004643]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/SalleCentrale/MurSud_Gauche" unique_id=935520599]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurSud_Droit" type="StaticBody3D" parent="Structure/SalleCentrale" unique_id=370214138]
+transform = Transform3D(7, 0, 0, 0, 5, 0, 0, 0, 0.2, 6.5, 2.5, -10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/SalleCentrale/MurSud_Droit" unique_id=1608649475]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/SalleCentrale/MurSud_Droit" unique_id=1005077140]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurEst_Bas" type="StaticBody3D" parent="Structure/SalleCentrale" unique_id=740845608]
+transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 7, 10, 2.5, -6.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/SalleCentrale/MurEst_Bas" unique_id=253119228]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/SalleCentrale/MurEst_Bas" unique_id=1647697724]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurEst_Haut" type="StaticBody3D" parent="Structure/SalleCentrale" unique_id=1609875449]
+transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 7, 10, 2.5, 6.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/SalleCentrale/MurEst_Haut" unique_id=559740038]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/SalleCentrale/MurEst_Haut" unique_id=297380777]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurOuest_Bas" type="StaticBody3D" parent="Structure/SalleCentrale" unique_id=1303011467]
+transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 7, -10, 2.5, -6.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/SalleCentrale/MurOuest_Bas" unique_id=46965060]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/SalleCentrale/MurOuest_Bas" unique_id=64764732]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurOuest_Haut" type="StaticBody3D" parent="Structure/SalleCentrale" unique_id=1669406668]
+transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 7, -10, 2.5, 6.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/SalleCentrale/MurOuest_Haut" unique_id=1992043677]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/SalleCentrale/MurOuest_Haut" unique_id=1846407422]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="EmplacementPorteNord" type="Marker3D" parent="Structure/SalleCentrale" unique_id=169746008]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 10)
+
+[node name="EmplacementPorteSud" type="Marker3D" parent="Structure/SalleCentrale" unique_id=1926876175]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -10)
+
+[node name="EmplacementPorteEst" type="Marker3D" parent="Structure/SalleCentrale" unique_id=2069456429]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 0)
+
+[node name="EmplacementPorteOuest" type="Marker3D" parent="Structure/SalleCentrale" unique_id=942658801]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, 0)
+
+[node name="AileNord" type="Node3D" parent="Structure" unique_id=2073643657]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 22)
+
+[node name="CouloirNord" type="Node3D" parent="Structure/AileNord" unique_id=545044389]
+
+[node name="Sol" type="StaticBody3D" parent="Structure/AileNord/CouloirNord" unique_id=542927388]
+transform = Transform3D(6, 0, 0, 0, 0.2, 0, 0, 0, 24, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileNord/CouloirNord/Sol" unique_id=1519468890]
+shape = SubResource("BoxShape3D_sol")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/CouloirNord/Sol" unique_id=1672182009]
+mesh = SubResource("BoxMesh_sol")
+
+[node name="Toit" type="StaticBody3D" parent="Structure/AileNord/CouloirNord" unique_id=587439747]
+transform = Transform3D(6, 0, 0, 0, 0.2, 0, 0, 0, 24, 0, 5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileNord/CouloirNord/Toit" unique_id=1415706801]
+shape = SubResource("BoxShape3D_sol")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/CouloirNord/Toit" unique_id=440795267]
+mesh = SubResource("BoxMesh_sol")
+
+[node name="MurGauche" type="StaticBody3D" parent="Structure/AileNord/CouloirNord" unique_id=421396859]
+transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 24, -3, 2.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileNord/CouloirNord/MurGauche" unique_id=995106695]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/CouloirNord/MurGauche" unique_id=1756993364]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurDroit" type="StaticBody3D" parent="Structure/AileNord/CouloirNord" unique_id=1614181775]
+transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 24, 3, 2.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileNord/CouloirNord/MurDroit" unique_id=1847312537]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/CouloirNord/MurDroit" unique_id=1482038977]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="SalleNord1" type="Node3D" parent="Structure/AileNord" unique_id=85763546]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 12)
+
+[node name="Sol" type="StaticBody3D" parent="Structure/AileNord/SalleNord1" unique_id=761833767]
+transform = Transform3D(12, 0, 0, 0, 0.2, 0, 0, 0, 12, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileNord/SalleNord1/Sol" unique_id=422302639]
+shape = SubResource("BoxShape3D_sol")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/SalleNord1/Sol" unique_id=284272338]
+mesh = SubResource("BoxMesh_sol")
+
+[node name="Toit" type="StaticBody3D" parent="Structure/AileNord/SalleNord1" unique_id=1618735663]
+transform = Transform3D(12, 0, 0, 0, 0.2, 0, 0, 0, 12, 0, 5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileNord/SalleNord1/Toit" unique_id=1200231022]
+shape = SubResource("BoxShape3D_sol")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/SalleNord1/Toit" unique_id=1961446756]
+mesh = SubResource("BoxMesh_sol")
+
+[node name="MurNord" type="StaticBody3D" parent="Structure/AileNord/SalleNord1" unique_id=42079919]
+transform = Transform3D(12, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, 6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileNord/SalleNord1/MurNord" unique_id=1244218286]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/SalleNord1/MurNord" unique_id=443271156]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurSud" type="StaticBody3D" parent="Structure/AileNord/SalleNord1" unique_id=41026853]
+transform = Transform3D(12, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, -6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileNord/SalleNord1/MurSud" unique_id=47346435]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/SalleNord1/MurSud" unique_id=691770511]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurEst" type="StaticBody3D" parent="Structure/AileNord/SalleNord1" unique_id=2056048486]
+transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 12, 6, 2.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileNord/SalleNord1/MurEst" unique_id=1829487862]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/SalleNord1/MurEst" unique_id=1270260632]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurOuest" type="StaticBody3D" parent="Structure/AileNord/SalleNord1" unique_id=833551249]
+transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 12, -6, 2.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileNord/SalleNord1/MurOuest" unique_id=602940447]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/SalleNord1/MurOuest" unique_id=585002061]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="EmplacementPorteSud" type="Marker3D" parent="Structure/AileNord/SalleNord1" unique_id=956410040]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -6)
+
+[node name="SalleNord2" type="Node3D" parent="Structure/AileNord" unique_id=412338362]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 12)
+
+[node name="Sol" type="StaticBody3D" parent="Structure/AileNord/SalleNord2" unique_id=1501404310]
+transform = Transform3D(12, 0, 0, 0, 0.2, 0, 0, 0, 12, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileNord/SalleNord2/Sol" unique_id=235638402]
+shape = SubResource("BoxShape3D_sol")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/SalleNord2/Sol" unique_id=94509077]
+mesh = SubResource("BoxMesh_sol")
+
+[node name="Toit" type="StaticBody3D" parent="Structure/AileNord/SalleNord2" unique_id=1564835099]
+transform = Transform3D(12, 0, 0, 0, 0.2, 0, 0, 0, 12, 0, 5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileNord/SalleNord2/Toit" unique_id=1589125577]
+shape = SubResource("BoxShape3D_sol")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/SalleNord2/Toit" unique_id=597808510]
+mesh = SubResource("BoxMesh_sol")
+
+[node name="MurNord" type="StaticBody3D" parent="Structure/AileNord/SalleNord2" unique_id=182235743]
+transform = Transform3D(12, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, 6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileNord/SalleNord2/MurNord" unique_id=1226492607]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/SalleNord2/MurNord" unique_id=1193134145]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurSud" type="StaticBody3D" parent="Structure/AileNord/SalleNord2" unique_id=868569102]
+transform = Transform3D(12, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, -6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileNord/SalleNord2/MurSud" unique_id=735696248]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/SalleNord2/MurSud" unique_id=1026312151]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurEst" type="StaticBody3D" parent="Structure/AileNord/SalleNord2" unique_id=1044161962]
+transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 12, 6, 2.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileNord/SalleNord2/MurEst" unique_id=1033748394]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/SalleNord2/MurEst" unique_id=915264764]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurOuest" type="StaticBody3D" parent="Structure/AileNord/SalleNord2" unique_id=1846722598]
+transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 12, -6, 2.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileNord/SalleNord2/MurOuest" unique_id=802132426]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/SalleNord2/MurOuest" unique_id=1279878739]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="EmplacementPorteSud" type="Marker3D" parent="Structure/AileNord/SalleNord2" unique_id=1567506092]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -6)
+
+[node name="AileSud" type="Node3D" parent="Structure" unique_id=1972773884]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22)
+
+[node name="CouloirSud" type="Node3D" parent="Structure/AileSud" unique_id=1765232087]
+
+[node name="Sol" type="StaticBody3D" parent="Structure/AileSud/CouloirSud" unique_id=1954045564]
+transform = Transform3D(6, 0, 0, 0, 0.2, 0, 0, 0, 24, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileSud/CouloirSud/Sol" unique_id=1298040200]
+shape = SubResource("BoxShape3D_sol")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/CouloirSud/Sol" unique_id=453997192]
+mesh = SubResource("BoxMesh_sol")
+
+[node name="Toit" type="StaticBody3D" parent="Structure/AileSud/CouloirSud" unique_id=1443102462]
+transform = Transform3D(6, 0, 0, 0, 0.2, 0, 0, 0, 24, 0, 5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileSud/CouloirSud/Toit" unique_id=169314973]
+shape = SubResource("BoxShape3D_sol")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/CouloirSud/Toit" unique_id=1575032171]
+mesh = SubResource("BoxMesh_sol")
+
+[node name="MurGauche" type="StaticBody3D" parent="Structure/AileSud/CouloirSud" unique_id=2070377840]
+transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 24, -3, 2.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileSud/CouloirSud/MurGauche" unique_id=232208855]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/CouloirSud/MurGauche" unique_id=529772308]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurDroit" type="StaticBody3D" parent="Structure/AileSud/CouloirSud" unique_id=13277405]
+transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 24, 3, 2.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileSud/CouloirSud/MurDroit" unique_id=1793933293]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/CouloirSud/MurDroit" unique_id=995385542]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="SalleSud1" type="Node3D" parent="Structure/AileSud" unique_id=1376640607]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -12)
+
+[node name="Sol" type="StaticBody3D" parent="Structure/AileSud/SalleSud1" unique_id=1336204595]
+transform = Transform3D(12, 0, 0, 0, 0.2, 0, 0, 0, 12, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileSud/SalleSud1/Sol" unique_id=696312996]
+shape = SubResource("BoxShape3D_sol")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/SalleSud1/Sol" unique_id=1033363338]
+mesh = SubResource("BoxMesh_sol")
+
+[node name="Toit" type="StaticBody3D" parent="Structure/AileSud/SalleSud1" unique_id=691971420]
+transform = Transform3D(12, 0, 0, 0, 0.2, 0, 0, 0, 12, 0, 5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileSud/SalleSud1/Toit" unique_id=1008446524]
+shape = SubResource("BoxShape3D_sol")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/SalleSud1/Toit" unique_id=269597635]
+mesh = SubResource("BoxMesh_sol")
+
+[node name="MurNord" type="StaticBody3D" parent="Structure/AileSud/SalleSud1" unique_id=949202379]
+transform = Transform3D(12, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, 6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileSud/SalleSud1/MurNord" unique_id=891601174]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/SalleSud1/MurNord" unique_id=302747865]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurSud" type="StaticBody3D" parent="Structure/AileSud/SalleSud1" unique_id=483936215]
+transform = Transform3D(12, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, -6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileSud/SalleSud1/MurSud" unique_id=302176515]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/SalleSud1/MurSud" unique_id=1354796779]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurEst" type="StaticBody3D" parent="Structure/AileSud/SalleSud1" unique_id=1758962129]
+transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 12, 6, 2.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileSud/SalleSud1/MurEst" unique_id=1128183151]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/SalleSud1/MurEst" unique_id=373360249]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurOuest" type="StaticBody3D" parent="Structure/AileSud/SalleSud1" unique_id=1140058551]
+transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 12, -6, 2.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileSud/SalleSud1/MurOuest" unique_id=2100232382]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/SalleSud1/MurOuest" unique_id=525207830]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="EmplacementPorteNord" type="Marker3D" parent="Structure/AileSud/SalleSud1" unique_id=235678207]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
+
+[node name="SalleSud2" type="Node3D" parent="Structure/AileSud" unique_id=331694455]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -12)
+
+[node name="Sol" type="StaticBody3D" parent="Structure/AileSud/SalleSud2" unique_id=1537808658]
+transform = Transform3D(12, 0, 0, 0, 0.2, 0, 0, 0, 12, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileSud/SalleSud2/Sol" unique_id=1599405117]
+shape = SubResource("BoxShape3D_sol")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/SalleSud2/Sol" unique_id=1584620163]
+mesh = SubResource("BoxMesh_sol")
+
+[node name="Toit" type="StaticBody3D" parent="Structure/AileSud/SalleSud2" unique_id=294363436]
+transform = Transform3D(12, 0, 0, 0, 0.2, 0, 0, 0, 12, 0, 5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileSud/SalleSud2/Toit" unique_id=717277376]
+shape = SubResource("BoxShape3D_sol")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/SalleSud2/Toit" unique_id=1048944142]
+mesh = SubResource("BoxMesh_sol")
+
+[node name="MurNord" type="StaticBody3D" parent="Structure/AileSud/SalleSud2" unique_id=1655557224]
+transform = Transform3D(12, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, 6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileSud/SalleSud2/MurNord" unique_id=732723930]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/SalleSud2/MurNord" unique_id=305686770]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurSud" type="StaticBody3D" parent="Structure/AileSud/SalleSud2" unique_id=1673801376]
+transform = Transform3D(12, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, -6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileSud/SalleSud2/MurSud" unique_id=1165289159]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/SalleSud2/MurSud" unique_id=1301507533]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurEst" type="StaticBody3D" parent="Structure/AileSud/SalleSud2" unique_id=1814919796]
+transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 12, 6, 2.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileSud/SalleSud2/MurEst" unique_id=1836886758]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/SalleSud2/MurEst" unique_id=1082386290]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurOuest" type="StaticBody3D" parent="Structure/AileSud/SalleSud2" unique_id=1210500263]
+transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 12, -6, 2.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileSud/SalleSud2/MurOuest" unique_id=1628001506]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/SalleSud2/MurOuest" unique_id=861899640]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="EmplacementPorteNord" type="Marker3D" parent="Structure/AileSud/SalleSud2" unique_id=797408052]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
+
+[node name="AileEst" type="Node3D" parent="Structure" unique_id=636473963]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 0)
+
+[node name="CouloirEst" type="Node3D" parent="Structure/AileEst" unique_id=2054080929]
+
+[node name="Sol" type="StaticBody3D" parent="Structure/AileEst/CouloirEst" unique_id=517690743]
+transform = Transform3D(24, 0, 0, 0, 0.2, 0, 0, 0, 6, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileEst/CouloirEst/Sol" unique_id=701666806]
+shape = SubResource("BoxShape3D_sol")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileEst/CouloirEst/Sol" unique_id=1515629041]
+mesh = SubResource("BoxMesh_sol")
+
+[node name="Toit" type="StaticBody3D" parent="Structure/AileEst/CouloirEst" unique_id=1921356719]
+transform = Transform3D(24, 0, 0, 0, 0.2, 0, 0, 0, 6, 0, 5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileEst/CouloirEst/Toit" unique_id=1858353335]
+shape = SubResource("BoxShape3D_sol")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileEst/CouloirEst/Toit" unique_id=1425036663]
+mesh = SubResource("BoxMesh_sol")
+
+[node name="BaieVitreeGauche" type="StaticBody3D" parent="Structure/AileEst/CouloirEst" unique_id=697114926]
+transform = Transform3D(24, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, -3)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileEst/CouloirEst/BaieVitreeGauche" unique_id=845833220]
+transform = Transform3D(0.754, 0, 0, 0, 1, 0, 0, 0, 1, -0.124, 0, 0)
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileEst/CouloirEst/BaieVitreeGauche" unique_id=318419247]
+transform = Transform3D(0.754, 0, 0, 0, 1, 0, 0, 0, 1, -0.124, 0, 0)
+material_override = SubResource("Mat_baie_vitree")
+mesh = SubResource("BoxMesh_mur")
+
+[node name="BaieVitreeDroite" type="StaticBody3D" parent="Structure/AileEst/CouloirEst" unique_id=1168908235]
+transform = Transform3D(24, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, 3)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileEst/CouloirEst/BaieVitreeDroite" unique_id=673097381]
+transform = Transform3D(0.75400007, 0, 0, 0, 1.0000001, 0, 0, 0, 1, -0.124, 0, 0)
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileEst/CouloirEst/BaieVitreeDroite" unique_id=1469026833]
+transform = Transform3D(0.754, 0, 0, 0, 1, 0, 0, 0, 1, -0.12423903, 0, 0)
+material_override = SubResource("Mat_baie_vitree")
+mesh = SubResource("BoxMesh_mur")
+
+[node name="BaieVitreeFond" type="StaticBody3D" parent="Structure/AileEst/CouloirEst" unique_id=331209951]
+transform = Transform3D(-1.4889065e-07, 0, 0.2, 0, 5.0000005, 0, -3.4062212, 0, -8.742277e-09, 12.379421, 2.5, 0.3077278)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileEst/CouloirEst/BaieVitreeFond" unique_id=1247199389]
+transform = Transform3D(1.18, 0, 0, 0, 1, 0, 0, 0, 1, 0.09, -0.008, -2.375)
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileEst/CouloirEst/BaieVitreeFond" unique_id=285451329]
+transform = Transform3D(1.18, 0, -1.5013982e-13, 0, 1, 0, 1.7716498e-13, 0, 1, 0.09, -0.008, -2.375)
+material_override = SubResource("Mat_baie_vitree")
+mesh = SubResource("BoxMesh_mur")
+
+[node name="SalleEst1" type="Node3D" parent="Structure/AileEst" unique_id=814563824]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -8)
+
+[node name="Sol" type="StaticBody3D" parent="Structure/AileEst/SalleEst1" unique_id=2075922861]
+transform = Transform3D(12, 0, 0, 0, 0.2, 0, 0, 0, 12, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileEst/SalleEst1/Sol" unique_id=329823788]
+shape = SubResource("BoxShape3D_sol")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileEst/SalleEst1/Sol" unique_id=1463913470]
+mesh = SubResource("BoxMesh_sol")
+
+[node name="Toit" type="StaticBody3D" parent="Structure/AileEst/SalleEst1" unique_id=725019507]
+transform = Transform3D(12, 0, 0, 0, 0.2, 0, 0, 0, 12, 0, 5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileEst/SalleEst1/Toit" unique_id=1208805118]
+shape = SubResource("BoxShape3D_sol")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileEst/SalleEst1/Toit" unique_id=1628717056]
+mesh = SubResource("BoxMesh_sol")
+
+[node name="MurNord" type="StaticBody3D" parent="Structure/AileEst/SalleEst1" unique_id=947092857]
+transform = Transform3D(12, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, 6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileEst/SalleEst1/MurNord" unique_id=268506233]
+transform = Transform3D(0.515, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileEst/SalleEst1/MurNord" unique_id=1347294872]
+transform = Transform3D(0.515, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurSud" type="StaticBody3D" parent="Structure/AileEst/SalleEst1" unique_id=1052477233]
+transform = Transform3D(12, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, -6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileEst/SalleEst1/MurSud" unique_id=329172562]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileEst/SalleEst1/MurSud" unique_id=1578034815]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurEst" type="StaticBody3D" parent="Structure/AileEst/SalleEst1" unique_id=1627019052]
+transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 12, 6, 2.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileEst/SalleEst1/MurEst" unique_id=2081577123]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileEst/SalleEst1/MurEst" unique_id=1656135923]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurOuest" type="StaticBody3D" parent="Structure/AileEst/SalleEst1" unique_id=1156154225]
+transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 12, -6, 2.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileEst/SalleEst1/MurOuest" unique_id=1658813367]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.918, 0, 0, -0.042)
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileEst/SalleEst1/MurOuest" unique_id=1334290780]
+transform = Transform3D(1.0231141, 0, 0, 0, 1.0231142, 0, 0, 0, 0.9392187, 0, 0, -0.042336285)
+mesh = SubResource("BoxMesh_mur")
+
+[node name="EmplacementPorteOuest" type="Marker3D" parent="Structure/AileEst/SalleEst1" unique_id=1359774900]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, 0)
+
+[node name="SalleEst2" type="Node3D" parent="Structure/AileEst" unique_id=1260606030]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 8)
+
+[node name="Sol" type="StaticBody3D" parent="Structure/AileEst/SalleEst2" unique_id=1519384046]
+transform = Transform3D(12, 0, 0, 0, 0.2, 0, 0, 0, 12, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileEst/SalleEst2/Sol" unique_id=1369479801]
+shape = SubResource("BoxShape3D_sol")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileEst/SalleEst2/Sol" unique_id=1800738593]
+mesh = SubResource("BoxMesh_sol")
+
+[node name="Toit" type="StaticBody3D" parent="Structure/AileEst/SalleEst2" unique_id=1772593108]
+transform = Transform3D(12, 0, 0, 0, 0.2, 0, 0, 0, 12, 0, 5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileEst/SalleEst2/Toit" unique_id=334543855]
+shape = SubResource("BoxShape3D_sol")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileEst/SalleEst2/Toit" unique_id=1530699946]
+mesh = SubResource("BoxMesh_sol")
+
+[node name="MurNord" type="StaticBody3D" parent="Structure/AileEst/SalleEst2" unique_id=289438045]
+transform = Transform3D(12, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, 6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileEst/SalleEst2/MurNord" unique_id=615077603]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileEst/SalleEst2/MurNord" unique_id=1807762385]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurSud" type="StaticBody3D" parent="Structure/AileEst/SalleEst2" unique_id=824159373]
+transform = Transform3D(12, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, -6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileEst/SalleEst2/MurSud" unique_id=563100867]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileEst/SalleEst2/MurSud" unique_id=1633815887]
+transform = Transform3D(0.515, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurEst" type="StaticBody3D" parent="Structure/AileEst/SalleEst2" unique_id=1582661633]
+transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 12, 6, 2.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileEst/SalleEst2/MurEst" unique_id=840265323]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileEst/SalleEst2/MurEst" unique_id=1702333058]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurOuest" type="StaticBody3D" parent="Structure/AileEst/SalleEst2" unique_id=784616747]
+transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 12, -6, 2.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileEst/SalleEst2/MurOuest" unique_id=684717778]
+transform = Transform3D(1.023, 0, 0, 0, 1.023, 0, 0, 0, 0.925, 0, 0, 0.035)
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileEst/SalleEst2/MurOuest" unique_id=1736324375]
+transform = Transform3D(1.023, 0, 0, 0, 1.023, 0, 0, 0, 0.925, 0, 0, 0.035)
+mesh = SubResource("BoxMesh_mur")
+
+[node name="EmplacementPorteOuest" type="Marker3D" parent="Structure/AileEst/SalleEst2" unique_id=968689920]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, 0)
+
+[node name="AileOuest" type="Node3D" parent="Structure" unique_id=916484952]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, 0)
+
+[node name="CouloirOuest" type="Node3D" parent="Structure/AileOuest" unique_id=52986748]
+
+[node name="Sol" type="StaticBody3D" parent="Structure/AileOuest/CouloirOuest" unique_id=675300821]
+transform = Transform3D(24, 0, 0, 0, 0.2, 0, 0, 0, 6, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileOuest/CouloirOuest/Sol" unique_id=55999124]
+shape = SubResource("BoxShape3D_sol")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileOuest/CouloirOuest/Sol" unique_id=346091933]
+mesh = SubResource("BoxMesh_sol")
+
+[node name="Toit" type="StaticBody3D" parent="Structure/AileOuest/CouloirOuest" unique_id=1972181220]
+transform = Transform3D(24, 0, 0, 0, 0.2, 0, 0, 0, 6, 0, 5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileOuest/CouloirOuest/Toit" unique_id=970241937]
+shape = SubResource("BoxShape3D_sol")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileOuest/CouloirOuest/Toit" unique_id=2066480623]
+mesh = SubResource("BoxMesh_sol")
+
+[node name="BaieVitreeGauche" type="StaticBody3D" parent="Structure/AileOuest/CouloirOuest" unique_id=561132522]
+transform = Transform3D(24, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, -3)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileOuest/CouloirOuest/BaieVitreeGauche" unique_id=1296230239]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileOuest/CouloirOuest/BaieVitreeGauche" unique_id=1147124399]
+transform = Transform3D(0.754, 0, 0, 0, 1, 0, 0, 0, 1, 0.124, 0, 0)
+material_override = SubResource("Mat_baie_vitree")
+mesh = SubResource("BoxMesh_mur")
+
+[node name="BaieVitreeDroite" type="StaticBody3D" parent="Structure/AileOuest/CouloirOuest" unique_id=682714059]
+transform = Transform3D(24, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, 3)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileOuest/CouloirOuest/BaieVitreeDroite" unique_id=2069385537]
+transform = Transform3D(0.754, 0, 0, 0, 1, 0, 0, 0, 1, 0.124, 0, 0)
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileOuest/CouloirOuest/BaieVitreeDroite" unique_id=2138136708]
+transform = Transform3D(0.754, 0, 0, 0, 1, 0, 0, 0, 1, 0.124, 0, 0)
+material_override = SubResource("Mat_baie_vitree")
+mesh = SubResource("BoxMesh_mur")
+
+[node name="BaieVitreeFond" type="StaticBody3D" parent="Structure/AileOuest/CouloirOuest" unique_id=848366790]
+transform = Transform3D(-1.4889065e-07, 0, -0.2, 0, 5.0000005, 0, 3.4062212, 0, -8.742278e-09, -12.405972, 2.5, -0.30768198)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileOuest/CouloirOuest/BaieVitreeFond" unique_id=1204764423]
+transform = Transform3D(1.18, 0, 0, 0, 1, 0, 0, 0, 1, 0.09, -0.008, -2.375)
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileOuest/CouloirOuest/BaieVitreeFond" unique_id=682691903]
+transform = Transform3D(1.18, 0, -1.5013982e-13, 0, 1, 0, 1.7716498e-13, 0, 1, 0.09, -0.008, -2.375)
+material_override = SubResource("Mat_baie_vitree")
+mesh = SubResource("BoxMesh_mur")
+
+[node name="SalleOuest1" type="Node3D" parent="Structure/AileOuest" unique_id=731988756]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -8)
+
+[node name="Sol" type="StaticBody3D" parent="Structure/AileOuest/SalleOuest1" unique_id=1226178712]
+transform = Transform3D(12, 0, 0, 0, 0.2, 0, 0, 0, 12, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileOuest/SalleOuest1/Sol" unique_id=940600879]
+shape = SubResource("BoxShape3D_sol")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileOuest/SalleOuest1/Sol" unique_id=1249624735]
+mesh = SubResource("BoxMesh_sol")
+
+[node name="Toit" type="StaticBody3D" parent="Structure/AileOuest/SalleOuest1" unique_id=1041326949]
+transform = Transform3D(12, 0, 0, 0, 0.2, 0, 0, 0, 12, 0, 5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileOuest/SalleOuest1/Toit" unique_id=1364684032]
+shape = SubResource("BoxShape3D_sol")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileOuest/SalleOuest1/Toit" unique_id=1808212528]
+mesh = SubResource("BoxMesh_sol")
+
+[node name="MurNord" type="StaticBody3D" parent="Structure/AileOuest/SalleOuest1" unique_id=933024457]
+transform = Transform3D(12, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, 6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileOuest/SalleOuest1/MurNord" unique_id=1782628168]
+transform = Transform3D(0.515, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, 0)
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileOuest/SalleOuest1/MurNord" unique_id=972994568]
+transform = Transform3D(0.515, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, 0)
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurSud" type="StaticBody3D" parent="Structure/AileOuest/SalleOuest1" unique_id=1351428993]
+transform = Transform3D(12, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, -6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileOuest/SalleOuest1/MurSud" unique_id=1859480688]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileOuest/SalleOuest1/MurSud" unique_id=934688683]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurEst" type="StaticBody3D" parent="Structure/AileOuest/SalleOuest1" unique_id=1735186422]
+transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 12, 6, 2.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileOuest/SalleOuest1/MurEst" unique_id=1372400695]
+transform = Transform3D(1.023, 0, 0, 0, 1.023, 0, 0, 0, 0.515, 0, 0, -0.035)
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileOuest/SalleOuest1/MurEst" unique_id=577585751]
+transform = Transform3D(1.023, 0, 0, 0, 1.023, 0, 0, 0, 0.925, 0, 0, -0.035)
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurOuest" type="StaticBody3D" parent="Structure/AileOuest/SalleOuest1" unique_id=188555921]
+transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 12, -6, 2.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileOuest/SalleOuest1/MurOuest" unique_id=751085398]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileOuest/SalleOuest1/MurOuest" unique_id=672924421]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="EmplacementPorteEst" type="Marker3D" parent="Structure/AileOuest/SalleOuest1" unique_id=1318239556]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 0)
+
+[node name="SalleOuest2" type="Node3D" parent="Structure/AileOuest" unique_id=1447787133]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 8)
+
+[node name="Sol" type="StaticBody3D" parent="Structure/AileOuest/SalleOuest2" unique_id=942427113]
+transform = Transform3D(12, 0, 0, 0, 0.2, 0, 0, 0, 12, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileOuest/SalleOuest2/Sol" unique_id=84059117]
+shape = SubResource("BoxShape3D_sol")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileOuest/SalleOuest2/Sol" unique_id=1320948475]
+mesh = SubResource("BoxMesh_sol")
+
+[node name="Toit" type="StaticBody3D" parent="Structure/AileOuest/SalleOuest2" unique_id=1635628661]
+transform = Transform3D(12, 0, 0, 0, 0.2, 0, 0, 0, 12, 0, 5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileOuest/SalleOuest2/Toit" unique_id=1732378514]
+shape = SubResource("BoxShape3D_sol")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileOuest/SalleOuest2/Toit" unique_id=1453913103]
+mesh = SubResource("BoxMesh_sol")
+
+[node name="MurNord" type="StaticBody3D" parent="Structure/AileOuest/SalleOuest2" unique_id=2019935586]
+transform = Transform3D(12, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, 6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileOuest/SalleOuest2/MurNord" unique_id=1692416652]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileOuest/SalleOuest2/MurNord" unique_id=899020403]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurSud" type="StaticBody3D" parent="Structure/AileOuest/SalleOuest2" unique_id=2010521494]
+transform = Transform3D(12, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, -6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileOuest/SalleOuest2/MurSud" unique_id=1533239036]
+transform = Transform3D(0.515, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, 0)
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileOuest/SalleOuest2/MurSud" unique_id=1742005190]
+transform = Transform3D(0.515, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, 0)
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurEst" type="StaticBody3D" parent="Structure/AileOuest/SalleOuest2" unique_id=1649954410]
+transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 12, 6, 2.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileOuest/SalleOuest2/MurEst" unique_id=1993506651]
+transform = Transform3D(1.023, 0, 0, 0, 1.023, 0, 0, 0, 0.939, 0, 0, 0.042)
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileOuest/SalleOuest2/MurEst" unique_id=1232127735]
+transform = Transform3D(1.023, 0, 0, 0, 1.023, 0, 0, 0, 0.939, 0, 0, 0.042)
+mesh = SubResource("BoxMesh_mur")
+
+[node name="MurOuest" type="StaticBody3D" parent="Structure/AileOuest/SalleOuest2" unique_id=289398138]
+transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 12, -6, 2.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileOuest/SalleOuest2/MurOuest" unique_id=1218986839]
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileOuest/SalleOuest2/MurOuest" unique_id=985394414]
+mesh = SubResource("BoxMesh_mur")
+
+[node name="EmplacementPorteEst" type="Marker3D" parent="Structure/AileOuest/SalleOuest2" unique_id=1034559219]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 0)
