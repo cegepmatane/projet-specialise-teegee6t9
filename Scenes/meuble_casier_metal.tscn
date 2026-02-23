@@ -1,0 +1,102 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/porte.gd" id="1"]
+
+[sub_resource type="BoxMesh" id="1"]
+size = Vector3(0.03, 2.4, 0.8)
+
+[sub_resource type="BoxMesh" id="2"]
+size = Vector3(0.8, 2.4, 0.03)
+
+[sub_resource type="BoxMesh" id="3"]
+size = Vector3(0.8, 0.03, 0.8)
+
+[sub_resource type="BoxMesh" id="4"]
+size = Vector3(0.7, 0.03, 0.75)
+
+[sub_resource type="BoxMesh" id="5"]
+size = Vector3(0.03, 2.3, 0.75)
+
+[sub_resource type="Animation" id="6"]
+resource_name = "Ouvrir"
+length = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("FaçadePorte:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.5708, 0)]
+}
+
+[sub_resource type="Animation" id="7"]
+resource_name = "Fermer"
+length = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("FaçadePorte:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="8"]
+_data = {
+"Ouvrir": SubResource("6"),
+"Fermer": SubResource("7")
+}
+
+[node name="CasierMetal" type="Node3D"]
+
+[node name="MurGauche" type="MeshInstance3D" parent="."]
+mesh = SubResource("1")
+transform = Transform3D(1,0,0, 0,1,0, 0,0,1, -0.385,1.2,0)
+
+[node name="MurDroit" type="MeshInstance3D" parent="."]
+mesh = SubResource("1")
+transform = Transform3D(1,0,0, 0,1,0, 0,0,1, 0.385,1.2,0)
+
+[node name="MurArriere" type="MeshInstance3D" parent="."]
+mesh = SubResource("2")
+transform = Transform3D(1,0,0, 0,1,0, 0,0,1, 0,1.2,-0.385)
+
+[node name="Plafond" type="MeshInstance3D" parent="."]
+mesh = SubResource("3")
+transform = Transform3D(1,0,0, 0,1,0, 0,0,1, 0,2.385,0)
+
+[node name="Sol" type="MeshInstance3D" parent="."]
+mesh = SubResource("3")
+transform = Transform3D(1,0,0, 0,1,0, 0,0,1, 0,0.015,0)
+
+[node name="EtagereSup" type="MeshInstance3D" parent="."]
+mesh = SubResource("4")
+transform = Transform3D(1,0,0, 0,1,0, 0,0,1, 0,1.7,0)
+
+[node name="EtagereMilieu" type="MeshInstance3D" parent="."]
+mesh = SubResource("4")
+transform = Transform3D(1,0,0, 0,1,0, 0,0,1, 0,1.0,0)
+
+[node name="EtagereBas" type="MeshInstance3D" parent="."]
+mesh = SubResource("4")
+transform = Transform3D(1,0,0, 0,1,0, 0,0,1, 0,0.3,0)
+
+[node name="FaçadePorte" type="Node3D" parent="."]
+transform = Transform3D(1,0,0, 0,1,0, 0,0,1, -0.4,1.2,0)
+
+[node name="PorteMesh" type="MeshInstance3D" parent="FaçadePorte"]
+mesh = SubResource("5")
+transform = Transform3D(1,0,0, 0,1,0, 0,0,1, 0.015,0,0)
+
+[node name="PorteInteract" type="StaticBody3D" parent="FaçadePorte"]
+script = ExtResource("1")
+animation_joueur = NodePath("../../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("8")
+}
