@@ -248,18 +248,22 @@ mesh = SubResource("BoxMesh_sol")
 transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 24, -3, 2.5, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileNord/CouloirNord/MurGauche" unique_id=995106695]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.758, 0, 0, -0.125)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/CouloirNord/MurGauche" unique_id=1756993364]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.758, 0, 0, -0.125)
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurDroit" type="StaticBody3D" parent="Structure/AileNord/CouloirNord" unique_id=1614181775]
 transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 24, 3, 2.5, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileNord/CouloirNord/MurDroit" unique_id=1847312537]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.758, 0, 0, -0.125)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/CouloirNord/MurDroit" unique_id=1482038977]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.758, 0, 0, -0.125)
 mesh = SubResource("BoxMesh_mur")
 
 [node name="SalleNord1" type="Node3D" parent="Structure/AileNord" unique_id=85763546]
@@ -296,18 +300,22 @@ mesh = SubResource("BoxMesh_mur")
 transform = Transform3D(12, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, -6)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileNord/SalleNord1/MurSud" unique_id=47346435]
+transform = Transform3D(0.925, 0, 0, 0, 1.023, 0, 0, 0, 1.023, -0.037, 0, 0)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/SalleNord1/MurSud" unique_id=691770511]
+transform = Transform3D(0.925, 0, 0, 0, 1.023, 0, 0, 0, 1.023, -0.037, 0, 0)
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurEst" type="StaticBody3D" parent="Structure/AileNord/SalleNord1" unique_id=2056048486]
 transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 12, 6, 2.5, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileNord/SalleNord1/MurEst" unique_id=1829487862]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.515, 0, 0, 0.25)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/SalleNord1/MurEst" unique_id=1270260632]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.515, 0, 0, 0.25)
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurOuest" type="StaticBody3D" parent="Structure/AileNord/SalleNord1" unique_id=833551249]
@@ -356,9 +364,11 @@ mesh = SubResource("BoxMesh_mur")
 transform = Transform3D(12, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, -6)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileNord/SalleNord2/MurSud" unique_id=735696248]
+transform = Transform3D(0.939, 0, 0, 0, 1.023, 0, 0, 0, 1.023, 0.044, 0, 0)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/SalleNord2/MurSud" unique_id=1026312151]
+transform = Transform3D(0.939, 0, 0, 0, 1.023, 0, 0, 0, 1.023, 0.044, 0, 0)
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurEst" type="StaticBody3D" parent="Structure/AileNord/SalleNord2" unique_id=1044161962]
@@ -374,13 +384,27 @@ mesh = SubResource("BoxMesh_mur")
 transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 12, -6, 2.5, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileNord/SalleNord2/MurOuest" unique_id=802132426]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.515, 0, 0, 0.25)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/SalleNord2/MurOuest" unique_id=1279878739]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.515, 0, 0, 0.25)
 mesh = SubResource("BoxMesh_mur")
 
 [node name="EmplacementPorteSud" type="Marker3D" parent="Structure/AileNord/SalleNord2" unique_id=1567506092]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -6)
+
+[node name="BaieVitreeFond" type="StaticBody3D" parent="Structure/AileNord/SalleNord2" unique_id=420764904]
+transform = Transform3D(3.406221, 0, 0, 0, 5, 0, 0, 0, 0.19999999, -8.280929, 2.5, 0.40877533)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileNord/SalleNord2/BaieVitreeFond" unique_id=472522536]
+transform = Transform3D(1.18, 0, 0, 0, 1, 0, 0, 0, 1, 0.09, -0.008, -2.375)
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/SalleNord2/BaieVitreeFond" unique_id=952240243]
+transform = Transform3D(1.18, 0, -1.5013982e-13, 0, 1, 0, 1.7716498e-13, 0, 1, 0.09, -0.008, -2.375)
+material_override = SubResource("Mat_baie_vitree")
+mesh = SubResource("BoxMesh_mur")
 
 [node name="AileSud" type="Node3D" parent="Structure" unique_id=1972773884]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22)
@@ -409,18 +433,22 @@ mesh = SubResource("BoxMesh_sol")
 transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 24, -3, 2.5, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileSud/CouloirSud/MurGauche" unique_id=232208855]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.758, 0, 0, 0.125)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/CouloirSud/MurGauche" unique_id=529772308]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.758, 0, 0, 0.125)
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurDroit" type="StaticBody3D" parent="Structure/AileSud/CouloirSud" unique_id=13277405]
 transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 24, 3, 2.5, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileSud/CouloirSud/MurDroit" unique_id=1793933293]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.758, 0, 0, 0.125)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/CouloirSud/MurDroit" unique_id=995385542]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.758, 0, 0, 0.125)
 mesh = SubResource("BoxMesh_mur")
 
 [node name="SalleSud1" type="Node3D" parent="Structure/AileSud" unique_id=1376640607]
@@ -448,9 +476,11 @@ mesh = SubResource("BoxMesh_sol")
 transform = Transform3D(12, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, 6)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileSud/SalleSud1/MurNord" unique_id=891601174]
+transform = Transform3D(0.939, 0, 0, 0, 1.023, 0, 0, 0, 1.023, -0.044, 0, 0)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/SalleSud1/MurNord" unique_id=302747865]
+transform = Transform3D(0.939, 0, 0, 0, 1.023, 0, 0, 0, 1.023, -0.044, 0, 0)
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurSud" type="StaticBody3D" parent="Structure/AileSud/SalleSud1" unique_id=483936215]
@@ -466,9 +496,11 @@ mesh = SubResource("BoxMesh_mur")
 transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 12, 6, 2.5, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileSud/SalleSud1/MurEst" unique_id=1128183151]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.515, 0, 0, -0.25)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/SalleSud1/MurEst" unique_id=373360249]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.515, 0, 0, -0.25)
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurOuest" type="StaticBody3D" parent="Structure/AileSud/SalleSud1" unique_id=1140058551]
@@ -508,9 +540,11 @@ mesh = SubResource("BoxMesh_sol")
 transform = Transform3D(12, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, 6)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileSud/SalleSud2/MurNord" unique_id=732723930]
+transform = Transform3D(0.925, 0, 0, 0, 1.023, 0, 0, 0, 1.023, 0.037, 0, 0)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/SalleSud2/MurNord" unique_id=305686770]
+transform = Transform3D(0.925, 0, 0, 0, 1.023, 0, 0, 0, 1.023, 0.037, 0, 0)
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurSud" type="StaticBody3D" parent="Structure/AileSud/SalleSud2" unique_id=1673801376]
@@ -535,13 +569,27 @@ mesh = SubResource("BoxMesh_mur")
 transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 12, -6, 2.5, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileSud/SalleSud2/MurOuest" unique_id=1628001506]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.515, 0, 0, -0.25)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/SalleSud2/MurOuest" unique_id=861899640]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.515, 0, 0, -0.25)
 mesh = SubResource("BoxMesh_mur")
 
 [node name="EmplacementPorteNord" type="Marker3D" parent="Structure/AileSud/SalleSud2" unique_id=797408052]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
+
+[node name="BaieVitreeFond" type="StaticBody3D" parent="Structure/AileSud" unique_id=91843140]
+transform = Transform3D(-3.406221, 0, -1.7484554e-08, 0, 5, 0, 2.977813e-07, 0, -0.19999999, 0.3121779, 2.5, -12.409798)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileSud/BaieVitreeFond" unique_id=70924615]
+transform = Transform3D(1.18, 0, 0, 0, 1, 0, 0, 0, 1, 0.09, -0.008, -2.375)
+shape = SubResource("BoxShape3D_mur")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/BaieVitreeFond" unique_id=169162549]
+transform = Transform3D(1.18, 0, -1.5013982e-13, 0, 1, 0, 1.7716498e-13, 0, 1, 0.09, -0.008, -2.375)
+material_override = SubResource("Mat_baie_vitree")
+mesh = SubResource("BoxMesh_mur")
 
 [node name="AileEst" type="Node3D" parent="Structure" unique_id=636473963]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 0)
@@ -700,6 +748,7 @@ mesh = SubResource("BoxMesh_mur")
 transform = Transform3D(12, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, -6)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileEst/SalleEst2/MurSud" unique_id=563100867]
+transform = Transform3D(0.515, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileEst/SalleEst2/MurSud" unique_id=1633815887]
