@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c66jo7yxv25dq"]
+[gd_scene format=3 uid="uid://c66jo7yxv25dq"]
 
 [ext_resource type="Script" uid="uid://dcfxkjq14f4c2" path="res://Scripts/joueur.gd" id="1_kkerk"]
 [ext_resource type="Script" uid="uid://dqfg412w12qyi" path="res://Scripts/camera.gd" id="2_b0ct8"]
@@ -8,30 +8,30 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kkerk"]
 
-[node name="Joueur" type="CharacterBody3D"]
+[node name="Joueur" type="CharacterBody3D" unique_id=66292697]
 script = ExtResource("1_kkerk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=87311343]
 shape = SubResource("CapsuleShape3D_rf571")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1892941604]
 mesh = SubResource("CapsuleMesh_kkerk")
 skeleton = NodePath("../CollisionShape3D")
 
-[node name="tete" type="Node3D" parent="."]
+[node name="tete" type="Node3D" parent="." unique_id=1973268540]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58521545, 0)
 script = ExtResource("2_b0ct8")
 
-[node name="Camera3D" type="Camera3D" parent="tete"]
+[node name="Camera3D" type="Camera3D" parent="tete" unique_id=905678984]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1262995)
 
-[node name="RayCast3D" type="RayCast3D" parent="tete/Camera3D"]
+[node name="RayCast3D" type="RayCast3D" parent="tete/Camera3D" unique_id=1069972518]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -0.2)
 script = ExtResource("3_8mied")
 
-[node name="HUD" type="CanvasLayer" parent="."]
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1651506409]
 
-[node name="Crosshair" type="Label" parent="HUD"]
+[node name="Crosshair" type="Label" parent="HUD" unique_id=1916435916]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8ggufg22bc1l"]
+[gd_scene format=3 uid="uid://b8ggufg22bc1l"]
 
 [ext_resource type="Script" uid="uid://bkcexbpvmpnci" path="res://Scripts/porte.gd" id="1_pdras"]
 [ext_resource type="Material" uid="uid://bgqm3jx6bmw8d" path="res://Matériaux/porte.tres" id="2_mlnpr"]
@@ -59,30 +59,28 @@ _data = {
 &"RESET": SubResource("Animation_iwie7")
 }
 
-[node name="Door" type="Node3D"]
+[node name="Door" type="Node3D" unique_id=1861757344]
 
-[node name="Charnière" type="Node3D" parent="."]
+[node name="Charnière" type="Node3D" parent="." unique_id=724197163]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 1.058, -1.5)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Charnière" node_paths=PackedStringArray("animation_joueur")]
+[node name="StaticBody3D" type="StaticBody3D" parent="Charnière" unique_id=1397966823 node_paths=PackedStringArray("animation_joueur")]
 transform = Transform3D(0.085, 0, 0, 0, 2.3, 0, 0, 0, 1.5, -0.1, 0.09200001, 0.75)
 script = ExtResource("1_pdras")
 animation_joueur = NodePath("../../AnimationPlayer")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Charnière/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Charnière/StaticBody3D" unique_id=1247512106]
 shape = SubResource("BoxShape3D_ysxpw")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Charnière/StaticBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Charnière/StaticBody3D" unique_id=1835844967]
 mesh = SubResource("BoxMesh_thsx8")
 skeleton = NodePath("../CollisionShape3D")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Charnière/StaticBody3D"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Charnière/StaticBody3D" unique_id=2087989347]
 transform = Transform3D(1.9094768, 0, 0, 0, 0.16744256, 0, 0, 0, 0.065366864, 0, 0, 0.36305323)
 material_override = ExtResource("2_mlnpr")
 mesh = SubResource("BoxMesh_thsx8")
 skeleton = NodePath("../CollisionShape3D")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_ob2ff")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1074404856]
+libraries/ = SubResource("AnimationLibrary_ob2ff")

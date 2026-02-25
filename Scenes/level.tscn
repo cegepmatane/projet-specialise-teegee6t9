@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://bcx76jl6xxl3m"]
 
 [ext_resource type="Script" uid="uid://cbgmfa62wxps8" path="res://Scripts/carte_vaisseau.gd" id="1_carte"]
+[ext_resource type="PackedScene" uid="uid://dh5scbf4sdr4j" path="res://Scenes/meuble_caisse_cargo.tscn" id="2_caisse"]
+[ext_resource type="PackedScene" uid="uid://c4brrj3m2260o" path="res://Scenes/meuble_casier_metal.tscn" id="3_casier"]
+[ext_resource type="PackedScene" uid="uid://c66jo7yxv25dq" path="res://Scenes/joueur.tscn" id="4_81xng"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sol"]
 
@@ -56,62 +59,63 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 [node name="LumiereCentrale" type="OmniLight3D" parent="Eclairage" unique_id=364772912]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 light_color = Color(0.9, 0.85, 0.7, 1)
+light_energy = 3.0
 omni_range = 30.0
 omni_attenuation = 0.3
 
 [node name="LumiereNord1" type="OmniLight3D" parent="Eclairage" unique_id=1950124067]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 4, 34)
 light_color = Color(0.8, 0.8, 0.9, 1)
-light_energy = 0.8
+light_energy = 3.0
 omni_range = 20.0
 omni_attenuation = 0.4
 
 [node name="LumiereNord2" type="OmniLight3D" parent="Eclairage" unique_id=273492563]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 4, 34)
 light_color = Color(0.8, 0.8, 0.9, 1)
-light_energy = 0.8
+light_energy = 3.0
 omni_range = 20.0
 omni_attenuation = 0.4
 
 [node name="LumiereSud1" type="OmniLight3D" parent="Eclairage" unique_id=2013649440]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 4, -34)
 light_color = Color(0.9, 0.8, 0.8, 1)
-light_energy = 0.8
+light_energy = 3.0
 omni_range = 20.0
 omni_attenuation = 0.4
 
 [node name="LumiereSud2" type="OmniLight3D" parent="Eclairage" unique_id=1854017286]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 4, -34)
 light_color = Color(0.9, 0.8, 0.8, 1)
-light_energy = 0.8
+light_energy = 3.0
 omni_range = 20.0
 omni_attenuation = 0.4
 
 [node name="LumiereEst1" type="OmniLight3D" parent="Eclairage" unique_id=1246671194]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 4, -8)
 light_color = Color(0.8, 0.9, 0.8, 1)
-light_energy = 0.8
+light_energy = 3.0
 omni_range = 20.0
 omni_attenuation = 0.4
 
 [node name="LumiereEst2" type="OmniLight3D" parent="Eclairage" unique_id=546721968]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 4, 8)
 light_color = Color(0.8, 0.9, 0.8, 1)
-light_energy = 0.8
+light_energy = 3.0
 omni_range = 20.0
 omni_attenuation = 0.4
 
 [node name="LumiereOuest1" type="OmniLight3D" parent="Eclairage" unique_id=3655286]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 4, -8)
 light_color = Color(0.9, 0.85, 0.75, 1)
-light_energy = 0.8
+light_energy = 3.0
 omni_range = 20.0
 omni_attenuation = 0.4
 
 [node name="LumiereOuest2" type="OmniLight3D" parent="Eclairage" unique_id=1301102279]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 4, 8)
 light_color = Color(0.9, 0.85, 0.75, 1)
-light_energy = 0.8
+light_energy = 3.0
 omni_range = 20.0
 omni_attenuation = 0.4
 
@@ -221,6 +225,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 0)
 [node name="EmplacementPorteOuest" type="Marker3D" parent="Structure/SalleCentrale" unique_id=942658801]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, 0)
 
+[node name="CaisseHall_1" parent="Structure/SalleCentrale" unique_id=153011213 instance=ExtResource("2_caisse")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.65, 4)
+
+[node name="CaisseHall_2" parent="Structure/SalleCentrale" unique_id=1084332179 instance=ExtResource("2_caisse")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.65, -2)
+
+[node name="CasierHall" parent="Structure/SalleCentrale" unique_id=694440780 instance=ExtResource("3_casier")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 6)
+
 [node name="AileNord" type="Node3D" parent="Structure" unique_id=2073643657]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 22)
 
@@ -329,6 +342,15 @@ mesh = SubResource("BoxMesh_mur")
 
 [node name="EmplacementPorteSud" type="Marker3D" parent="Structure/AileNord/SalleNord1" unique_id=956410040]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -6)
+
+[node name="CaisseNord_1" parent="Structure/AileNord/SalleNord1" unique_id=1407202310 instance=ExtResource("2_caisse")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.65, 3)
+
+[node name="CasierNord_1" parent="Structure/AileNord/SalleNord1" unique_id=256797 instance=ExtResource("3_casier")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -4)
+
+[node name="Joueur" parent="Structure/AileNord/SalleNord1" unique_id=2125908744 instance=ExtResource("4_81xng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8924327, 1.1, -31.60567)
 
 [node name="SalleNord2" type="Node3D" parent="Structure/AileNord" unique_id=412338362]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 12)
@@ -514,6 +536,12 @@ mesh = SubResource("BoxMesh_mur")
 
 [node name="EmplacementPorteNord" type="Marker3D" parent="Structure/AileSud/SalleSud1" unique_id=235678207]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
+
+[node name="CaisseSud_1" parent="Structure/AileSud/SalleSud1" unique_id=1165834839 instance=ExtResource("2_caisse")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.65, -3)
+
+[node name="CasierSud_1" parent="Structure/AileSud/SalleSud1" unique_id=320903857 instance=ExtResource("3_casier")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 4)
 
 [node name="SalleSud2" type="Node3D" parent="Structure/AileSud" unique_id=331694455]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -12)
@@ -714,6 +742,9 @@ mesh = SubResource("BoxMesh_mur")
 [node name="EmplacementPorteOuest" type="Marker3D" parent="Structure/AileEst/SalleEst1" unique_id=1359774900]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, 0)
 
+[node name="CaisseEst_1" parent="Structure/AileEst/SalleEst1" unique_id=903041012 instance=ExtResource("2_caisse")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.65, 2)
+
 [node name="SalleEst2" type="Node3D" parent="Structure/AileEst" unique_id=1260606030]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 8)
 
@@ -899,6 +930,12 @@ mesh = SubResource("BoxMesh_mur")
 
 [node name="EmplacementPorteEst" type="Marker3D" parent="Structure/AileOuest/SalleOuest1" unique_id=1318239556]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 0)
+
+[node name="CaisseOuest_1" parent="Structure/AileOuest/SalleOuest1" unique_id=1249629599 instance=ExtResource("2_caisse")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.65, -2)
+
+[node name="CasierOuest_1" parent="Structure/AileOuest/SalleOuest1" unique_id=740787305 instance=ExtResource("3_casier")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 3)
 
 [node name="SalleOuest2" type="Node3D" parent="Structure/AileOuest" unique_id=1447787133]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 8)

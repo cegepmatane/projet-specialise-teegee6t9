@@ -1,6 +1,8 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://c4brrj3m2260o"]
 
-[ext_resource type="Script" path="res://Scripts/porte.gd" id="1"]
+[ext_resource type="Script" uid="uid://bkcexbpvmpnci" path="res://Scripts/porte.gd" id="1"]
+[ext_resource type="Script" uid="uid://ion8o2ypnw7j" path="res://Scripts/casier_interactif.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://bluj634yy4hyi" path="res://Scenes/indice_simple.tscn" id="3"]
 
 [sub_resource type="BoxMesh" id="1"]
 size = Vector3(0.03, 2.4, 0.8)
@@ -17,86 +19,109 @@ size = Vector3(0.7, 0.03, 0.75)
 [sub_resource type="BoxMesh" id="5"]
 size = Vector3(0.03, 2.3, 0.75)
 
-[sub_resource type="Animation" id="6"]
-resource_name = "Ouvrir"
-length = 1.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("FaçadePorte:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, -1.5708, 0)]
-}
-
 [sub_resource type="Animation" id="7"]
 resource_name = "Fermer"
-length = 1.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("FaçadePorte:rotation")
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FaçadePorte/Pivot:rotation")
 tracks/0/interp = 1
-tracks/0/loop_wrap = false
+tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, -1.5708, 0), Vector3(0, 0, 0)]
+"values": [Vector3(0, -1.5707964, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="6"]
+resource_name = "Ouvrir"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FaçadePorte/Pivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.5707964, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wflhs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FaçadePorte/Pivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="8"]
 _data = {
-"Ouvrir": SubResource("6"),
-"Fermer": SubResource("7")
+&"Fermer": SubResource("7"),
+&"Ouvrir": SubResource("6"),
+&"RESET": SubResource("Animation_wflhs")
 }
 
-[node name="CasierMetal" type="Node3D"]
+[node name="CasierMetal" type="Node3D" unique_id=1313844726]
+script = ExtResource("2")
 
-[node name="MurGauche" type="MeshInstance3D" parent="."]
+[node name="MurGauche" type="MeshInstance3D" parent="." unique_id=260605984]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.385, 1.2, 0)
 mesh = SubResource("1")
-transform = Transform3D(1,0,0, 0,1,0, 0,0,1, -0.385,1.2,0)
 
-[node name="MurDroit" type="MeshInstance3D" parent="."]
+[node name="MurDroit" type="MeshInstance3D" parent="." unique_id=2065529999]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.385, 1.2, 0)
 mesh = SubResource("1")
-transform = Transform3D(1,0,0, 0,1,0, 0,0,1, 0.385,1.2,0)
 
-[node name="MurArriere" type="MeshInstance3D" parent="."]
+[node name="MurArriere" type="MeshInstance3D" parent="." unique_id=156420599]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -0.385)
 mesh = SubResource("2")
-transform = Transform3D(1,0,0, 0,1,0, 0,0,1, 0,1.2,-0.385)
 
-[node name="Plafond" type="MeshInstance3D" parent="."]
+[node name="Plafond" type="MeshInstance3D" parent="." unique_id=1462505060]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.385, 0)
 mesh = SubResource("3")
-transform = Transform3D(1,0,0, 0,1,0, 0,0,1, 0,2.385,0)
 
-[node name="Sol" type="MeshInstance3D" parent="."]
+[node name="Sol" type="MeshInstance3D" parent="." unique_id=140277716]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015, 0)
 mesh = SubResource("3")
-transform = Transform3D(1,0,0, 0,1,0, 0,0,1, 0,0.015,0)
 
-[node name="EtagereSup" type="MeshInstance3D" parent="."]
+[node name="EtagereSup" type="MeshInstance3D" parent="." unique_id=1178892953]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 mesh = SubResource("4")
-transform = Transform3D(1,0,0, 0,1,0, 0,0,1, 0,1.7,0)
 
-[node name="EtagereMilieu" type="MeshInstance3D" parent="."]
+[node name="EtagereMilieu" type="MeshInstance3D" parent="." unique_id=1995115575]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("4")
-transform = Transform3D(1,0,0, 0,1,0, 0,0,1, 0,1.0,0)
 
-[node name="EtagereBas" type="MeshInstance3D" parent="."]
+[node name="EtagereBas" type="MeshInstance3D" parent="." unique_id=138633217]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 mesh = SubResource("4")
-transform = Transform3D(1,0,0, 0,1,0, 0,0,1, 0,0.3,0)
 
-[node name="FaçadePorte" type="Node3D" parent="."]
-transform = Transform3D(1,0,0, 0,1,0, 0,0,1, -0.4,1.2,0)
+[node name="FaçadePorte" type="Node3D" parent="." unique_id=1023895017]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.2, 0.36)
 
-[node name="PorteMesh" type="MeshInstance3D" parent="FaçadePorte"]
+[node name="Pivot" type="Node3D" parent="FaçadePorte" unique_id=1799244565]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00028458238, 0, 0.37397993)
+
+[node name="PorteMesh" type="MeshInstance3D" parent="FaçadePorte/Pivot" unique_id=1436202230]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014715403, 0, -0.37397993)
 mesh = SubResource("5")
-transform = Transform3D(1,0,0, 0,1,0, 0,0,1, 0.015,0,0)
+skeleton = NodePath("../..")
 
-[node name="PorteInteract" type="StaticBody3D" parent="FaçadePorte"]
+[node name="PorteInteract" type="StaticBody3D" parent="FaçadePorte/Pivot" unique_id=1626786842]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00028458238, 0, -0.37397993)
 script = ExtResource("1")
-animation_joueur = NodePath("../../AnimationPlayer")
+animation_joueur = NodePath("../../../AnimationPlayer")
+indice_scene = ExtResource("3")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("8")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=914186727]
+libraries/ = SubResource("8")
