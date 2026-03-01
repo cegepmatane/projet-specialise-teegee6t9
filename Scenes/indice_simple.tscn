@@ -8,9 +8,11 @@ radius = 0.12
 [sub_resource type="BoxMesh" id="BoxMesh_1"]
 size = Vector3(0.2, 0.2, 0.2)
 
-[node name="Indice" type="Node3D" unique_id=1094977869]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1ksvv"]
+
+[node name="Indice" type="Node3D" unique_id=565809873]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 script = ExtResource("1")
-id_indice = "indice_generic"
 description = "Indice trouvé dans le vaisseau."
 
 [node name="MeshHalo" type="MeshInstance3D" parent="." unique_id=1432621093]
@@ -24,3 +26,9 @@ mesh = SubResource("BoxMesh_1")
 light_color = Color(0.6, 0.9, 1, 1)
 light_energy = 0.8
 omni_range = 2.5
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=372570198]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1285852633]
+transform = Transform3D(0.3, 0, 0, 0, 0.5197611, 0, 0, 0, 0.3, 0, 0.24778, 0)
+shape = SubResource("CapsuleShape3D_1ksvv")

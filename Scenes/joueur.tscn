@@ -26,7 +26,7 @@ script = ExtResource("2_b0ct8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1262995)
 
 [node name="RayCast3D" type="RayCast3D" parent="tete/Camera3D" unique_id=1069972518]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -0.2)
+transform = Transform3D(1.5, 0, 0, 0, -6.556708e-08, -1.5, 0, 1.5, -6.556708e-08, 0, 0, -0.2)
 script = ExtResource("3_8mied")
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1651506409]
@@ -46,3 +46,8 @@ grow_vertical = 2
 text = "+"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="IndiceLabel" type="Label" parent="HUD" unique_id=745615405]
+offset_right = 40.0
+offset_bottom = 23.0
+horizontal_alignment = 2

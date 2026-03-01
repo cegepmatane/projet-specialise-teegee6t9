@@ -836,6 +836,7 @@ mesh = SubResource("BoxMesh_sol")
 transform = Transform3D(24, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, -3)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileOuest/CouloirOuest/BaieVitreeGauche" unique_id=1296230239]
+transform = Transform3D(0.75, 0, 0, 0, 1, 0, 0, 0, 1, 0.124, 0, 0)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileOuest/CouloirOuest/BaieVitreeGauche" unique_id=1147124399]

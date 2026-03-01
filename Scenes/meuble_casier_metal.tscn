@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://c4brrj3m2260o"]
 
-[ext_resource type="Script" uid="uid://bkcexbpvmpnci" path="res://Scripts/porte.gd" id="1"]
 [ext_resource type="Script" uid="uid://ion8o2ypnw7j" path="res://Scripts/casier_interactif.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://bluj634yy4hyi" path="res://Scenes/indice_simple.tscn" id="3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_swxnn"]
 
 [sub_resource type="BoxMesh" id="1"]
 size = Vector3(0.03, 2.4, 0.8)
@@ -18,6 +19,8 @@ size = Vector3(0.7, 0.03, 0.75)
 
 [sub_resource type="BoxMesh" id="5"]
 size = Vector3(0.03, 2.3, 0.75)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1k4di"]
 
 [sub_resource type="Animation" id="7"]
 resource_name = "Fermer"
@@ -71,8 +74,11 @@ _data = {
 &"RESET": SubResource("Animation_wflhs")
 }
 
-[node name="CasierMetal" type="Node3D" unique_id=1313844726]
-script = ExtResource("2")
+[node name="CasierMetal" type="StaticBody3D" unique_id=1425219784]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=472424652]
+transform = Transform3D(0.8, 0, 0, 0, 2.4, 0, 0, 0, 0.35, 0, 1.2, -0.1)
+shape = SubResource("BoxShape3D_swxnn")
 
 [node name="MurGauche" type="MeshInstance3D" parent="." unique_id=260605984]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.385, 1.2, 0)
@@ -102,6 +108,9 @@ mesh = SubResource("4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("4")
 
+[node name="Marker3D" type="Marker3D" parent="EtagereMilieu" unique_id=1321593832]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+
 [node name="EtagereBas" type="MeshInstance3D" parent="." unique_id=138633217]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 mesh = SubResource("4")
@@ -117,11 +126,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014715403, 0, -0.37397993)
 mesh = SubResource("5")
 skeleton = NodePath("../..")
 
-[node name="PorteInteract" type="StaticBody3D" parent="FaçadePorte/Pivot" unique_id=1626786842]
+[node name="PorteInteract" type="StaticBody3D" parent="FaçadePorte/Pivot" unique_id=1626786842 node_paths=PackedStringArray("animation_joueur")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00028458238, 0, -0.37397993)
-script = ExtResource("1")
+script = ExtResource("2")
 animation_joueur = NodePath("../../../AnimationPlayer")
 indice_scene = ExtResource("3")
+point_spawn_indice = NodePath("../../../EtagereMilieu/Marker3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FaçadePorte/Pivot/PorteInteract" unique_id=1407086304]
+transform = Transform3D(0.03, 0, 0, 0, 2.3, 0, 0, 0, 0.75, 0.015, 0, 0)
+shape = SubResource("BoxShape3D_1k4di")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=914186727]
 libraries/ = SubResource("8")
