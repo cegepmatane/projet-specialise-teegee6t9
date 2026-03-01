@@ -1,0 +1,52 @@
+extends Area3D
+
+@export var prochaine_scene: String = "res://Scenes/lobby.tscn"
+@export var duree_effet: float = 0.2
+var utilise: bool = false
+
+@onready var forme: CollisionShape3D = $CollisionShape3D
+
+func _ready() -> void:
+	print("[DEBUG] FinIndices prêt, monitoring=", monitoring, " mask=", collision_mask, " layer=", collision_layer)
+	body_entered.connect(_sur_entree_corps)
+
+
+func _sur_entree_corps(corps: Node) -> void:
+	print("[DEBUG] body_entered par : ", corps, " (name=", corps.name, ")")
+	if utilise:
+		print("[DEBUG] déjà utilisé, on ignore")
+		return
+
+	var node: Node = corps
+	for i in range(4): # remonter les parents pour vérifier si c'est le joueur
+		if node == null:
+			break
+
+		print("[DEBUG] test node=", node.name, " i=", i)
+
+		if node.name == "Joueur" or node.is_in_group("Joueur"):
+			utilise = true
+			print("[DEBUG] Trigger téléporteur activé par : ", node.name)
+			_trigger_tp_async()
+			return
+
+		if node is Node:
+			node = node.get_parent()
+		else:
+			break
+
+
+func _trigger_tp_async() -> void:
+	set_deferred("monitoring", false)
+	if forme:
+		forme.set_deferred("disabled", true)
+
+	var timer := get_tree().create_timer(duree_effet)
+	await timer.timeout
+
+	print("[DEBUG] Changement de scène vers : ", prochaine_scene)
+
+	if prochaine_scene != "":
+		var err := get_tree().change_scene_to_file(prochaine_scene)
+		if err != OK:
+			push_warning("[DEBUG] Échec du changement de scène : %s" % str(err))

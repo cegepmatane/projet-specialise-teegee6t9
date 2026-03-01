@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cn46n3sn1atq1"]
+
+[ext_resource type="Script" uid="uid://dn54u7frear4y" path="res://Scripts/fin_indices_trigger.gd" id="1_35u4w"]
+[ext_resource type="Material" uid="uid://bn56jasfvlr3o" path="res://Matériaux/lumiere.tres" id="1_qgwyk"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2qsbl"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qgwyk"]
+
+[node name="FinIndices" type="Area3D" unique_id=1453539007]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+script = ExtResource("1_35u4w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1284650268]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_2qsbl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=661488784]
+transform = Transform3D(1, 0, 0, 0, 0.01, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_qgwyk")
+surface_material_override/0 = ExtResource("1_qgwyk")

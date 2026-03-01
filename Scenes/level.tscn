@@ -123,6 +123,9 @@ omni_attenuation = 0.4
 
 [node name="SalleCentrale" type="Node3D" parent="Structure" unique_id=1727718540]
 
+[node name="PointFinIndices" type="Marker3D" parent="Structure/SalleCentrale" unique_id=1135164999]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+
 [node name="Sol" type="StaticBody3D" parent="Structure/SalleCentrale" unique_id=1098673280]
 transform = Transform3D(20, 0, 0, 0, 0.2, 0, 0, 0, 20, 0, 0, 0)
 
@@ -913,7 +916,7 @@ mesh = SubResource("BoxMesh_mur")
 transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 12, 6, 2.5, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileOuest/SalleOuest1/MurEst" unique_id=1372400695]
-transform = Transform3D(1.023, 0, 0, 0, 1.023, 0, 0, 0, 0.515, 0, 0, -0.035)
+transform = Transform3D(1.023, 0, 0, 0, 1.023, 0, 0, 0, 0.92, 0, 0, -0.035)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileOuest/SalleOuest1/MurEst" unique_id=577585751]
