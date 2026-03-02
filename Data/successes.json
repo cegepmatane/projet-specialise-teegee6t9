@@ -8,5 +8,20 @@
 	"id": "find_secret",
 	"title": "Trouver le secret",
 	"description": "Découvrez ce qui se cache dans la salle."
+  },
+  {
+	"id": "all_clues_found",
+	"title": "Maître des indices",
+	"description": "Trouver tous les indices de la salle."
+  },
+  {
+	"id": "fast_clues_120",
+	"title": "Sprinteur d’indices",
+	"description": "Trouver tous les indices en moins de 120 secondes."
+  },
+  {
+	"id": "escape_10_times",
+	"title": "Habitué de la sortie",
+	"description": "T’échapper de la salle 10 fois."
   }
 ]

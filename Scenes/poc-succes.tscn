@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://bn56jasfvlr3o" path="res://Matériaux/lumiere.tres" id="4_5vwr2"]
 [ext_resource type="Script" uid="uid://mk0h0oyuaqkj" path="res://Scripts/trigger_sortie.gd" id="5_mgfm0"]
 [ext_resource type="Script" uid="uid://dns52i8u8q5ny" path="res://Scripts/trigger_secret.gd" id="6_secret"]
+[ext_resource type="PackedScene" uid="uid://clnlgo1yvdqax" path="res://Scenes/success_ui.tscn" id="8_0lygi"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_mgfm0"]
 
@@ -51,31 +52,4 @@ script = ExtResource("6_secret")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeclencheurSecret" unique_id=365697064]
 shape = SubResource("BoxShape3D_secret")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=663960370]
-
-[node name="EcranBlanc" type="ColorRect" parent="CanvasLayer" unique_id=1561431838]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="PanneauNotification" type="Panel" parent="CanvasLayer" unique_id=925168051]
-visible = false
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 100.0
-grow_horizontal = 2
-
-[node name="Texte" type="Label" parent="CanvasLayer/PanneauNotification" unique_id=180571851]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Succès débloqué !
-S'échapper pour la première fois"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="CanvasLayer" parent="." unique_id=249209227 instance=ExtResource("8_0lygi")]

@@ -10,7 +10,11 @@ func _ready() -> void:
 	ecran_chargement.visible = false
 	panneau_notification.visible = false
 
-func afficher_succes_avec_transition(texte: String, duree: float = 2.0, utiliser_ecran_chargement: bool = false) -> void:
+func afficher_succes_avec_transition(
+	texte: String,
+	duree: float = 2.0,
+	utiliser_ecran_chargement: bool = false
+) -> void:
 	if _en_affichage:
 		return
 	_en_affichage = true
@@ -22,7 +26,6 @@ func afficher_succes_avec_transition(texte: String, duree: float = 2.0, utiliser
 	var rect: Rect2 = panneau_notification.get_rect()
 	var pos_depart: Vector2 = Vector2(0, -rect.size.y)
 	var pos_cible: Vector2 = Vector2(0, 0)
-
 	panneau_notification.position = pos_depart
 
 	var tween := create_tween()

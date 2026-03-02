@@ -6,6 +6,8 @@ var utilise: bool = false
 
 @onready var forme: CollisionShape3D = $CollisionShape3D
 
+const SUCCES_ESCAPE_FIRST := "escape_first_time"
+
 func _ready() -> void:
 	print("[DEBUG] FinIndices prêt, monitoring=", monitoring, " mask=", collision_mask, " layer=", collision_layer)
 	body_entered.connect(_sur_entree_corps)
@@ -40,6 +42,15 @@ func _trigger_tp_async() -> void:
 	set_deferred("monitoring", false)
 	if forme:
 		forme.set_deferred("disabled", true)
+
+	# --- Succès "s'échapper pour la première fois" ---
+	var nouvellement := SuccessManager.debloquer(SUCCES_ESCAPE_FIRST)
+	if nouvellement:
+		var racine := get_tree().current_scene
+		if racine and racine.has_method("afficher_succes_avec_transition"):
+			var titre := SuccessManager.obtenir_titre_succes(SUCCES_ESCAPE_FIRST)
+			await racine.afficher_succes_avec_transition("Succès débloqué : %s" % titre, 2.0, true)
+	# --------------------------------------------------
 
 	var timer := get_tree().create_timer(duree_effet)
 	await timer.timeout

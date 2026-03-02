@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c66jo7yxv25dq" path="res://Scenes/joueur.tscn" id="2_y0s6v"]
 [ext_resource type="Script" uid="uid://c3ec7h8cra6gw" path="res://Scripts/start_button.gd" id="3_u1o2k"]
 [ext_resource type="Script" uid="uid://hpxcidmkq647" path="res://Scripts/quit_button.gd" id="4_avk8s"]
+[ext_resource type="PackedScene" uid="uid://clnlgo1yvdqax" path="res://Scenes/success_ui.tscn" id="5_ruji2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vuo3o"]
 
@@ -133,7 +134,7 @@ transform = Transform3D(0.3, 0, 0, 0, 0.4, 0, 0, 0, 1.5, 1.644, 1, 0)
 shape = SubResource("BoxShape3D_ruji2")
 
 [node name="MurSucces" type="Node3D" parent="." unique_id=2087442331]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8244863, -1.7648568)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3713892, -1.7648568)
 
 [node name="TitreSucces3D" type="Label3D" parent="MurSucces" unique_id=146350486]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.72120833, 0)
@@ -141,3 +142,5 @@ text = "Mes succès 0/1"
 
 [node name="ListeSucces" type="Node3D" parent="MurSucces" unique_id=1529253399]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+
+[node name="CanvasLayer" parent="." unique_id=249209227 instance=ExtResource("5_ruji2")]
