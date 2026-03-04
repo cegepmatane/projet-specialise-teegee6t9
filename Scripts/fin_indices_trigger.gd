@@ -43,21 +43,25 @@ func _trigger_tp_async() -> void:
 	if forme:
 		forme.set_deferred("disabled", true)
 
-	# --- Succès "s'échapper pour la première fois" ---
-	var nouvellement := SuccessManager.debloquer(SUCCES_ESCAPE_FIRST)
-	if nouvellement:
-		var racine := get_tree().current_scene
-		if racine and racine.has_method("afficher_succes_avec_transition"):
-			var titre := SuccessManager.obtenir_titre_succes(SUCCES_ESCAPE_FIRST)
-			await racine.afficher_succes_avec_transition("Succès débloqué : %s" % titre, 2.0, true)
-	# --------------------------------------------------
+	# 🔥 Incrémentation du compteur
+	var total_parties := SuccessManager.incrementer_parties_reussies()
+	print("[DEBUG] Parties réussies =", total_parties)
+
+	# Succès première évasion
+	if total_parties == 1:
+		var nouvellement := SuccessManager.debloquer(SUCCES_ESCAPE_FIRST)
+		if nouvellement:
+			var racine := get_tree().current_scene
+			if racine and racine.has_method("afficher_succes_avec_transition"):
+				var titre := SuccessManager.obtenir_titre_succes(SUCCES_ESCAPE_FIRST)
+				await racine.afficher_succes_avec_transition(
+					"Succès débloqué : %s" % titre,
+					2.0,
+					true
+				)
 
 	var timer := get_tree().create_timer(duree_effet)
 	await timer.timeout
 
-	print("[DEBUG] Changement de scène vers : ", prochaine_scene)
-
 	if prochaine_scene != "":
-		var err := get_tree().change_scene_to_file(prochaine_scene)
-		if err != OK:
-			push_warning("[DEBUG] Échec du changement de scène : %s" % str(err))
+		get_tree().change_scene_to_file(prochaine_scene)

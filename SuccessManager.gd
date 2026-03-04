@@ -1,83 +1,106 @@
-class_name SuccessManager
 extends Node
 
 const CHEMIN_JSON_SUCCES := "res://Data/successes.json"
 const CHEMIN_SAUVEGARDE := "user://save.cfg"
 const SECTION_CONFIG := "success"
+const SECTION_STATS := "stats"
 
-static var _definitions_chargees := false
-static var _ordre_definitions: Array = []
-static var _definitions: Dictionary = {}
-static var _debloques: Dictionary = {}
+var _definitions_chargees := false
+var _ordre_definitions: Array = []
+var _definitions: Dictionary = {}
+var _debloques: Dictionary = {}
 
-static func _assurer_definitions_chargees() -> void:
+var _parties_reussies: int = 0
+
+
+func _assurer_definitions_chargees() -> void:
 	if _definitions_chargees:
 		return
+
 	_definitions_chargees = true
+
 	var file := FileAccess.open(CHEMIN_JSON_SUCCES, FileAccess.READ)
 	if file == null:
-		push_error("SuccessManager: impossible d'ouvrir %s" % CHEMIN_JSON_SUCCES)
+		push_error("Impossible d'ouvrir successes.json")
 		return
+
 	var json := JSON.new()
 	var err := json.parse(file.get_as_text())
 	file.close()
+
 	if err != OK:
-		push_error("SuccessManager: JSON invalide dans %s : %s" % [CHEMIN_JSON_SUCCES, json.get_error_message()])
+		push_error("JSON invalide")
 		return
+
 	var data = json.get_data()
 	if data is Array:
 		for entry in data:
 			if entry is Dictionary and entry.has("id"):
-				var id_str: String = str(entry.id)
+				var id_str := str(entry.id)
 				_ordre_definitions.append(id_str)
 				_definitions[id_str] = {
 					"title": str(entry.get("title", "Succès")),
 					"description": str(entry.get("description", ""))
 				}
-	else:
-		push_error("SuccessManager: le JSON doit être un tableau d'objets avec id, title, description")
 
-static func charger_depuis_disque() -> void:
+
+func charger_depuis_disque() -> void:
 	_assurer_definitions_chargees()
+
 	var cfg := ConfigFile.new()
 	var err := cfg.load(CHEMIN_SAUVEGARDE)
-	_debloques.clear()
-	for id in _ordre_definitions:
-		if err == OK:
-			_debloques[id] = bool(cfg.get_value(SECTION_CONFIG, id, false))
-		else:
-			_debloques[id] = false
 
-static func sauver_sur_disque() -> void:
+	_debloques.clear()
+
+	if err == OK:
+		for id in _ordre_definitions:
+			_debloques[id] = bool(cfg.get_value(SECTION_CONFIG, id, false))
+
+		if cfg.has_section_key(SECTION_STATS, "parties_reussies"):
+			_parties_reussies = int(cfg.get_value(SECTION_STATS, "parties_reussies"))
+		else:
+			_parties_reussies = 0
+	else:
+		for id in _ordre_definitions:
+			_debloques[id] = false
+		_parties_reussies = 0
+
+
+func sauver_sur_disque() -> void:
 	var cfg := ConfigFile.new()
+
 	for id in _ordre_definitions:
 		cfg.set_value(SECTION_CONFIG, id, _debloques.get(id, false))
+
+	cfg.set_value(SECTION_STATS, "parties_reussies", _parties_reussies)
+
 	cfg.save(CHEMIN_SAUVEGARDE)
 
-static func debloquer(id_succes: String) -> bool:
-	_assurer_definitions_chargees()
+
+func debloquer(id_succes: String) -> bool:
 	if _debloques.get(id_succes, false):
 		return false
+
 	_debloques[id_succes] = true
 	sauver_sur_disque()
 	return true
 
-static func est_debloque(id_succes: String) -> bool:
-	_assurer_definitions_chargees()
+
+func est_debloque(id_succes: String) -> bool:
 	return _debloques.get(id_succes, false)
 
-static func obtenir_titre_succes(id_succes: String) -> String:
-	_assurer_definitions_chargees()
+
+func obtenir_titre_succes(id_succes: String) -> String:
 	var def = _definitions.get(id_succes, {})
 	return def.get("title", "Succès")
 
-static func obtenir_description_succes(id_succes: String) -> String:
-	_assurer_definitions_chargees()
+
+func obtenir_description_succes(id_succes: String) -> String:
 	var def = _definitions.get(id_succes, {})
 	return def.get("description", "")
 
-static func obtenir_tous_les_succes() -> Array:
-	_assurer_definitions_chargees()
+
+func obtenir_tous_les_succes() -> Array:
 	var out: Array = []
 	for id in _ordre_definitions:
 		out.append({
@@ -88,14 +111,24 @@ static func obtenir_tous_les_succes() -> Array:
 		})
 	return out
 
-static func obtenir_nombre_debloques() -> int:
-	_assurer_definitions_chargees()
+
+func obtenir_nombre_debloques() -> int:
 	var n := 0
 	for id in _ordre_definitions:
 		if _debloques.get(id, false):
 			n += 1
 	return n
 
-static func obtenir_nombre_total() -> int:
-	_assurer_definitions_chargees()
+
+func obtenir_nombre_total() -> int:
 	return _ordre_definitions.size()
+
+
+func incrementer_parties_reussies() -> int:
+	_parties_reussies += 1
+	sauver_sur_disque()
+	return _parties_reussies
+
+
+func obtenir_parties_reussies() -> int:
+	return _parties_reussies

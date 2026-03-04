@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 IndiceManager="*uid://b4hikvqe70a7"
+SuccessManager="*uid://ctulphskp715y"
 
 [editor]
 

@@ -23,5 +23,10 @@
 	"id": "escape_10_times",
 	"title": "Habitué de la sortie",
 	"description": "T’échapper de la salle 10 fois."
+  },
+  {
+	"id": "escape_3_times",
+	"title": "Triple évasion",
+	"description": "Tu t'es échappé 3 fois !"
   }
 ]

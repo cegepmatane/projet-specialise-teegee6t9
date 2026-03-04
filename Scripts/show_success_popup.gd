@@ -4,11 +4,14 @@ extends Node3D
 @onready var panneau_notification := $CanvasLayer/PanneauNotification
 @onready var label_notification := $CanvasLayer/PanneauNotification/Texte
 
+@export var nombre_indices: int = 3	
+	
 var _en_affichage := false
 
 func _ready() -> void:
 	ecran_chargement.visible = false
 	panneau_notification.visible = false
+	IndiceManager.reset_partie(nombre_indices)
 
 func afficher_succes_avec_transition(
 	texte: String,

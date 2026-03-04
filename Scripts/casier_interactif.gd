@@ -9,9 +9,7 @@ var interactive: bool = true
 var _indice_spawn: bool = false
 var _en_traitement: bool = false
 
-
 func interact() -> void:
-	# Sécurités
 	if not is_instance_valid(self):
 		return
 	if not is_inside_tree():
@@ -23,14 +21,12 @@ func interact() -> void:
 	_en_traitement = true
 	basculer = !basculer
 
-	# Animation
 	if animation_joueur:
 		if basculer:
 			animation_joueur.play("Ouvrir")
 		else:
 			animation_joueur.play("Fermer")
 
-	# Calcul du spawn sécurisé
 	var spawn_pos: Vector3 = global_transform.origin + Vector3(0, 1.0, 0)
 
 	if point_spawn_indice != NodePath(""):
@@ -38,7 +34,6 @@ func interact() -> void:
 		if point and point is Node3D and point.is_inside_tree():
 			spawn_pos = (point as Node3D).global_transform.origin
 
-	# Spawn uniquement à la première ouverture
 	if basculer and not _indice_spawn and indice_scene:
 		_indice_spawn = true
 
@@ -51,7 +46,6 @@ func interact() -> void:
 		else:
 			push_warning("indice_scene doit avoir un Node3D comme racine")
 
-	# Cooldown propre
 	await get_tree().create_timer(1.0).timeout
 
 	interactive = true

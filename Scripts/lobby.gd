@@ -14,6 +14,10 @@ func _ready() -> void:
 	var joueur = scene_joueur.instantiate()
 	add_child(joueur)
 	joueur.global_transform = point_apparition.global_transform
+	
+	var indice_label := joueur.get_node_or_null("HUD/IndiceLabel")
+	if indice_label:
+		indice_label.visible = false
 
 	_rafraichir_affichage_succes()
 
