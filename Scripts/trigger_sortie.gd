@@ -34,22 +34,18 @@ func _sur_entree_corps(corps: Node) -> void:
 
 
 func _trigger_tp_async() -> void:
-
 	set_deferred("monitoring", false)
-
 	if forme:
 		forme.set_deferred("disabled", true)
 
+	# Gagner l'argent de la partie
+	EquipmentManager.gagner_argent_partie()
+
 	var nouveaux = SuccessManager.incrementer_et_verifier()
-
 	for id in nouveaux:
-
 		var racine := get_tree().current_scene
-
 		if racine and racine.has_method("afficher_succes_avec_transition"):
-
 			var titre = SuccessManager.obtenir_titre_succes(id)
-
 			await racine.afficher_succes_avec_transition(
 				"Succès débloqué : %s" % titre,
 				2.0,
@@ -57,7 +53,5 @@ func _trigger_tp_async() -> void:
 			)
 
 	var timer := get_tree().create_timer(duree_effet)
-
 	await timer.timeout
-
 	get_tree().change_scene_to_file("res://Scenes/lobby.tscn")

@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://d2n3pbmgcnhur" path="res://Scripts/lobby.gd" id="1_nvaej"]
 [ext_resource type="PackedScene" uid="uid://c66jo7yxv25dq" path="res://Scenes/joueur.tscn" id="2_y0s6v"]
 [ext_resource type="Script" uid="uid://c3ec7h8cra6gw" path="res://Scripts/start_button.gd" id="3_u1o2k"]
+[ext_resource type="Script" uid="uid://s2hwhtuxpic" path="res://Scripts/boutique_trigger.gd" id="4_4233d"]
 [ext_resource type="Script" uid="uid://hpxcidmkq647" path="res://Scripts/quit_button.gd" id="4_avk8s"]
 [ext_resource type="PackedScene" uid="uid://clnlgo1yvdqax" path="res://Scenes/success_ui.tscn" id="5_ruji2"]
+[ext_resource type="Script" uid="uid://c1lew05r2uups" path="res://Scripts/boutique_ui.gd" id="7_bvheq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vuo3o"]
 
@@ -22,6 +24,56 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14154887, 0, 0)
 script = ExtResource("1_nvaej")
 scene_joueur = ExtResource("2_y0s6v")
+
+[node name="BoutiqueUI" type="Control" parent="." unique_id=1697336568]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -294.5
+offset_top = -166.0
+offset_right = 294.5
+offset_bottom = 166.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_bvheq")
+
+[node name="Panel" type="Panel" parent="BoutiqueUI" unique_id=806896581]
+layout_mode = 0
+offset_top = 66.0
+offset_right = 589.0
+offset_bottom = 297.0
+
+[node name="MarginContainer" type="MarginContainer" parent="BoutiqueUI/Panel" unique_id=1744574995]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 21.0
+offset_right = 572.0
+offset_bottom = 450.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BoutiqueUI/Panel/MarginContainer" unique_id=1451532210]
+layout_mode = 2
+
+[node name="LabelArgent" type="Label" parent="BoutiqueUI/Panel/MarginContainer/VBoxContainer" unique_id=1899616068]
+layout_mode = 2
+
+[node name="ListeItems" type="VBoxContainer" parent="BoutiqueUI/Panel/MarginContainer/VBoxContainer" unique_id=1302287593]
+layout_mode = 2
+
+[node name="Presets" type="HBoxContainer" parent="BoutiqueUI/Panel/MarginContainer/VBoxContainer" unique_id=1816111030]
+layout_mode = 2
+
+[node name="LabelPreset1" type="Label" parent="BoutiqueUI/Panel/MarginContainer/VBoxContainer/Presets" unique_id=97732704]
+layout_mode = 2
+
+[node name="LabelPreset2" type="Label" parent="BoutiqueUI/Panel/MarginContainer/VBoxContainer/Presets" unique_id=1283517937]
+layout_mode = 2
+
+[node name="BoutonFermer" type="Button" parent="BoutiqueUI/Panel/MarginContainer/VBoxContainer" unique_id=170048272]
+layout_mode = 2
+text = "Fermer"
 
 [node name="sol" type="StaticBody3D" parent="." unique_id=246517659]
 transform = Transform3D(4, 0, 0, 0, 0.4, 0, 0, 0, 4, 0, 0, 0)
@@ -115,6 +167,22 @@ transform = Transform3D(0.30000004, 0, 0, 0, 0.4, 0, 0, 0, 1.5, 1.6510699, 1.823
 mesh = SubResource("BoxMesh_avk8s")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BoutonLancer" unique_id=1944473434]
+transform = Transform3D(0.2987451, 0, 0, 0, 0.38525146, 0, 0, 0, 1.4889123, 1.651, 1.823, 0)
+shape = SubResource("BoxShape3D_avk8s")
+
+[node name="BoutonBoutique" type="StaticBody3D" parent="." unique_id=174665522]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+script = ExtResource("4_4233d")
+
+[node name="LibelleBouton" type="Label3D" parent="BoutonBoutique" unique_id=1539837975]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.4907607, 1.8290482, 0)
+text = "Boutique"
+
+[node name="MaillageBouton" type="MeshInstance3D" parent="BoutonBoutique" unique_id=617853206]
+transform = Transform3D(0.30000004, 0, 0, 0, 0.4, 0, 0, 0, 1.5, 1.6510699, 1.8232338, 0)
+mesh = SubResource("BoxMesh_avk8s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoutonBoutique" unique_id=1485044776]
 transform = Transform3D(0.2987451, 0, 0, 0, 0.38525146, 0, 0, 0, 1.4889123, 1.651, 1.823, 0)
 shape = SubResource("BoxShape3D_avk8s")
 

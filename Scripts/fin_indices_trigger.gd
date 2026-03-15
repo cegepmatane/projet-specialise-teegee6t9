@@ -42,9 +42,11 @@ func _trigger_tp_async() -> void:
 	if forme:
 		forme.set_deferred("disabled", true)
 
+	# Gagner l'argent de la partie
+	EquipmentManager.gagner_argent_partie()
+
 	var nouveaux: Array = SuccessManager.incrementer_et_verifier()
 	print("[DEBUG] Parties réussies =", SuccessManager.obtenir_parties_reussies())
-
 	for id in nouveaux:
 		var racine := get_tree().current_scene
 		if racine and racine.has_method("afficher_succes_avec_transition"):
@@ -57,6 +59,5 @@ func _trigger_tp_async() -> void:
 
 	var timer := get_tree().create_timer(duree_effet)
 	await timer.timeout
-
 	if prochaine_scene != "":
 		get_tree().change_scene_to_file(prochaine_scene)

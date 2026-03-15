@@ -86,7 +86,7 @@ func charger_depuis_disque() -> void:
 func sauver_sur_disque() -> void:
 
 	var cfg := ConfigFile.new()
-
+	cfg.load(CHEMIN_SAUVEGARDE)
 	for id in _ordre_definitions:
 		cfg.set_value(SECTION_CONFIG, id, _debloques.get(id, false))
 

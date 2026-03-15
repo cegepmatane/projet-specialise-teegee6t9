@@ -6,6 +6,8 @@ func interact() -> void:
 	if _ramasse:
 		return
 	_ramasse = true
+	
+	EquipmentManager.gagner_bonus_secret()
 
 	const id := "find_secret"
 	var nouvellement := SuccessManager.debloquer(id)

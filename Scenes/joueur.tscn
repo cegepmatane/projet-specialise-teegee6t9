@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dcfxkjq14f4c2" path="res://Scripts/joueur.gd" id="1_kkerk"]
 [ext_resource type="Script" uid="uid://dqfg412w12qyi" path="res://Scripts/camera.gd" id="2_b0ct8"]
 [ext_resource type="Script" uid="uid://dtmq6yxt81xes" path="res://Scripts/raycast.gd" id="3_8mied"]
+[ext_resource type="Script" uid="uid://dw8f7snv85k3i" path="res://Scripts/hud_inventaire.gd" id="4_uvd8m"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rf571"]
 
@@ -51,3 +52,16 @@ vertical_alignment = 1
 offset_right = 40.0
 offset_bottom = 23.0
 horizontal_alignment = 2
+
+[node name="HUDInventaire" type="HBoxContainer" parent="." unique_id=781341298]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("4_uvd8m")
