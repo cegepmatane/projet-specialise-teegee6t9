@@ -6,7 +6,6 @@ var utilise: bool = false
 
 @onready var forme: CollisionShape3D = $CollisionShape3D
 
-const SUCCES_ESCAPE_FIRST := "escape_first_time"
 
 func _ready() -> void:
 	print("[DEBUG] FinIndices prêt, monitoring=", monitoring, " mask=", collision_mask, " layer=", collision_layer)
@@ -20,7 +19,7 @@ func _sur_entree_corps(corps: Node) -> void:
 		return
 
 	var node: Node = corps
-	for i in range(4): # remonter les parents pour vérifier si c'est le joueur
+	for i in range(4):
 		if node == null:
 			break
 
@@ -43,22 +42,18 @@ func _trigger_tp_async() -> void:
 	if forme:
 		forme.set_deferred("disabled", true)
 
-	# 🔥 Incrémentation du compteur
-	var total_parties := SuccessManager.incrementer_parties_reussies()
-	print("[DEBUG] Parties réussies =", total_parties)
+	var nouveaux: Array = SuccessManager.incrementer_et_verifier()
+	print("[DEBUG] Parties réussies =", SuccessManager.obtenir_parties_reussies())
 
-	# Succès première évasion
-	if total_parties == 1:
-		var nouvellement := SuccessManager.debloquer(SUCCES_ESCAPE_FIRST)
-		if nouvellement:
-			var racine := get_tree().current_scene
-			if racine and racine.has_method("afficher_succes_avec_transition"):
-				var titre := SuccessManager.obtenir_titre_succes(SUCCES_ESCAPE_FIRST)
-				await racine.afficher_succes_avec_transition(
-					"Succès débloqué : %s" % titre,
-					2.0,
-					true
-				)
+	for id in nouveaux:
+		var racine := get_tree().current_scene
+		if racine and racine.has_method("afficher_succes_avec_transition"):
+			var titre: String = SuccessManager.obtenir_titre_succes(id)
+			await racine.afficher_succes_avec_transition(
+				"Succès débloqué : %s" % titre,
+				2.0,
+				true
+			)
 
 	var timer := get_tree().create_timer(duree_effet)
 	await timer.timeout

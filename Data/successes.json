@@ -1,9 +1,4 @@
-[
-  {
-	"id": "escape_first_time",
-	"title": "S'échapper pour la première fois",
-	"description": "Sortez de la salle en franchissant la porte."
-  },
+[	
   {
 	"id": "find_secret",
 	"title": "Trouver le secret",
@@ -19,14 +14,32 @@
 	"title": "Sprinteur d’indices",
 	"description": "Trouver tous les indices en moins de 120 secondes."
   },
-  {
-	"id": "escape_10_times",
-	"title": "Habitué de la sortie",
-	"description": "T’échapper de la salle 10 fois."
-  },
-  {
-	"id": "escape_3_times",
-	"title": "Triple évasion",
-	"description": "Tu t'es échappé 3 fois !"
+ {
+  "id": "escape_first_time",
+  "title": "Première évasion",
+  "description": "Terminer une partie",
+  "condition": {
+   "type": "parties_reussies",
+   "value": 1
   }
+ },
+ {
+  "id": "escape_3_times",
+  "title": "Évasion répétée",
+  "description": "Terminer 3 parties",
+  "condition": {
+   "type": "parties_reussies",
+   "value": 3
+  }
+ },
+ {
+  "id": "escape_10_times",
+  "title": "Maître de l'évasion",
+  "description": "Terminer 10 parties",
+  "condition": {
+   "type": "parties_reussies",
+   "value": 10
+  }
+ }
 ]
+  

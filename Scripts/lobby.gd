@@ -22,21 +22,28 @@ func _ready() -> void:
 	_rafraichir_affichage_succes()
 
 func _rafraichir_affichage_succes() -> void:
-	var debloques := SuccessManager.obtenir_nombre_debloques()
-	var total := SuccessManager.obtenir_nombre_total()
+	var debloques: int = SuccessManager.obtenir_nombre_debloques()
+	var total: int = SuccessManager.obtenir_nombre_total()
+
 	titre_succes_3d.text = "Mes succès %d/%d" % [debloques, total]
 
 	for child in liste_succes.get_children():
 		child.queue_free()
 
 	var index := 0
+
 	for s in SuccessManager.obtenir_tous_les_succes():
+
 		var label := Label3D.new()
 		label.font_size = TAILLE_POLICE_SUCCES
+
 		if s.debloque:
 			label.text = "%s\n%s" % [s.titre, s.description]
 		else:
 			label.text = "Succès verrouillé 🔒"
+
 		label.position = Vector3(0, index * DECALAGE_Y_PAR_SUCCES, 0)
+
 		liste_succes.add_child(label)
+
 		index += 1
