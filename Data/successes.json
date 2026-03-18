@@ -5,15 +5,14 @@
 	"description": "Découvrez ce qui se cache dans la salle."
   },
   {
-	"id": "all_clues_found",
-	"title": "Maître des indices",
-	"description": "Trouver tous les indices de la salle."
-  },
-  {
-	"id": "fast_clues_120",
-	"title": "Sprinteur d’indices",
-	"description": "Trouver tous les indices en moins de 120 secondes."
-  },
+	"id": "fast_clues_30",
+	"title": "Sprinteur d'indices",
+	"description": "Trouver tous les indices en moins de 30 secondes.",
+	"condition": {
+	  "type": "temps_ecoule_secondes",
+	  "value": 30
+	}
+ },
  {
   "id": "escape_first_time",
   "title": "Première évasion",

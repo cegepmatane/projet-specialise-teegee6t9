@@ -176,3 +176,18 @@ func obtenir_tous_les_succes() -> Array:
 		})
 
 	return out
+	
+func verifier_succes_temps_ecoule(temps_ecoule: float) -> Array:
+	var nouveaux: Array = []
+	var ids = _conditions.keys().duplicate()
+	for id in ids:
+		if est_debloque(id):
+			continue
+		var condition = _conditions[id]
+		if condition.has("type") and condition["type"] == "temps_ecoule_secondes":
+			var seuil: float = float(condition.get("value", 30))
+			if temps_ecoule <= seuil:
+				if debloquer(id):
+					nouveaux.append(id)
+	sauver_sur_disque()
+	return nouveaux
