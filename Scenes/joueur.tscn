@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dqfg412w12qyi" path="res://Scripts/camera.gd" id="2_b0ct8"]
 [ext_resource type="Script" uid="uid://dtmq6yxt81xes" path="res://Scripts/raycast.gd" id="3_8mied"]
 [ext_resource type="Script" uid="uid://dw8f7snv85k3i" path="res://Scripts/hud_inventaire.gd" id="4_uvd8m"]
+[ext_resource type="Script" uid="uid://tl8r0lr3lu7c" path="res://Scripts/timer_partie.gd" id="5_umn3c"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rf571"]
 
@@ -65,3 +66,22 @@ offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("4_uvd8m")
+
+[node name="TimerPartie" type="Control" parent="HUD" unique_id=1425111097]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 50.0
+offset_right = 50.0
+offset_bottom = 120.0
+grow_horizontal = 2
+script = ExtResource("5_umn3c")
+
+[node name="LabelTimer" type="Label" parent="HUD/TimerPartie" unique_id=1776166085]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+horizontal_alignment = 1
+vertical_alignment = 1

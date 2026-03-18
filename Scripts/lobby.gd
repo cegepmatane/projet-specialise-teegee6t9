@@ -27,6 +27,11 @@ func _ready() -> void:
 	if indice_label:
 		indice_label.visible = false
 
+	var timer_ui := joueur.get_node_or_null("HUD/TimerPartie")
+	if timer_ui:
+		timer_ui.visible = false
+		timer_ui._actif = false
+	
 	# Créer le popup
 	_popup = AcceptDialog.new()
 	_popup.title = "Impossible de lancer"

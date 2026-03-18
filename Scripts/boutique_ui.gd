@@ -204,5 +204,9 @@ func _selectionner_slot(nom_preset: String, slot: int) -> void:
 
 
 func _activer_preset(nom: String) -> void:
-	EquipmentManager.appliquer_preset(nom)
+	if EquipmentManager.obtenir_active_preset() == nom:
+		# Déjà actif — désactiver
+		EquipmentManager.desactiver_preset()
+	else:
+		EquipmentManager.appliquer_preset(nom)
 	_mettre_a_jour_labels_presets()

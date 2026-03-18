@@ -195,6 +195,11 @@ func obtenir_tous_les_items() -> Array:
 		})
 	return out
 
+func desactiver_preset() -> void:
+	_active_preset = ""
+	_slots_actifs = ["", "", ""]
+	print("[EQUIPMENT] Preset désactivé")
+	sauver_sur_disque()
 
 # ─────────────────────────────────────────
 #  CONSOMMATION EN PARTIE
@@ -257,14 +262,7 @@ func enregistrer_preset(nom: String, slots: Array) -> void:
 func appliquer_preset(nom: String) -> bool:
 	if not _presets.has(nom):
 		return false
-	var slots: Array = _presets[nom]
-	# Vérifier que le joueur possède les items du preset
-	for i in range(NB_SLOTS):
-		var id: String = slots[i] if i < slots.size() else ""
-		if id != "" and obtenir_quantite(id) == 0:
-			print("[EQUIPMENT] Item manquant pour appliquer preset : ", id)
-			return false
-	_slots_actifs = slots.duplicate()
+	_slots_actifs = _presets[nom].duplicate()
 	_active_preset = nom
 	print("[EQUIPMENT] Preset appliqué : ", nom)
 	sauver_sur_disque()

@@ -5,8 +5,11 @@ extends Node3D
 
 func interact() -> void:
 	var preset_actif: String = EquipmentManager.obtenir_active_preset()
+
+	# Pas de preset actif = lancer sans équipement
 	if preset_actif == "":
-		preset_actif = "preset_1"
+		get_tree().change_scene_to_file(scene_cible)
+		return
 
 	var slots: Array = EquipmentManager.obtenir_preset(preset_actif)
 
@@ -41,7 +44,7 @@ func interact() -> void:
 			for i in range(a_acheter[id]):
 				EquipmentManager.acheter(id)
 
-	# Consommer tous les items du preset (qu'ils viennent de l'achat ou de l'inventaire)
+	# Consommer tous les items du preset
 	for id in slots:
 		if id != "":
 			EquipmentManager.consommer(id)
