@@ -10,7 +10,7 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kkerk"]
 
-[node name="Joueur" type="CharacterBody3D" unique_id=66292697]
+[node name="Joueur" type="CharacterBody3D" unique_id=66292697 groups=["Joueur"]]
 script = ExtResource("1_kkerk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=87311343]
