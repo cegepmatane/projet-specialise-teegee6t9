@@ -32,8 +32,8 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -294.5
-offset_top = -166.0
+offset_left = -293.0
+offset_top = -288.0
 offset_right = 294.5
 offset_bottom = 166.0
 grow_horizontal = 2
@@ -44,7 +44,7 @@ script = ExtResource("7_bvheq")
 layout_mode = 0
 offset_top = 66.0
 offset_right = 589.0
-offset_bottom = 297.0
+offset_bottom = 533.0
 
 [node name="MarginContainer" type="MarginContainer" parent="BoutiqueUI/Panel" unique_id=1744574995]
 layout_mode = 0

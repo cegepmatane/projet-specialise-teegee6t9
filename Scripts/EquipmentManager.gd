@@ -170,6 +170,9 @@ func acheter(id: String) -> bool:
 func obtenir_quantite(id: String) -> int:
 	return _inventaire.get(id, 0)
 
+func obtenir_prix(id: String) -> int:
+	var def: Dictionary = _definitions.get(id, {})
+	return def.get("prix", 0)
 
 func peut_acheter(id: String) -> bool:
 	if not _definitions.has(id):
