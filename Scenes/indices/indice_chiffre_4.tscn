@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c21rgpsoeqdtf"]
+
+[ext_resource type="PackedScene" uid="uid://bluj634yy4hyi" path="res://Scenes/indice_simple.tscn" id="1_1nhkp"]
+
+[node name="Indice" unique_id=565809873 instance=ExtResource("1_1nhkp")]
+type_indice = "chiffre"
+position_indice = 4

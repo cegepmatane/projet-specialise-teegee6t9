@@ -32,6 +32,10 @@ func _ready() -> void:
 		timer_ui.visible = false
 		timer_ui._actif = false
 	
+	var carnet := joueur.get_node_or_null("HUD/CarnetIndices")
+	if carnet:
+		carnet.visible = false
+	
 	# Créer le popup
 	_popup = AcceptDialog.new()
 	_popup.title = "Impossible de lancer"

@@ -1,23 +1,29 @@
 extends Node3D
 
-@export var description: String = ""
+@export var type_indice: String = "couleur"  # "couleur" ou "chiffre"
+@export var position_indice: int = 1         # 1 à 5
 
 var _ramasse: bool = false
-var _id_indice: String = ""
 
-func _ready() -> void:
-	# Demande un ID unique automatiquement au manager
-	_id_indice = IndiceManager.enregistrer_indice()
 
 func interact() -> void:
 	if _ramasse:
 		return
-
 	_ramasse = true
 
-	if _id_indice != "":
-		IndiceManager.ramasser_indice(_id_indice)
+	# Récupérer la valeur selon le code généré
+	var valeur: String = ""
+	if type_indice == "couleur":
+		valeur = IndiceManager.code_couleurs[position_indice - 1]
+		print("[INDICE] Couleur %d : %s" % [position_indice, valeur])
+	elif type_indice == "chiffre":
+		valeur = str(IndiceManager.code_chiffres[position_indice - 1])
+		print("[INDICE] Chiffre %d : %s" % [position_indice, valeur])
 
-	# ici tu peux jouer un son / anim si tu veux
+	# Afficher l'indice au joueur
+	var racine := get_tree().current_scene
+	if racine and racine.has_method("afficher_indice"):
+		racine.afficher_indice(type_indice, position_indice, valeur)
 
+	IndiceManager.ramasser_indice("%s_%d" % [type_indice, position_indice])
 	queue_free()

@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://dtmq6yxt81xes" path="res://Scripts/raycast.gd" id="3_8mied"]
 [ext_resource type="Script" uid="uid://dw8f7snv85k3i" path="res://Scripts/hud_inventaire.gd" id="4_uvd8m"]
 [ext_resource type="Script" uid="uid://tl8r0lr3lu7c" path="res://Scripts/timer_partie.gd" id="5_umn3c"]
+[ext_resource type="Script" uid="uid://dedlhvy267ou0" path="res://Scripts/carnet_indices.gd" id="6_0wo10"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rf571"]
 
@@ -85,3 +86,40 @@ offset_right = 40.0
 offset_bottom = 23.0
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CarnetIndices" type="Control" parent="HUD" unique_id=128623571]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_0wo10")
+
+[node name="Panel" type="Panel" parent="HUD/CarnetIndices" unique_id=179741559]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBox" type="HBoxContainer" parent="HUD/CarnetIndices/Panel" unique_id=1227804098]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Couleurs" type="VBoxContainer" parent="HUD/CarnetIndices/Panel/HBox" unique_id=1407149007]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/CarnetIndices/Panel/HBox/Couleurs" unique_id=791578336]
+layout_mode = 2
+text = "── Couleurs ──"
+
+[node name="Liste" type="VBoxContainer" parent="HUD/CarnetIndices/Panel/HBox/Couleurs" unique_id=1603194178]
+layout_mode = 2
+
+[node name="Chiffres" type="VBoxContainer" parent="HUD/CarnetIndices/Panel/HBox" unique_id=56632150]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/CarnetIndices/Panel/HBox/Chiffres" unique_id=1950142326]
+layout_mode = 2
+text = "── Chiffres ──"
+
+[node name="Liste" type="VBoxContainer" parent="HUD/CarnetIndices/Panel/HBox/Chiffres" unique_id=1107269222]
+layout_mode = 2

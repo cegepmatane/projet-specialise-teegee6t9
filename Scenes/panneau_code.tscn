@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://d3766vnburrqt"]
+
+[ext_resource type="Script" uid="uid://bfixyuvu6o40q" path="res://Scripts/panneau_code.gd" id="1_g1o66"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qub68"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g1o66"]
+
+[node name="PanneauCode" type="StaticBody3D" unique_id=185983452]
+transform = Transform3D(0.756127, 0, 0, 0, 1, 0, 0, 0, 0.14673853, 0, 0.6780673, 0)
+script = ExtResource("1_g1o66")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1763798138]
+shape = SubResource("BoxShape3D_qub68")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2087481106]
+mesh = SubResource("BoxMesh_g1o66")

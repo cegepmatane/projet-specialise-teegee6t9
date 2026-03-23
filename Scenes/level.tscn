@@ -1,12 +1,23 @@
 [gd_scene format=3 uid="uid://bcx76jl6xxl3m"]
 
-[ext_resource type="Script" uid="uid://cbgmfa62wxps8" path="res://Scripts/carte_vaisseau.gd" id="1_carte"]
 [ext_resource type="Script" uid="uid://uerqnjiui3x1" path="res://Scripts/show_success_popup.gd" id="1_wqkje"]
 [ext_resource type="PackedScene" uid="uid://dh5scbf4sdr4j" path="res://Scenes/meuble_caisse_cargo.tscn" id="2_caisse"]
-[ext_resource type="PackedScene" uid="uid://c4brrj3m2260o" path="res://Scenes/meuble_casier_metal.tscn" id="3_casier"]
-[ext_resource type="PackedScene" uid="uid://d4a7fqt7swwa5" path="res://Scenes/meuble_casier_metal_secret.tscn" id="4_8c0lf"]
+[ext_resource type="PackedScene" uid="uid://d3766vnburrqt" path="res://Scenes/panneau_code.tscn" id="2_vofx3"]
 [ext_resource type="PackedScene" uid="uid://c66jo7yxv25dq" path="res://Scenes/joueur.tscn" id="4_81xng"]
-[ext_resource type="PackedScene" uid="uid://clnlgo1yvdqax" path="res://Scenes/success_ui.tscn" id="6_0f350"]
+[ext_resource type="PackedScene" uid="uid://cv7k6a5mblkx" path="res://Scenes/indices/indice_chiffre_1.tscn" id="4_ha31o"]
+[ext_resource type="PackedScene" uid="uid://d5pramptt4rq" path="res://Scenes/indices/indice_chiffre_2.tscn" id="5_pa6b8"]
+[ext_resource type="Script" uid="uid://bhgv28bgqav2n" path="res://Scripts/casier_interactif_secret.gd" id="5_vofx3"]
+[ext_resource type="PackedScene" uid="uid://he7icf7vpfry" path="res://Scenes/indices/indice_couleur_1.tscn" id="6_00k4y"]
+[ext_resource type="PackedScene" uid="uid://sky3iglu7yes" path="res://Scenes/secret.tscn" id="7_3a44l"]
+[ext_resource type="PackedScene" uid="uid://chlj2ak44q2fx" path="res://Scenes/indices/indice_chiffre_3.tscn" id="8_crh0w"]
+[ext_resource type="Script" uid="uid://ion8o2ypnw7j" path="res://Scripts/casier_interactif.gd" id="10_0cmrb"]
+[ext_resource type="PackedScene" uid="uid://c21rgpsoeqdtf" path="res://Scenes/indices/indice_chiffre_4.tscn" id="10_c7le1"]
+[ext_resource type="PackedScene" uid="uid://bjkedlimihmlw" path="res://Scenes/indices/indice_chiffre_5.tscn" id="11_2klc5"]
+[ext_resource type="PackedScene" uid="uid://cxoxgsc2lx1s5" path="res://Scenes/indices/indice_couleur_2.tscn" id="11_pnhnk"]
+[ext_resource type="PackedScene" uid="uid://78mrrdpbobh" path="res://Scenes/indices/indice_couleur_3.tscn" id="13_24uko"]
+[ext_resource type="PackedScene" uid="uid://bt2qs72wuxkns" path="res://Scenes/indices/indice_couleur_4.tscn" id="15_gf56v"]
+[ext_resource type="PackedScene" uid="uid://cb3kgliplj5ld" path="res://Scenes/indices/indice_couleur_5.tscn" id="17_6y3s5"]
+[ext_resource type="Script" uid="uid://02r6yx6u7x44" path="res://Scripts/panneau_code_ui.gd" id="17_nngtn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sol"]
 
@@ -16,6 +27,148 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_mur"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_swxnn"]
+
+[sub_resource type="BoxMesh" id="1"]
+size = Vector3(0.03, 2.4, 0.8)
+
+[sub_resource type="BoxMesh" id="2"]
+size = Vector3(0.8, 2.4, 0.03)
+
+[sub_resource type="BoxMesh" id="3"]
+size = Vector3(0.8, 0.03, 0.8)
+
+[sub_resource type="BoxMesh" id="4"]
+size = Vector3(0.7, 0.03, 0.75)
+
+[sub_resource type="BoxMesh" id="5"]
+size = Vector3(0.03, 2.3, 0.75)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1k4di"]
+
+[sub_resource type="Animation" id="7"]
+resource_name = "Fermer"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FaçadePorte/Pivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5707964, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="6"]
+resource_name = "Ouvrir"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FaçadePorte/Pivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.5707964, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wflhs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FaçadePorte/Pivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="8"]
+_data = {
+&"Fermer": SubResource("7"),
+&"Ouvrir": SubResource("6"),
+&"RESET": SubResource("Animation_wflhs")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u0did"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_53r2q"]
+size = Vector3(0.03, 2.4, 0.8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_luodc"]
+size = Vector3(0.8, 2.4, 0.03)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1cgv8"]
+size = Vector3(0.8, 0.03, 0.8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hcs0j"]
+size = Vector3(0.7, 0.03, 0.75)
+
+[sub_resource type="BoxMesh" id="BoxMesh_t205d"]
+size = Vector3(0.03, 2.3, 0.75)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_idpk0"]
+
+[sub_resource type="Animation" id="Animation_dw52x"]
+resource_name = "Fermer"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FaçadePorte/Pivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5707964, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ais7f"]
+resource_name = "Ouvrir"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FaçadePorte/Pivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.5707964, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_re0q2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FaçadePorte/Pivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fq0f7"]
+_data = {
+&"Fermer": SubResource("Animation_dw52x"),
+&"Ouvrir": SubResource("Animation_ais7f"),
+&"RESET": SubResource("Animation_re0q2")
+}
+
 [sub_resource type="StandardMaterial3D" id="Mat_baie_vitree"]
 transparency = 1
 albedo_color = Color(0.8, 0.9, 1, 0.2)
@@ -23,37 +176,6 @@ roughness = 0.1
 
 [node name="Level" type="Node3D" unique_id=1285596670]
 script = ExtResource("1_wqkje")
-
-[node name="CarteVaisseau" type="CanvasLayer" parent="." unique_id=30486724]
-script = ExtResource("1_carte")
-
-[node name="PanelCarte" type="Panel" parent="CarteVaisseau" unique_id=2036948560]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -300.0
-offset_top = -200.0
-offset_right = 300.0
-offset_bottom = 200.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="LabelCarte" type="Label" parent="CarteVaisseau/PanelCarte" unique_id=91950741]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = -20.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Carte du vaisseau"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="PointApparition" type="Marker3D" parent="." unique_id=1753979405]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -126,6 +248,9 @@ omni_attenuation = 0.4
 [node name="Structure" type="Node3D" parent="." unique_id=128236697]
 
 [node name="SalleCentrale" type="Node3D" parent="Structure" unique_id=1727718540]
+
+[node name="PanneauCode" parent="Structure/SalleCentrale" unique_id=185983452 instance=ExtResource("2_vofx3")]
+transform = Transform3D(0.6319765, 0, 0.08056279, 0, 1, 0, -0.4151309, 0, 0.12264513, -6.112117, 1.820651, -5.2211046)
 
 [node name="PointFinIndices" type="Marker3D" parent="Structure/SalleCentrale" unique_id=1135164999]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
@@ -234,12 +359,79 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, 0)
 
 [node name="CaisseHall_1" parent="Structure/SalleCentrale" unique_id=153011213 instance=ExtResource("2_caisse")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.65, 4)
+indice_scene = ExtResource("11_2klc5")
 
-[node name="CaisseHall_2" parent="Structure/SalleCentrale" unique_id=1084332179 instance=ExtResource("2_caisse")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.65, -2)
-
-[node name="CasierMetal" parent="Structure/SalleCentrale" unique_id=1425219784 instance=ExtResource("4_8c0lf")]
+[node name="CasierMetal" type="StaticBody3D" parent="Structure/SalleCentrale" unique_id=1425219784]
 transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -7, 0.1, 6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/SalleCentrale/CasierMetal" unique_id=472424652]
+transform = Transform3D(0.8, 0, 0, 0, 2.4, 0, 0, 0, 0.35, 0, 1.2, -0.1)
+shape = SubResource("BoxShape3D_swxnn")
+
+[node name="MurGauche" type="MeshInstance3D" parent="Structure/SalleCentrale/CasierMetal" unique_id=260605984]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.385, 1.2, 0)
+mesh = SubResource("1")
+
+[node name="MurDroit" type="MeshInstance3D" parent="Structure/SalleCentrale/CasierMetal" unique_id=2065529999]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.385, 1.2, 0)
+mesh = SubResource("1")
+
+[node name="MurArriere" type="MeshInstance3D" parent="Structure/SalleCentrale/CasierMetal" unique_id=156420599]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -0.385)
+mesh = SubResource("2")
+
+[node name="Plafond" type="MeshInstance3D" parent="Structure/SalleCentrale/CasierMetal" unique_id=1462505060]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.385, 0)
+mesh = SubResource("3")
+
+[node name="Sol" type="MeshInstance3D" parent="Structure/SalleCentrale/CasierMetal" unique_id=140277716]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015, 0)
+mesh = SubResource("3")
+
+[node name="EtagereSup" type="MeshInstance3D" parent="Structure/SalleCentrale/CasierMetal" unique_id=1178892953]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+mesh = SubResource("4")
+
+[node name="EtagereMilieu" type="MeshInstance3D" parent="Structure/SalleCentrale/CasierMetal" unique_id=1995115575]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("4")
+
+[node name="Indice" type="Marker3D" parent="Structure/SalleCentrale/CasierMetal/EtagereMilieu" unique_id=1321593832]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+
+[node name="EtagereBas" type="MeshInstance3D" parent="Structure/SalleCentrale/CasierMetal" unique_id=138633217]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+mesh = SubResource("4")
+
+[node name="Secret" type="Marker3D" parent="Structure/SalleCentrale/CasierMetal/EtagereBas" unique_id=61189871]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+
+[node name="FaçadePorte" type="Node3D" parent="Structure/SalleCentrale/CasierMetal" unique_id=1023895017]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.2, 0.36)
+
+[node name="Pivot" type="Node3D" parent="Structure/SalleCentrale/CasierMetal/FaçadePorte" unique_id=1799244565]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00028458238, 0, 0.37397993)
+
+[node name="PorteMesh" type="MeshInstance3D" parent="Structure/SalleCentrale/CasierMetal/FaçadePorte/Pivot" unique_id=1436202230]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014715403, 0, -0.37397993)
+mesh = SubResource("5")
+skeleton = NodePath("../..")
+
+[node name="PorteInteract" type="StaticBody3D" parent="Structure/SalleCentrale/CasierMetal/FaçadePorte/Pivot" unique_id=1626786842 node_paths=PackedStringArray("animation_joueur")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00028458238, 0, -0.37397993)
+script = ExtResource("5_vofx3")
+animation_joueur = NodePath("../../../AnimationPlayer")
+indice_scene = ExtResource("6_00k4y")
+point_spawn_indice = NodePath("../../../EtagereMilieu/Indice")
+secret_scene = ExtResource("7_3a44l")
+point_spawn_secret = NodePath("../../../EtagereBas/Secret")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/SalleCentrale/CasierMetal/FaçadePorte/Pivot/PorteInteract" unique_id=1407086304]
+transform = Transform3D(0.03, 0, 0, 0, 2.3, 0, 0, 0, 0.75, 0.015, 0, 0)
+shape = SubResource("BoxShape3D_1k4di")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Structure/SalleCentrale/CasierMetal" unique_id=914186727]
+libraries/ = SubResource("8")
 
 [node name="Joueur" parent="Structure/SalleCentrale" unique_id=2125908744 instance=ExtResource("4_81xng")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -355,9 +547,74 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -6)
 
 [node name="CaisseNord_1" parent="Structure/AileNord/SalleNord1" unique_id=1407202310 instance=ExtResource("2_caisse")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.65, 3)
+indice_scene = ExtResource("5_pa6b8")
 
-[node name="CasierNord_1" parent="Structure/AileNord/SalleNord1" unique_id=256797 instance=ExtResource("3_casier")]
+[node name="CasierNord_1" type="StaticBody3D" parent="Structure/AileNord/SalleNord1" unique_id=256797]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.1, -4)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileNord/SalleNord1/CasierNord_1" unique_id=484105447]
+transform = Transform3D(0.8, 0, 0, 0, 2.4, 0, 0, 0, 0.35, 0, 1.2, -0.1)
+shape = SubResource("BoxShape3D_u0did")
+
+[node name="MurGauche" type="MeshInstance3D" parent="Structure/AileNord/SalleNord1/CasierNord_1" unique_id=1990539196]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.385, 1.2, 0)
+mesh = SubResource("BoxMesh_53r2q")
+
+[node name="MurDroit" type="MeshInstance3D" parent="Structure/AileNord/SalleNord1/CasierNord_1" unique_id=491553845]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.385, 1.2, 0)
+mesh = SubResource("BoxMesh_53r2q")
+
+[node name="MurArriere" type="MeshInstance3D" parent="Structure/AileNord/SalleNord1/CasierNord_1" unique_id=452308065]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -0.385)
+mesh = SubResource("BoxMesh_luodc")
+
+[node name="Plafond" type="MeshInstance3D" parent="Structure/AileNord/SalleNord1/CasierNord_1" unique_id=253344936]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.385, 0)
+mesh = SubResource("BoxMesh_1cgv8")
+
+[node name="Sol" type="MeshInstance3D" parent="Structure/AileNord/SalleNord1/CasierNord_1" unique_id=2070588946]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015, 0)
+mesh = SubResource("BoxMesh_1cgv8")
+
+[node name="EtagereSup" type="MeshInstance3D" parent="Structure/AileNord/SalleNord1/CasierNord_1" unique_id=736656375]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+mesh = SubResource("BoxMesh_hcs0j")
+
+[node name="EtagereMilieu" type="MeshInstance3D" parent="Structure/AileNord/SalleNord1/CasierNord_1" unique_id=306780583]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_hcs0j")
+
+[node name="Indice" type="Marker3D" parent="Structure/AileNord/SalleNord1/CasierNord_1/EtagereMilieu" unique_id=1097568977]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+
+[node name="EtagereBas" type="MeshInstance3D" parent="Structure/AileNord/SalleNord1/CasierNord_1" unique_id=105873370]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+mesh = SubResource("BoxMesh_hcs0j")
+
+[node name="FaçadePorte" type="Node3D" parent="Structure/AileNord/SalleNord1/CasierNord_1" unique_id=844511437]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.2, 0.36)
+
+[node name="Pivot" type="Node3D" parent="Structure/AileNord/SalleNord1/CasierNord_1/FaçadePorte" unique_id=860282448]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00028458238, 0, 0.37397993)
+
+[node name="PorteMesh" type="MeshInstance3D" parent="Structure/AileNord/SalleNord1/CasierNord_1/FaçadePorte/Pivot" unique_id=567149177]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014715403, 0, -0.37397993)
+mesh = SubResource("BoxMesh_t205d")
+skeleton = NodePath("../..")
+
+[node name="PorteInteract" type="StaticBody3D" parent="Structure/AileNord/SalleNord1/CasierNord_1/FaçadePorte/Pivot" unique_id=480239670 node_paths=PackedStringArray("animation_joueur")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00028458238, 0, -0.37397993)
+script = ExtResource("10_0cmrb")
+animation_joueur = NodePath("../../../AnimationPlayer")
+indice_scene = ExtResource("11_pnhnk")
+point_spawn_indice = NodePath("../../../EtagereMilieu/Indice")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileNord/SalleNord1/CasierNord_1/FaçadePorte/Pivot/PorteInteract" unique_id=1899373363]
+transform = Transform3D(0.03, 0, 0, 0, 2.3, 0, 0, 0, 0.75, 0.015, 0, 0)
+shape = SubResource("BoxShape3D_idpk0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Structure/AileNord/SalleNord1/CasierNord_1" unique_id=608969294]
+libraries/ = SubResource("AnimationLibrary_fq0f7")
 
 [node name="SalleNord2" type="Node3D" parent="Structure/AileNord" unique_id=412338362]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 12)
@@ -546,9 +803,74 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
 
 [node name="CaisseSud_1" parent="Structure/AileSud/SalleSud1" unique_id=1165834839 instance=ExtResource("2_caisse")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.65, -3)
+indice_scene = ExtResource("8_crh0w")
 
-[node name="CasierSud_1" parent="Structure/AileSud/SalleSud1" unique_id=320903857 instance=ExtResource("3_casier")]
+[node name="CasierSud_1" type="StaticBody3D" parent="Structure/AileSud/SalleSud1" unique_id=320903857]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.1, 4)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileSud/SalleSud1/CasierSud_1" unique_id=991643294]
+transform = Transform3D(0.8, 0, 0, 0, 2.4, 0, 0, 0, 0.35, 0, 1.2, -0.1)
+shape = SubResource("BoxShape3D_u0did")
+
+[node name="MurGauche" type="MeshInstance3D" parent="Structure/AileSud/SalleSud1/CasierSud_1" unique_id=1663996083]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.385, 1.2, 0)
+mesh = SubResource("BoxMesh_53r2q")
+
+[node name="MurDroit" type="MeshInstance3D" parent="Structure/AileSud/SalleSud1/CasierSud_1" unique_id=724074946]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.385, 1.2, 0)
+mesh = SubResource("BoxMesh_53r2q")
+
+[node name="MurArriere" type="MeshInstance3D" parent="Structure/AileSud/SalleSud1/CasierSud_1" unique_id=659222258]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -0.385)
+mesh = SubResource("BoxMesh_luodc")
+
+[node name="Plafond" type="MeshInstance3D" parent="Structure/AileSud/SalleSud1/CasierSud_1" unique_id=436301146]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.385, 0)
+mesh = SubResource("BoxMesh_1cgv8")
+
+[node name="Sol" type="MeshInstance3D" parent="Structure/AileSud/SalleSud1/CasierSud_1" unique_id=610061740]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015, 0)
+mesh = SubResource("BoxMesh_1cgv8")
+
+[node name="EtagereSup" type="MeshInstance3D" parent="Structure/AileSud/SalleSud1/CasierSud_1" unique_id=1799444803]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+mesh = SubResource("BoxMesh_hcs0j")
+
+[node name="EtagereMilieu" type="MeshInstance3D" parent="Structure/AileSud/SalleSud1/CasierSud_1" unique_id=1403970205]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_hcs0j")
+
+[node name="Indice" type="Marker3D" parent="Structure/AileSud/SalleSud1/CasierSud_1/EtagereMilieu" unique_id=1098107949]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+
+[node name="EtagereBas" type="MeshInstance3D" parent="Structure/AileSud/SalleSud1/CasierSud_1" unique_id=164320514]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+mesh = SubResource("BoxMesh_hcs0j")
+
+[node name="FaçadePorte" type="Node3D" parent="Structure/AileSud/SalleSud1/CasierSud_1" unique_id=1968129862]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.2, 0.36)
+
+[node name="Pivot" type="Node3D" parent="Structure/AileSud/SalleSud1/CasierSud_1/FaçadePorte" unique_id=358839729]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00028458238, 0, 0.37397993)
+
+[node name="PorteMesh" type="MeshInstance3D" parent="Structure/AileSud/SalleSud1/CasierSud_1/FaçadePorte/Pivot" unique_id=823824450]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014715403, 0, -0.37397993)
+mesh = SubResource("BoxMesh_t205d")
+skeleton = NodePath("../..")
+
+[node name="PorteInteract" type="StaticBody3D" parent="Structure/AileSud/SalleSud1/CasierSud_1/FaçadePorte/Pivot" unique_id=1679160703 node_paths=PackedStringArray("animation_joueur")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00028458238, 0, -0.37397993)
+script = ExtResource("10_0cmrb")
+animation_joueur = NodePath("../../../AnimationPlayer")
+indice_scene = ExtResource("13_24uko")
+point_spawn_indice = NodePath("../../../EtagereMilieu/Indice")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileSud/SalleSud1/CasierSud_1/FaçadePorte/Pivot/PorteInteract" unique_id=845820301]
+transform = Transform3D(0.03, 0, 0, 0, 2.3, 0, 0, 0, 0.75, 0.015, 0, 0)
+shape = SubResource("BoxShape3D_idpk0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Structure/AileSud/SalleSud1/CasierSud_1" unique_id=1041319028]
+libraries/ = SubResource("AnimationLibrary_fq0f7")
 
 [node name="SalleSud2" type="Node3D" parent="Structure/AileSud" unique_id=331694455]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -12)
@@ -751,6 +1073,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, 0)
 
 [node name="CaisseEst_1" parent="Structure/AileEst/SalleEst1" unique_id=903041012 instance=ExtResource("2_caisse")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.65, 2)
+indice_scene = ExtResource("4_ha31o")
 
 [node name="SalleEst2" type="Node3D" parent="Structure/AileEst" unique_id=1260606030]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 8)
@@ -815,6 +1138,73 @@ mesh = SubResource("BoxMesh_mur")
 
 [node name="EmplacementPorteOuest" type="Marker3D" parent="Structure/AileEst/SalleEst2" unique_id=968689920]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, 0)
+
+[node name="CasierEst_1" type="StaticBody3D" parent="Structure/AileEst/SalleEst2" unique_id=1149448344]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -4.947628, 0.1, 4.6571655)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileEst/SalleEst2/CasierEst_1" unique_id=2051132471]
+transform = Transform3D(0.8, 0, 0, 0, 2.4, 0, 0, 0, 0.35, 0, 1.2, -0.1)
+shape = SubResource("BoxShape3D_swxnn")
+
+[node name="MurGauche" type="MeshInstance3D" parent="Structure/AileEst/SalleEst2/CasierEst_1" unique_id=1165827638]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.385, 1.2, 0)
+mesh = SubResource("1")
+
+[node name="MurDroit" type="MeshInstance3D" parent="Structure/AileEst/SalleEst2/CasierEst_1" unique_id=366817611]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.385, 1.2, 0)
+mesh = SubResource("1")
+
+[node name="MurArriere" type="MeshInstance3D" parent="Structure/AileEst/SalleEst2/CasierEst_1" unique_id=465903219]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -0.385)
+mesh = SubResource("2")
+
+[node name="Plafond" type="MeshInstance3D" parent="Structure/AileEst/SalleEst2/CasierEst_1" unique_id=164695992]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.385, 0)
+mesh = SubResource("3")
+
+[node name="Sol" type="MeshInstance3D" parent="Structure/AileEst/SalleEst2/CasierEst_1" unique_id=1012290391]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015, 0)
+mesh = SubResource("3")
+
+[node name="EtagereSup" type="MeshInstance3D" parent="Structure/AileEst/SalleEst2/CasierEst_1" unique_id=1975743477]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+mesh = SubResource("4")
+
+[node name="EtagereMilieu" type="MeshInstance3D" parent="Structure/AileEst/SalleEst2/CasierEst_1" unique_id=1167910302]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("4")
+
+[node name="Indice" type="Marker3D" parent="Structure/AileEst/SalleEst2/CasierEst_1/EtagereMilieu" unique_id=1182324224]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+
+[node name="EtagereBas" type="MeshInstance3D" parent="Structure/AileEst/SalleEst2/CasierEst_1" unique_id=1654911041]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+mesh = SubResource("4")
+
+[node name="FaçadePorte" type="Node3D" parent="Structure/AileEst/SalleEst2/CasierEst_1" unique_id=575531489]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.2, 0.36)
+
+[node name="Pivot" type="Node3D" parent="Structure/AileEst/SalleEst2/CasierEst_1/FaçadePorte" unique_id=1415142543]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00028458238, 0, 0.37397993)
+
+[node name="PorteMesh" type="MeshInstance3D" parent="Structure/AileEst/SalleEst2/CasierEst_1/FaçadePorte/Pivot" unique_id=591499274]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014715403, 0, -0.37397993)
+mesh = SubResource("5")
+skeleton = NodePath("../..")
+
+[node name="PorteInteract" type="StaticBody3D" parent="Structure/AileEst/SalleEst2/CasierEst_1/FaçadePorte/Pivot" unique_id=1116624746 node_paths=PackedStringArray("animation_joueur")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00028458238, 0, -0.37397993)
+script = ExtResource("10_0cmrb")
+animation_joueur = NodePath("../../../AnimationPlayer")
+indice_scene = ExtResource("15_gf56v")
+point_spawn_indice = NodePath("../../../EtagereMilieu/Indice")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileEst/SalleEst2/CasierEst_1/FaçadePorte/Pivot/PorteInteract" unique_id=581661525]
+transform = Transform3D(0.03, 0, 0, 0, 2.3, 0, 0, 0, 0.75, 0.015, 0, 0)
+shape = SubResource("BoxShape3D_1k4di")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Structure/AileEst/SalleEst2/CasierEst_1" unique_id=8447453]
+libraries/ = SubResource("8")
 
 [node name="AileOuest" type="Node3D" parent="Structure" unique_id=916484952]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, 0)
@@ -941,9 +1331,74 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 0)
 
 [node name="CaisseOuest_1" parent="Structure/AileOuest/SalleOuest1" unique_id=1249629599 instance=ExtResource("2_caisse")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.65, -2)
+indice_scene = ExtResource("10_c7le1")
 
-[node name="CasierOuest_1" parent="Structure/AileOuest/SalleOuest1" unique_id=740787305 instance=ExtResource("3_casier")]
+[node name="CasierOuest_1" type="StaticBody3D" parent="Structure/AileOuest/SalleOuest1" unique_id=740787305]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.1, 3)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileOuest/SalleOuest1/CasierOuest_1" unique_id=350356989]
+transform = Transform3D(0.8, 0, 0, 0, 2.4, 0, 0, 0, 0.35, 0, 1.2, -0.1)
+shape = SubResource("BoxShape3D_u0did")
+
+[node name="MurGauche" type="MeshInstance3D" parent="Structure/AileOuest/SalleOuest1/CasierOuest_1" unique_id=1829199637]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.385, 1.2, 0)
+mesh = SubResource("BoxMesh_53r2q")
+
+[node name="MurDroit" type="MeshInstance3D" parent="Structure/AileOuest/SalleOuest1/CasierOuest_1" unique_id=498785255]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.385, 1.2, 0)
+mesh = SubResource("BoxMesh_53r2q")
+
+[node name="MurArriere" type="MeshInstance3D" parent="Structure/AileOuest/SalleOuest1/CasierOuest_1" unique_id=567734008]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -0.385)
+mesh = SubResource("BoxMesh_luodc")
+
+[node name="Plafond" type="MeshInstance3D" parent="Structure/AileOuest/SalleOuest1/CasierOuest_1" unique_id=409788145]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.385, 0)
+mesh = SubResource("BoxMesh_1cgv8")
+
+[node name="Sol" type="MeshInstance3D" parent="Structure/AileOuest/SalleOuest1/CasierOuest_1" unique_id=1054564791]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015, 0)
+mesh = SubResource("BoxMesh_1cgv8")
+
+[node name="EtagereSup" type="MeshInstance3D" parent="Structure/AileOuest/SalleOuest1/CasierOuest_1" unique_id=534247491]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+mesh = SubResource("BoxMesh_hcs0j")
+
+[node name="EtagereMilieu" type="MeshInstance3D" parent="Structure/AileOuest/SalleOuest1/CasierOuest_1" unique_id=2080620980]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_hcs0j")
+
+[node name="Indice" type="Marker3D" parent="Structure/AileOuest/SalleOuest1/CasierOuest_1/EtagereMilieu" unique_id=287794287]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+
+[node name="EtagereBas" type="MeshInstance3D" parent="Structure/AileOuest/SalleOuest1/CasierOuest_1" unique_id=300823460]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+mesh = SubResource("BoxMesh_hcs0j")
+
+[node name="FaçadePorte" type="Node3D" parent="Structure/AileOuest/SalleOuest1/CasierOuest_1" unique_id=1753606075]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.2, 0.36)
+
+[node name="Pivot" type="Node3D" parent="Structure/AileOuest/SalleOuest1/CasierOuest_1/FaçadePorte" unique_id=1783762539]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00028458238, 0, 0.37397993)
+
+[node name="PorteMesh" type="MeshInstance3D" parent="Structure/AileOuest/SalleOuest1/CasierOuest_1/FaçadePorte/Pivot" unique_id=130371555]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014715403, 0, -0.37397993)
+mesh = SubResource("BoxMesh_t205d")
+skeleton = NodePath("../..")
+
+[node name="PorteInteract" type="StaticBody3D" parent="Structure/AileOuest/SalleOuest1/CasierOuest_1/FaçadePorte/Pivot" unique_id=257629153 node_paths=PackedStringArray("animation_joueur")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00028458238, 0, -0.37397993)
+script = ExtResource("10_0cmrb")
+animation_joueur = NodePath("../../../AnimationPlayer")
+indice_scene = ExtResource("17_6y3s5")
+point_spawn_indice = NodePath("../../../EtagereMilieu/Indice")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileOuest/SalleOuest1/CasierOuest_1/FaçadePorte/Pivot/PorteInteract" unique_id=545865865]
+transform = Transform3D(0.03, 0, 0, 0, 2.3, 0, 0, 0, 0.75, 0.015, 0, 0)
+shape = SubResource("BoxShape3D_idpk0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Structure/AileOuest/SalleOuest1/CasierOuest_1" unique_id=57775222]
+libraries/ = SubResource("AnimationLibrary_fq0f7")
 
 [node name="SalleOuest2" type="Node3D" parent="Structure/AileOuest" unique_id=1447787133]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 8)
@@ -1009,4 +1464,87 @@ mesh = SubResource("BoxMesh_mur")
 [node name="EmplacementPorteEst" type="Marker3D" parent="Structure/AileOuest/SalleOuest2" unique_id=1034559219]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 0)
 
-[node name="CanvasLayer" parent="." unique_id=249209227 instance=ExtResource("6_0f350")]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=249209227]
+
+[node name="EcranBlanc" type="ColorRect" parent="CanvasLayer" unique_id=312205702]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanneauNotification" type="Panel" parent="CanvasLayer" unique_id=27841413]
+visible = false
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 100.0
+grow_horizontal = 2
+
+[node name="Texte" type="Label" parent="CanvasLayer/PanneauNotification" unique_id=1845530920]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Succès débloqué !
+S'échapper pour la première fois"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanneauCodeUI" type="Control" parent="CanvasLayer" unique_id=1422985813]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("17_nngtn")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/PanneauCodeUI" unique_id=1818357579]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBox" type="VBoxContainer" parent="CanvasLayer/PanneauCodeUI/Panel" unique_id=1328613040]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/PanneauCodeUI/Panel/VBox" unique_id=1411612428]
+layout_mode = 2
+text = "── Entrez les codes ──"
+
+[node name="Couleurs" type="VBoxContainer" parent="CanvasLayer/PanneauCodeUI/Panel/VBox" unique_id=675457450]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PanneauCodeUI/Panel/VBox/Couleurs" unique_id=1640523299]
+layout_mode = 2
+text = "Code Couleurs"
+
+[node name="Slots" type="HBoxContainer" parent="CanvasLayer/PanneauCodeUI/Panel/VBox/Couleurs" unique_id=13338429]
+layout_mode = 2
+
+[node name="Boutons" type="HBoxContainer" parent="CanvasLayer/PanneauCodeUI/Panel/VBox/Couleurs" unique_id=2023126293]
+layout_mode = 2
+
+[node name="Chiffres" type="VBoxContainer" parent="CanvasLayer/PanneauCodeUI/Panel/VBox" unique_id=1946558404]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PanneauCodeUI/Panel/VBox/Chiffres" unique_id=98532047]
+layout_mode = 2
+text = "Code Chiffres"
+
+[node name="Slots" type="HBoxContainer" parent="CanvasLayer/PanneauCodeUI/Panel/VBox/Chiffres" unique_id=475544058]
+layout_mode = 2
+
+[node name="Boutons" type="HBoxContainer" parent="CanvasLayer/PanneauCodeUI/Panel/VBox/Chiffres" unique_id=1088686602]
+layout_mode = 2
+
+[node name="LabelErreur" type="Label" parent="CanvasLayer/PanneauCodeUI/Panel/VBox" unique_id=1234298723]
+layout_mode = 2
+
+[node name="BoutonFermer" type="Button" parent="CanvasLayer/PanneauCodeUI/Panel/VBox" unique_id=1717707153]
+layout_mode = 2
+text = "Fermer"

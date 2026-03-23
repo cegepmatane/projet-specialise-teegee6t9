@@ -1,6 +1,6 @@
 extends Control
 
-@export var duree_secondes: float = 60.0
+@export var duree_secondes: float = 120.0
 
 var _temps_restant: float = 0.0
 var _actif: bool = false
@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 
 
 func _mettre_a_jour_affichage() -> void:
-	var minutes: int = int(_temps_restant) / 60
+	var minutes: int = int(_temps_restant / 60.0)
 	var secondes: int = int(_temps_restant) % 60
 	label_timer.text = "%02d:%02d" % [minutes, secondes]
 
