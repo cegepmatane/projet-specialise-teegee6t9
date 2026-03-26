@@ -11,7 +11,6 @@ var code_chiffres: Array = []
 const COULEURS_DISPONIBLES := ["Rouge", "Vert", "Bleu", "Jaune", "Violet"]
 
 # 🔹 Scène du panneau de code
-# var scene_panneau: PackedScene = preload("res://Scenes/panneau_code.tscn")
 var scene_panneau: PackedScene = null
 var chemin_marker_fin: NodePath = NodePath("Structure/SalleCentrale/PointFinIndices")
 var _panneau_spawn: bool = false
@@ -34,11 +33,9 @@ func reset_partie(indices_total: int = 10) -> void:
 func _generer_codes() -> void:
 	code_couleurs.clear()
 	code_chiffres.clear()
-
 	for i in range(5):
 		var index: int = randi_range(0, COULEURS_DISPONIBLES.size() - 1)
 		code_couleurs.append(COULEURS_DISPONIBLES[index])
-
 	for i in range(5):
 		code_chiffres.append(randi_range(0, 9))
 
@@ -46,11 +43,9 @@ func _generer_codes() -> void:
 func ramasser_indice(id_indice: String) -> void:
 	if id_indice == "" or _indices_ramasses.has(id_indice):
 		return
-
 	_indices_ramasses[id_indice] = true
 	print("[DEBUG][IndiceManager] Indice ramassé :", id_indice,
 		" (", obtenir_nombre_trouves(), "/", _indices_total, ")")
-
 	if not _panneau_spawn and obtenir_nombre_trouves() >= _indices_total:
 		_panneau_spawn = true
 		print("[DEBUG][IndiceManager] Tous les indices ramassés, spawn panneau de code")
@@ -70,36 +65,20 @@ func obtenir_nombre_total() -> int:
 # -----------------------
 
 func _spawn_panneau() -> void:
-	if scene_panneau == null:
-		push_warning("IndiceManager: scene_panneau non assignée")
-		return
-
 	var racine := get_tree().current_scene
-	if racine == null or not racine.is_inside_tree():
-		push_warning("IndiceManager: aucune scène courante")
+	if racine == null:
 		return
 
-	var marker := racine.get_node_or_null(chemin_marker_fin)
-	if marker == null or not marker is Node3D or not marker.is_inside_tree():
-		push_warning("IndiceManager: Marker de fin introuvable")
-		return
-
-	var pos_fin: Vector3 = marker.global_transform.origin
-	await get_tree().process_frame
-
-	var parent := Node3D.new()
-	parent.name = "PanneauCodeParent"
-	racine.add_child(parent)
-	parent.global_position = pos_fin
-
-	var panneau := scene_panneau.instantiate()
-	parent.add_child(panneau)
-	print("[DEBUG][IndiceManager] Panneau de code spawné à :", pos_fin)
+	# Activer le panneau déjà présent dans la scène
+	var panneau := racine.get_node_or_null("Structure/SalleCentrale/PanneauCode")
+	if panneau:
+		panneau.visible = true
+		print("[DEBUG][IndiceManager] Panneau de code activé")
+	else:
+		push_warning("IndiceManager: PanneauCode introuvable dans la scène")
 
 	# Réduction lumière
-	var lumiere: Light3D = racine.get_node_or_null("Eclairage/LumiereCentrale")
-	if lumiere:
-		lumiere.light_energy *= 0.2
+	var lumiere: Node = racine.get_node_or_null("Eclairage/LumiereCentrale")
+	if lumiere and lumiere is Light3D:
+		(lumiere as Light3D).light_energy *= 0.2
 		print("[DEBUG][IndiceManager] Lumière réduite")
-	else:
-		print("[DEBUG][IndiceManager] Lumière centrale introuvable")

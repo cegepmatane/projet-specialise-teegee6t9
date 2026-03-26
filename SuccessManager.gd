@@ -185,7 +185,7 @@ func verifier_succes_temps_ecoule(temps_ecoule: float) -> Array:
 			continue
 		var condition = _conditions[id]
 		if condition.has("type") and condition["type"] == "temps_ecoule_secondes":
-			var seuil: float = float(condition.get("value", 30))
+			var seuil: float = float(condition.get("value", 120))
 			if temps_ecoule <= seuil:
 				if debloquer(id):
 					nouveaux.append(id)

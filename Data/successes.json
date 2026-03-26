@@ -5,12 +5,12 @@
 	"description": "Découvrez ce qui se cache dans la salle."
   },
   {
-	"id": "fast_clues_30",
+	"id": "fast_clues_120",
 	"title": "Sprinteur d'indices",
-	"description": "Trouver tous les indices en moins de 30 secondes.",
+	"description": "Trouver tous les indices en moins de 2 minutes.",
 	"condition": {
 	  "type": "temps_ecoule_secondes",
-	  "value": 30
+	  "value": 120
 	}
  },
  {

@@ -1,6 +1,6 @@
 extends Control
 
-@export var duree_secondes: float = 120.0
+@export var duree_secondes: float = 180.0
 
 var _temps_restant: float = 0.0
 var _actif: bool = false

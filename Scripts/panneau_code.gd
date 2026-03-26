@@ -83,7 +83,12 @@ func _verifier_codes() -> void:
 
 
 func _spawn_teleporteur() -> void:
-	var fin : Node3D = load("res://Scenes/fin_indices.tscn").instantiate()
-	get_parent().add_child(fin)
-	fin.global_position = global_position
-	print("[PANNEAU] Téléporteur spawné")
+	var racine := get_tree().current_scene
+	var marker := racine.get_node_or_null(IndiceManager.chemin_marker_fin)
+	if marker == null or not marker is Node3D:
+		push_warning("Marker de fin introuvable")
+		return
+	var fin: Node3D = load("res://Scenes/fin_indices.tscn").instantiate()
+	racine.add_child(fin)
+	fin.global_position = (marker as Node3D).global_position
+	print("[PANNEAU] Téléporteur spawné à :", fin.global_position)

@@ -251,6 +251,7 @@ omni_attenuation = 0.4
 
 [node name="PanneauCode" parent="Structure/SalleCentrale" unique_id=185983452 instance=ExtResource("2_vofx3")]
 transform = Transform3D(0.6319765, 0, 0.08056279, 0, 1, 0, -0.4151309, 0, 0.12264513, -6.112117, 1.820651, -5.2211046)
+visible = false
 
 [node name="PointFinIndices" type="Marker3D" parent="Structure/SalleCentrale" unique_id=1135164999]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
