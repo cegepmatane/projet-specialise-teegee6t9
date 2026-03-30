@@ -142,3 +142,18 @@ vertical_alignment = 1
 
 [node name="Liste" type="VBoxContainer" parent="HUD/CarnetIndices/Panel/HBox/Chiffres" unique_id=1107269222]
 layout_mode = 2
+
+[node name="BarreBatterie" type="ProgressBar" parent="HUD" unique_id=77090385]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.0
+offset_top = -107.0
+offset_right = 34.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+max_value = 30.0
