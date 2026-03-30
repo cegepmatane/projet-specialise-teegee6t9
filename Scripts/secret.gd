@@ -6,7 +6,10 @@ func interact() -> void:
 	if _ramasse:
 		return
 	_ramasse = true
-	
+
+	# Marquer le secret comme trouvé pour la partie parfaite
+	IndiceManager._secret_trouve = true
+
 	EquipmentManager.gagner_bonus_secret()
 
 	const id := "find_secret"
@@ -20,6 +23,4 @@ func interact() -> void:
 				2.0,
 				false
 			)
-
-	# Supprimer l'objet secret après ramassage
 	queue_free()

@@ -3,6 +3,7 @@ extends Node
 # 🔹 Gestion des indices pour UNE partie
 var _indices_total: int = 10
 var _indices_ramasses: Dictionary = {}
+var _secret_trouve: bool = false
 
 # 🔹 Codes générés aléatoirement
 var code_couleurs: Array = []
@@ -16,14 +17,11 @@ var chemin_marker_fin: NodePath = NodePath("Structure/SalleCentrale/PointFinIndi
 var _panneau_spawn: bool = false
 
 
-# -----------------------
-# API de partie
-# -----------------------
-
 func reset_partie(indices_total: int = 10) -> void:
 	_indices_total = indices_total
 	_indices_ramasses.clear()
 	_panneau_spawn = false
+	_secret_trouve = false
 	_generer_codes()
 	print("[DEBUG][IndiceManager] reset_partie -> total =", _indices_total)
 	print("[DEBUG][IndiceManager] Code couleurs :", code_couleurs)
@@ -60,24 +58,16 @@ func obtenir_nombre_total() -> int:
 	return _indices_total
 
 
-# -----------------------
-# Spawn du panneau de code
-# -----------------------
-
 func _spawn_panneau() -> void:
 	var racine := get_tree().current_scene
 	if racine == null:
 		return
-
-	# Activer le panneau déjà présent dans la scène
 	var panneau := racine.get_node_or_null("Structure/SalleCentrale/PanneauCode")
 	if panneau:
 		panneau.visible = true
 		print("[DEBUG][IndiceManager] Panneau de code activé")
 	else:
 		push_warning("IndiceManager: PanneauCode introuvable dans la scène")
-
-	# Réduction lumière
 	var lumiere: Node = racine.get_node_or_null("Eclairage/LumiereCentrale")
 	if lumiere and lumiere is Light3D:
 		(lumiere as Light3D).light_energy *= 0.2

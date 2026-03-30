@@ -5,9 +5,11 @@ extends Node3D
 @onready var titre_succes_3d := $MurSucces/TitreSucces3D
 @onready var liste_succes := $MurSucces/ListeSucces
 
-const TAILLE_POLICE_SUCCES := 24
-const DECALAGE_Y_PAR_SUCCES := -0.55
+const TAILLE_POLICE_SUCCES := 18
+const DECALAGE_Y_PAR_SUCCES := -0.45
+const SUCCES_PAR_PAGE := 5
 
+var _page_actuelle: int = 0
 var _popup: AcceptDialog
 
 
@@ -31,12 +33,12 @@ func _ready() -> void:
 	if timer_ui:
 		timer_ui.visible = false
 		timer_ui._actif = false
-	
+
 	var carnet := joueur.get_node_or_null("HUD/CarnetIndices")
 	if carnet:
 		carnet.visible = false
-	
-	# Créer le popup
+		carnet.set_process_unhandled_input(false)
+
 	_popup = AcceptDialog.new()
 	_popup.title = "Impossible de lancer"
 	add_child(_popup)
@@ -56,22 +58,45 @@ func _sur_popup_ferme() -> void:
 
 
 func _rafraichir_affichage_succes() -> void:
+	var tous := SuccessManager.obtenir_tous_les_succes()
 	var debloques: int = SuccessManager.obtenir_nombre_debloques()
 	var total: int = SuccessManager.obtenir_nombre_total()
-	titre_succes_3d.text = "Mes succès %d/%d" % [debloques, total]
+	var nb_pages: int = ceili(float(total) / float(SUCCES_PAR_PAGE))
+
+	titre_succes_3d.text = "Mes succès %d/%d  (page %d/%d)" % [debloques, total, _page_actuelle + 1, nb_pages]
+
 	for child in liste_succes.get_children():
 		child.queue_free()
+
+	# Afficher seulement les succès de la page actuelle
+	var debut: int = _page_actuelle * SUCCES_PAR_PAGE
+	var fin: int = mini(debut + SUCCES_PAR_PAGE, total)
+
 	var index := 0
-	for s in SuccessManager.obtenir_tous_les_succes():
+	for i in range(debut, fin):
+		var s = tous[i]
 		var label := Label3D.new()
 		label.font_size = TAILLE_POLICE_SUCCES
 		if s.debloque:
-			label.text = "%s\n%s" % [s.titre, s.description]
+			label.text = "✓ %s\n  %s" % [s.titre, s.description]
+			label.modulate = Color(0.2, 1, 0.4)
 		else:
-			label.text = "Succès verrouillé 🔒"
+			label.text = "🔒 Succès verrouillé"
+			label.modulate = Color(0.6, 0.6, 0.6)
 		label.position = Vector3(0, index * DECALAGE_Y_PAR_SUCCES, 0)
 		liste_succes.add_child(label)
 		index += 1
+		page_changee.emit()
+
+
+signal page_changee
+
+func changer_page(delta: int) -> void:
+	var tous := SuccessManager.obtenir_tous_les_succes()
+	var nb_pages: int = ceili(float(tous.size()) / float(SUCCES_PAR_PAGE))
+	_page_actuelle = clamp(_page_actuelle + delta, 0, nb_pages - 1)
+	_rafraichir_affichage_succes()
+	page_changee.emit()
 
 
 func ouvrir_boutique() -> void:

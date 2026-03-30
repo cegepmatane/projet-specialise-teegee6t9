@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://s2hwhtuxpic" path="res://Scripts/boutique_trigger.gd" id="4_4233d"]
 [ext_resource type="Script" uid="uid://hpxcidmkq647" path="res://Scripts/quit_button.gd" id="4_avk8s"]
 [ext_resource type="PackedScene" uid="uid://clnlgo1yvdqax" path="res://Scenes/success_ui.tscn" id="5_ruji2"]
+[ext_resource type="Script" uid="uid://bufomljtkjl75" path="res://Scripts/bouton_page_succes.gd" id="7_aghey"]
 [ext_resource type="Script" uid="uid://c1lew05r2uups" path="res://Scripts/boutique_ui.gd" id="7_bvheq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vuo3o"]
@@ -19,6 +20,12 @@
 [sub_resource type="BoxMesh" id="BoxMesh_ruji2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ruji2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o08vn"]
+size = Vector3(0.8, 0.5, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1updj"]
+size = Vector3(0.8, 0.5, 0.3)
 
 [node name="lobby" type="Node3D" unique_id=934084821]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14154887, 0, 0)
@@ -210,5 +217,28 @@ text = "Mes succès 0/1"
 
 [node name="ListeSucces" type="Node3D" parent="MurSucces" unique_id=1529253399]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+
+[node name="Precedent" type="StaticBody3D" parent="MurSucces" unique_id=319632772]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2029922, -0.9245428, 0)
+script = ExtResource("7_aghey")
+delta = -1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MurSucces/Precedent" unique_id=377827708]
+transform = Transform3D(0.8778634, 0, 0, 0, 1, 0, 0, 0, 0.3, 0.031635284, 0, 0)
+shape = SubResource("BoxShape3D_o08vn")
+
+[node name="Label3D" type="Label3D" parent="MurSucces/Precedent" unique_id=2030415255]
+text = "← Préc"
+
+[node name="Suivant" type="StaticBody3D" parent="MurSucces" unique_id=342655491]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.9195428, 0.075897574)
+script = ExtResource("7_aghey")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MurSucces/Suivant" unique_id=3514395]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.041323543, 0, 0)
+shape = SubResource("BoxShape3D_1updj")
+
+[node name="Label3D" type="Label3D" parent="MurSucces/Suivant" unique_id=1337160383]
+text = "Suiv →"
 
 [node name="CanvasLayer" parent="." unique_id=249209227 instance=ExtResource("5_ruji2")]

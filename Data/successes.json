@@ -39,6 +39,33 @@
    "type": "parties_reussies",
    "value": 10
   }
- }
+ },
+ {
+  "id": "perfect_first",
+  "title": "Perfectionniste",
+  "description": "Compléter une partie parfaite (tous les indices + le secret)",
+  "condition": {
+	"type": "parties_parfaites",
+	"value": 1
+  }
+},
+{
+  "id": "perfect_5",
+  "title": "Perfectionniste aguerri",
+  "description": "Compléter 5 parties parfaites",
+  "condition": {
+	"type": "parties_parfaites",
+	"value": 5
+  }
+},
+{
+  "id": "perfect_10",
+  "title": "Maître perfectionniste",
+  "description": "Compléter 10 parties parfaites",
+  "condition": {
+	"type": "parties_parfaites",
+	"value": 10
+  }
+}
 ]
   

@@ -17,7 +17,6 @@ func _sur_entree_corps(corps: Node) -> void:
 	if utilise:
 		print("[DEBUG] déjà utilisé, on ignore")
 		return
-
 	var node: Node = corps
 	for i in range(4):
 		if node == null:
@@ -66,6 +65,24 @@ func _trigger_tp_async() -> void:
 	else:
 		print("[DEBUG] TimerPartie introuvable")
 
+	# Vérifier partie parfaite
+	var secret_trouve: bool = IndiceManager._secret_trouve
+	var tous_indices: bool = IndiceManager.obtenir_nombre_trouves() >= IndiceManager.obtenir_nombre_total()
+	print("[DEBUG] Secret trouvé : ", secret_trouve, " | Tous indices : ", tous_indices)
+	if secret_trouve and tous_indices:
+		print("[DEBUG] Partie parfaite !")
+		var nouveaux_parfaits := SuccessManager.incrementer_partie_parfaite_et_verifier()
+		for id in nouveaux_parfaits:
+			var racine := get_tree().current_scene
+			if racine and racine.has_method("afficher_succes_avec_transition"):
+				var titre: String = SuccessManager.obtenir_titre_succes(id)
+				await racine.afficher_succes_avec_transition(
+					"Succès débloqué : %s" % titre,
+					2.0,
+					true
+				)
+
+	# Succès parties réussies
 	var nouveaux: Array = SuccessManager.incrementer_et_verifier()
 	print("[DEBUG] Parties réussies =", SuccessManager.obtenir_parties_reussies())
 	for id in nouveaux:

@@ -74,9 +74,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -20.0
-offset_top = 50.0
+offset_top = 80.0
 offset_right = 50.0
-offset_bottom = 120.0
+offset_bottom = 150.0
 grow_horizontal = 2
 script = ExtResource("5_umn3c")
 
@@ -89,20 +89,29 @@ vertical_alignment = 1
 
 [node name="CarnetIndices" type="Control" parent="HUD" unique_id=128623571]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("6_0wo10")
 
 [node name="Panel" type="Panel" parent="HUD/CarnetIndices" unique_id=179741559]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 20.0
+offset_top = 25.0
+offset_right = 256.0
+offset_bottom = 195.0
 
 [node name="HBox" type="HBoxContainer" parent="HUD/CarnetIndices/Panel" unique_id=1227804098]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -114.0
+offset_right = 114.0
+offset_bottom = 27.0
+grow_horizontal = 2
 
 [node name="Couleurs" type="VBoxContainer" parent="HUD/CarnetIndices/Panel/HBox" unique_id=1407149007]
 layout_mode = 2
@@ -110,6 +119,8 @@ layout_mode = 2
 [node name="Label" type="Label" parent="HUD/CarnetIndices/Panel/HBox/Couleurs" unique_id=791578336]
 layout_mode = 2
 text = "── Couleurs ──"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Liste" type="VBoxContainer" parent="HUD/CarnetIndices/Panel/HBox/Couleurs" unique_id=1603194178]
 layout_mode = 2
@@ -120,6 +131,8 @@ layout_mode = 2
 [node name="Label" type="Label" parent="HUD/CarnetIndices/Panel/HBox/Chiffres" unique_id=1950142326]
 layout_mode = 2
 text = "── Chiffres ──"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Liste" type="VBoxContainer" parent="HUD/CarnetIndices/Panel/HBox/Chiffres" unique_id=1107269222]
 layout_mode = 2

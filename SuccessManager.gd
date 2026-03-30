@@ -14,96 +14,69 @@ var _conditions: Dictionary = {}
 var _debloques: Dictionary = {}
 
 var _parties_reussies: int = 0
+var _parties_parfaites: int = 0
 
 
 func _assurer_definitions_chargees() -> void:
-
 	if _definitions_chargees:
 		return
-
 	_definitions_chargees = true
-
 	var file := FileAccess.open(CHEMIN_JSON_SUCCES, FileAccess.READ)
-
 	if file == null:
 		push_error("Impossible d'ouvrir successes.json")
 		return
-
 	var json := JSON.new()
 	var err := json.parse(file.get_as_text())
-
 	file.close()
-
 	if err != OK:
 		push_error("JSON invalide")
 		return
-
 	var data = json.get_data()
-
 	if data is Array:
-
 		for entry in data:
-
 			if entry is Dictionary and entry.has("id"):
-
 				var id_str := str(entry.id)
-
 				_ordre_definitions.append(id_str)
-
 				_definitions[id_str] = {
 					"title": str(entry.get("title", "Succès")),
 					"description": str(entry.get("description", ""))
 				}
-
 				if entry.has("condition"):
 					_conditions[id_str] = entry["condition"]
 
 
 func charger_depuis_disque() -> void:
-
 	_assurer_definitions_chargees()
-
 	var cfg := ConfigFile.new()
 	var err := cfg.load(CHEMIN_SAUVEGARDE)
-
 	_debloques.clear()
-
 	if err == OK:
-
 		for id in _ordre_definitions:
 			_debloques[id] = bool(cfg.get_value(SECTION_CONFIG, id, false))
-
 		_parties_reussies = int(cfg.get_value(SECTION_STATS, "parties_reussies", 0))
-
+		_parties_parfaites = int(cfg.get_value(SECTION_STATS, "parties_parfaites", 0))
 	else:
-
 		for id in _ordre_definitions:
 			_debloques[id] = false
-
 		_parties_reussies = 0
+		_parties_parfaites = 0
 
 
 func sauver_sur_disque() -> void:
-
 	var cfg := ConfigFile.new()
 	cfg.load(CHEMIN_SAUVEGARDE)
 	for id in _ordre_definitions:
 		cfg.set_value(SECTION_CONFIG, id, _debloques.get(id, false))
-
 	cfg.set_value(SECTION_STATS, "parties_reussies", _parties_reussies)
-
+	cfg.set_value(SECTION_STATS, "parties_parfaites", _parties_parfaites)
 	cfg.save(CHEMIN_SAUVEGARDE)
 
 
 func debloquer(id_succes: String) -> bool:
-
 	if _debloques.get(id_succes, false):
 		return false
-
 	_debloques[id_succes] = true
-
 	print("[SUCCESS] Succès débloqué :", id_succes)
-
 	return true
 
 
@@ -129,8 +102,23 @@ func verifier_succes_parties() -> Array:
 			continue
 		var condition = _conditions[id]
 		if condition.has("type") and condition["type"] == "parties_reussies":
-			var seuil = int(condition.get("value", 0))
+			var seuil: int = int(condition.get("value", 0))
 			if _parties_reussies >= seuil:
+				if debloquer(id):
+					nouveaux.append(id)
+	return nouveaux
+
+
+func verifier_succes_parfaites() -> Array:
+	var nouveaux: Array = []
+	var ids = _conditions.keys().duplicate()
+	for id in ids:
+		if est_debloque(id):
+			continue
+		var condition = _conditions[id]
+		if condition.has("type") and condition["type"] == "parties_parfaites":
+			var seuil: int = int(condition.get("value", 0))
+			if _parties_parfaites >= seuil:
 				if debloquer(id):
 					nouveaux.append(id)
 	return nouveaux
@@ -144,17 +132,27 @@ func incrementer_et_verifier() -> Array:
 	return nouveaux
 
 
+func incrementer_partie_parfaite_et_verifier() -> Array:
+	_parties_parfaites += 1
+	print("[DEBUG] Parties parfaites :", _parties_parfaites)
+	var nouveaux := verifier_succes_parfaites()
+	sauver_sur_disque()
+	return nouveaux
+
+
 func obtenir_parties_reussies() -> int:
 	return _parties_reussies
 
 
+func obtenir_parties_parfaites() -> int:
+	return _parties_parfaites
+
+
 func obtenir_nombre_debloques() -> int:
 	var n: int = 0
-
 	for id in _ordre_definitions:
 		if _debloques.get(id, false):
 			n += 1
-
 	return n
 
 
@@ -163,20 +161,17 @@ func obtenir_nombre_total() -> int:
 
 
 func obtenir_tous_les_succes() -> Array:
-
 	var out: Array = []
-
 	for id in _ordre_definitions:
-
 		out.append({
 			"id": id,
 			"titre": obtenir_titre_succes(id),
 			"description": obtenir_description_succes(id),
 			"debloque": est_debloque(id)
 		})
-
 	return out
-	
+
+
 func verifier_succes_temps_ecoule(temps_ecoule: float) -> Array:
 	var nouveaux: Array = []
 	var ids = _conditions.keys().duplicate()

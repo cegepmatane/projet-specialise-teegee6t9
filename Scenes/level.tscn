@@ -1505,17 +1505,23 @@ script = ExtResource("17_nngtn")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/PanneauCodeUI" unique_id=1818357579]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 375.0
+offset_top = 125.0
+offset_right = 775.0
+offset_bottom = 525.0
 
 [node name="VBox" type="VBoxContainer" parent="CanvasLayer/PanneauCodeUI/Panel" unique_id=1328613040]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 390.0
+offset_bottom = 390.0
 
 [node name="Label" type="Label" parent="CanvasLayer/PanneauCodeUI/Panel/VBox" unique_id=1411612428]
 layout_mode = 2
 text = "── Entrez les codes ──"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Couleurs" type="VBoxContainer" parent="CanvasLayer/PanneauCodeUI/Panel/VBox" unique_id=675457450]
 layout_mode = 2
