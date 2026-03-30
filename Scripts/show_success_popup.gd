@@ -14,6 +14,12 @@ func _ready() -> void:
 	ecran_chargement.visible = false
 	panneau_notification.visible = false
 	IndiceManager.reset_partie(nombre_indices)
+	
+	var eclairage := get_node_or_null("Eclairage")
+	if eclairage:
+		for lumiere in eclairage.get_children():
+			if lumiere is Light3D:
+				lumiere.light_energy *= 0.05
 
 
 func afficher_succes_avec_transition(

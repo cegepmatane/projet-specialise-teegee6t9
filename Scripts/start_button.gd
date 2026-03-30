@@ -46,7 +46,7 @@ func interact() -> void:
 
 	# Consommer tous les items du preset
 	for id in slots:
-		if id != "":
+		if id != "" and id != "chrono":
 			EquipmentManager.consommer(id)
 
 	EquipmentManager.appliquer_preset(preset_actif)

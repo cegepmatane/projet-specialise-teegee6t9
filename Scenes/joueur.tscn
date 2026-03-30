@@ -32,6 +32,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1262995)
 transform = Transform3D(1.5, 0, 0, 0, -6.556708e-08, -1.5, 0, 1.5, -6.556708e-08, 0, 0, -0.2)
 script = ExtResource("3_8mied")
 
+[node name="LampePoche" type="SpotLight3D" parent="tete/Camera3D" unique_id=9319888]
+visible = false
+light_energy = 2.0
+spot_range = 10.0
+spot_angle = 25.0
+
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1651506409]
 
 [node name="Crosshair" type="Label" parent="HUD" unique_id=1916435916]
@@ -74,9 +80,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -20.0
-offset_top = 80.0
+offset_top = 100.0
 offset_right = 50.0
-offset_bottom = 150.0
+offset_bottom = 170.0
 grow_horizontal = 2
 script = ExtResource("5_umn3c")
 
@@ -100,7 +106,7 @@ script = ExtResource("6_0wo10")
 layout_mode = 0
 offset_left = 20.0
 offset_top = 25.0
-offset_right = 256.0
+offset_right = 283.0
 offset_bottom = 195.0
 
 [node name="HBox" type="HBoxContainer" parent="HUD/CarnetIndices/Panel" unique_id=1227804098]

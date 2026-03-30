@@ -5,6 +5,7 @@ extends Control
 var _temps_restant: float = 0.0
 var _actif: bool = false
 var _echec_en_cours: bool = false
+var _chrono_actif: bool = false
 
 @onready var label_timer: Label = $LabelTimer
 
@@ -34,6 +35,9 @@ func _mettre_a_jour_affichage() -> void:
 	var minutes: int = int(_temps_restant / 60.0)
 	var secondes: int = int(_temps_restant) % 60
 	label_timer.text = "%02d:%02d" % [minutes, secondes]
+
+	if _chrono_actif:
+		return
 
 	if _temps_restant <= 30.0:
 		label_timer.add_theme_color_override("font_color", Color(1, 0, 0))

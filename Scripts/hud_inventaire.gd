@@ -53,8 +53,7 @@ func rafraichir() -> void:
 		if id == "":
 			label.text = "[%d] vide" % (i + 1)
 		else:
-			var qte: int = EquipmentManager.obtenir_quantite(id)
-			label.text = "[%d] %s (%d)" % [i + 1, id, qte]
+			label.text = "[%d] %s" % [i + 1, id]
 
 		label.add_theme_color_override(
 			"font_color",
