@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dw8f7snv85k3i" path="res://Scripts/hud_inventaire.gd" id="4_uvd8m"]
 [ext_resource type="Script" uid="uid://tl8r0lr3lu7c" path="res://Scripts/timer_partie.gd" id="5_umn3c"]
 [ext_resource type="Script" uid="uid://dedlhvy267ou0" path="res://Scripts/carnet_indices.gd" id="6_0wo10"]
+[ext_resource type="Script" uid="uid://baayf1lvcdpqf" path="res://Scripts/menu_pause.gd" id="7_jcd2x"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rf571"]
 
@@ -157,3 +158,53 @@ offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 0
 max_value = 30.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="HUD" unique_id=561034890]
+script = ExtResource("7_jcd2x")
+
+[node name="Panneau" type="Control" parent="HUD/CanvasLayer" unique_id=82923577]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="HUD/CanvasLayer/Panneau" unique_id=455052621]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = -94.0
+offset_right = 160.0
+offset_bottom = 106.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="HUD/CanvasLayer/Panneau/VBox" unique_id=1292119872]
+process_mode = 3
+layout_mode = 2
+text = "PAUSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnReprendre" type="Button" parent="HUD/CanvasLayer/Panneau/VBox" unique_id=133655751]
+process_mode = 3
+layout_mode = 2
+text = "▶ Reprendre"
+
+[node name="BtnLobby" type="Button" parent="HUD/CanvasLayer/Panneau/VBox" unique_id=425219460]
+process_mode = 3
+layout_mode = 2
+text = "🏠 Retour au lobby"
+
+[node name="BtnQuitter" type="Button" parent="HUD/CanvasLayer/Panneau/VBox" unique_id=1248404108]
+process_mode = 3
+layout_mode = 2
+text = "✖ Quitter"

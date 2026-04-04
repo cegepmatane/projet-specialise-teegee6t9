@@ -38,6 +38,10 @@ func _ready() -> void:
 	if carnet:
 		carnet.visible = false
 		carnet.set_process_unhandled_input(false)
+		
+	var menu_pause := joueur.get_node_or_null("HUD/MenuPause")
+	if menu_pause:
+		menu_pause.set_process_mode(Node.PROCESS_MODE_DISABLED)
 
 	_popup = AcceptDialog.new()
 	_popup.title = "Impossible de lancer"
