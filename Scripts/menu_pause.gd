@@ -20,12 +20,17 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):  # Échap
+	if get_tree().current_scene.name == "lobby":
+		return
+	if event.is_action_pressed("ui_cancel"):
+		var racine := get_tree().current_scene
+		var panneau_ui := racine.get_node_or_null("CanvasLayer/PanneauCodeUI")
+		if panneau_ui and panneau_ui.visible:
+			return
 		if _actif:
 			reprendre()
 		else:
 			pauser()
-
 
 func pauser() -> void:
 	_actif = true

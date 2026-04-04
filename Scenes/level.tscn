@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bt2qs72wuxkns" path="res://Scenes/indices/indice_couleur_4.tscn" id="15_gf56v"]
 [ext_resource type="PackedScene" uid="uid://cb3kgliplj5ld" path="res://Scenes/indices/indice_couleur_5.tscn" id="17_6y3s5"]
 [ext_resource type="Script" uid="uid://02r6yx6u7x44" path="res://Scripts/panneau_code_ui.gd" id="17_nngtn"]
+[ext_resource type="PackedScene" uid="uid://4ccnc3mv875n" path="res://Scenes/ecran_resultats.tscn" id="19_00k4y"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sol"]
 
@@ -1475,25 +1476,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanneauNotification" type="Panel" parent="CanvasLayer" unique_id=27841413]
-visible = false
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 100.0
-grow_horizontal = 2
-
-[node name="Texte" type="Label" parent="CanvasLayer/PanneauNotification" unique_id=1845530920]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Succès débloqué !
-S'échapper pour la première fois"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="PanneauCodeUI" type="Control" parent="CanvasLayer" unique_id=1422985813]
 layout_mode = 3
 anchors_preset = 15
@@ -1562,3 +1544,28 @@ layout_mode = 2
 [node name="BoutonFermer" type="Button" parent="CanvasLayer/PanneauCodeUI/Panel/VBox" unique_id=1717707153]
 layout_mode = 2
 text = "Fermer"
+
+[node name="EcranResultats" parent="CanvasLayer" unique_id=426277079 instance=ExtResource("19_00k4y")]
+layer = 5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CanvasLayer" unique_id=149940351]
+layer = 10
+
+[node name="PanneauNotification" type="Panel" parent="CanvasLayer/CanvasLayer" unique_id=27841413]
+visible = false
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 100.0
+grow_horizontal = 2
+
+[node name="Texte" type="Label" parent="CanvasLayer/CanvasLayer/PanneauNotification" unique_id=1845530920]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Succès débloqué !
+S'échapper pour la première fois"
+horizontal_alignment = 1
+vertical_alignment = 1

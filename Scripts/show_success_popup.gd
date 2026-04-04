@@ -1,8 +1,8 @@
 extends Node3D
 
 @onready var ecran_chargement := $CanvasLayer/EcranBlanc
-@onready var panneau_notification := $CanvasLayer/PanneauNotification
-@onready var label_notification := $CanvasLayer/PanneauNotification/Texte
+@onready var panneau_notification := $CanvasLayer/CanvasLayer/PanneauNotification
+@onready var label_notification := $CanvasLayer/CanvasLayer/PanneauNotification/Texte
 @onready var panneau_code_ui := $CanvasLayer/PanneauCodeUI
 
 @export var nombre_indices: int = 10

@@ -1,5 +1,11 @@
 extends StaticBody3D
 
+@onready var mesh: MeshInstance3D = $MeshInstance3D
+
+const MATERIAU_ROUGE := preload("res://Matériaux/faux.tres")
+const MATERIAU_VERT := preload("res://Matériaux/vrai.tres")
+const MATERIAU_BLEU := preload("res://Matériaux/tp.tres")
+
 const COULEURS := {
 	"Rouge":  Color(1, 0, 0),
 	"Vert":   Color(0, 1, 0),
@@ -71,15 +77,34 @@ func _verifier_codes() -> void:
 
 	if couleurs_ok and chiffres_ok:
 		print("[PANNEAU] Codes corrects ! Spawn téléporteur")
+		if mesh:
+			mesh.material_overlay = MATERIAU_VERT
 		get_tree().current_scene.fermer_panneau_code()
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		_ouvert = false
 		_spawn_teleporteur()
 	else:
 		print("[PANNEAU] Codes incorrects")
+		if mesh:
+			mesh.material_overlay = MATERIAU_ROUGE
 		get_tree().current_scene.afficher_erreur_code(couleurs_ok, chiffres_ok)
-		effacer_couleurs()
-		effacer_chiffres()
+
+		var panneau_ui := get_tree().current_scene.get_node_or_null("CanvasLayer/PanneauCodeUI")
+
+		# N'effacer que ce qui est incorrect
+		if not couleurs_ok:
+			effacer_couleurs()
+			if panneau_ui:
+				panneau_ui._effacer_couleurs()
+		if not chiffres_ok:
+			effacer_chiffres()
+			if panneau_ui:
+				panneau_ui._effacer_chiffres()
+
+		# Remettre bleu après 1 seconde
+		await get_tree().create_timer(1.0).timeout
+		if mesh:
+			mesh.material_overlay = MATERIAU_BLEU
 
 
 func _spawn_teleporteur() -> void:

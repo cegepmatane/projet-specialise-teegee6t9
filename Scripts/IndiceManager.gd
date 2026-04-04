@@ -65,6 +65,9 @@ func _spawn_panneau() -> void:
 	var panneau := racine.get_node_or_null("Structure/SalleCentrale/PanneauCode")
 	if panneau:
 		panneau.visible = true
+		var collision := panneau.get_node_or_null("CollisionShape3D")
+		if collision:
+			collision.disabled = false
 		print("[DEBUG][IndiceManager] Panneau de code activé")
 	else:
 		push_warning("IndiceManager: PanneauCode introuvable dans la scène")

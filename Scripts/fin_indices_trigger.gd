@@ -38,9 +38,13 @@ func _trigger_tp_async() -> void:
 	if forme:
 		forme.set_deferred("disabled", true)
 
+	# Argent gagné
+	var argent_avant: int = EquipmentManager.obtenir_argent()
 	EquipmentManager.gagner_argent_partie()
+	var argent_gagne: int = EquipmentManager.obtenir_argent() - argent_avant
 
-	# Vérifier le succès de temps
+	# Temps écoulé
+	var temps_ecoule: float = 0.0
 	var timer_node: Node = null
 	var joueurs := get_tree().get_nodes_in_group("Joueur")
 	if joueurs.size() > 0:
@@ -50,52 +54,41 @@ func _trigger_tp_async() -> void:
 		print("[DEBUG] Aucun joueur dans le groupe Joueur")
 
 	if timer_node:
-		var temps_ecoule: float = timer_node.duree_secondes - timer_node._temps_restant
+		temps_ecoule = timer_node.duree_secondes - timer_node._temps_restant
 		print("[DEBUG] Temps écoulé : %.1f secondes" % temps_ecoule)
-		var nouveaux_temps := SuccessManager.verifier_succes_temps_ecoule(temps_ecoule)
-		for id in nouveaux_temps:
-			var racine := get_tree().current_scene
-			if racine and racine.has_method("afficher_succes_avec_transition"):
-				var titre: String = SuccessManager.obtenir_titre_succes(id)
-				await racine.afficher_succes_avec_transition(
-					"Succès débloqué : %s" % titre,
-					2.0,
-					true
-				)
+		timer_node._actif = false
 	else:
 		print("[DEBUG] TimerPartie introuvable")
 
-	# Vérifier partie parfaite
+	# Collecter tous les nouveaux succès
+	var tous_nouveaux: Array = []
+
+	# Succès temps
+	var nouveaux_temps := SuccessManager.verifier_succes_temps_ecoule(temps_ecoule)
+	tous_nouveaux.append_array(nouveaux_temps)
+
+	# Partie parfaite
 	var secret_trouve: bool = IndiceManager._secret_trouve
 	var tous_indices: bool = IndiceManager.obtenir_nombre_trouves() >= IndiceManager.obtenir_nombre_total()
 	print("[DEBUG] Secret trouvé : ", secret_trouve, " | Tous indices : ", tous_indices)
 	if secret_trouve and tous_indices:
 		print("[DEBUG] Partie parfaite !")
 		var nouveaux_parfaits := SuccessManager.incrementer_partie_parfaite_et_verifier()
-		for id in nouveaux_parfaits:
-			var racine := get_tree().current_scene
-			if racine and racine.has_method("afficher_succes_avec_transition"):
-				var titre: String = SuccessManager.obtenir_titre_succes(id)
-				await racine.afficher_succes_avec_transition(
-					"Succès débloqué : %s" % titre,
-					2.0,
-					true
-				)
+		tous_nouveaux.append_array(nouveaux_parfaits)
 
 	# Succès parties réussies
 	var nouveaux: Array = SuccessManager.incrementer_et_verifier()
+	tous_nouveaux.append_array(nouveaux)
 	print("[DEBUG] Parties réussies =", SuccessManager.obtenir_parties_reussies())
-	for id in nouveaux:
-		var racine := get_tree().current_scene
-		if racine and racine.has_method("afficher_succes_avec_transition"):
-			var titre: String = SuccessManager.obtenir_titre_succes(id)
-			await racine.afficher_succes_avec_transition(
-				"Succès débloqué : %s" % titre,
-				2.0,
-				true
-			)
 
-	var timer := get_tree().create_timer(duree_effet)
-	await timer.timeout
-	if prochaine_scene != "":
-		get_tree().change_scene_to_file(prochaine_scene)
+	# Afficher l'écran de résultats
+	var racine := get_tree().current_scene
+	var ecran := racine.get_node_or_null("CanvasLayer/EcranResultats")
+	if ecran:
+		ecran.afficher(temps_ecoule, argent_gagne, tous_nouveaux)
+	else:
+		print("[DEBUG] EcranResultats introuvable, retour direct au lobby")
+		var timer := get_tree().create_timer(duree_effet)
+		await timer.timeout
+		if prochaine_scene != "":
+			get_tree().change_scene_to_file(prochaine_scene)

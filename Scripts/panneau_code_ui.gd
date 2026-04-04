@@ -17,6 +17,11 @@ func _ready() -> void:
 
 var _interface_construite: bool = false
 
+func _unhandled_input(event: InputEvent) -> void:
+	if visible and event.is_action_pressed("ui_cancel"):
+		fermer()
+		get_viewport().set_input_as_handled()
+
 func ouvrir(panneau: Node) -> void:
 	_panneau = panneau
 	visible = true

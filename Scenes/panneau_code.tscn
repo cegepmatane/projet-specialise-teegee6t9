@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d3766vnburrqt"]
 
 [ext_resource type="Script" uid="uid://bfixyuvu6o40q" path="res://Scripts/panneau_code.gd" id="1_g1o66"]
+[ext_resource type="Material" uid="uid://bjmt4nu3jv70e" path="res://Matériaux/tp.tres" id="2_qub68"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qub68"]
 
@@ -12,6 +13,8 @@ script = ExtResource("1_g1o66")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1763798138]
 shape = SubResource("BoxShape3D_qub68")
+disabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2087481106]
+material_overlay = ExtResource("2_qub68")
 mesh = SubResource("BoxMesh_g1o66")

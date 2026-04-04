@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://4ccnc3mv875n"]
+
+[ext_resource type="Script" uid="uid://8ao88fcqmsmr" path="res://Scripts/ecran_resultats.gd" id="1_v2svb"]
+
+[node name="EcranResultats" type="CanvasLayer" unique_id=769318772]
+script = ExtResource("1_v2svb")
+
+[node name="Overlay" type="ColorRect" parent="." unique_id=1231540308]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Panneau" type="Control" parent="." unique_id=321417521]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panneau" unique_id=1458786885]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Panneau/VBox" unique_id=918447740]
+layout_mode = 2
+text = "RÉSULTATS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelTemps" type="Label" parent="Panneau/VBox" unique_id=1711919491]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelArgent" type="Label" parent="Panneau/VBox" unique_id=2063734651]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Panneau/VBox" unique_id=872702206]
+layout_mode = 2
+
+[node name="LabelSucces" type="Label" parent="Panneau/VBox" unique_id=961019257]
+layout_mode = 2
+text = "Succès débloqués :"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ListeSucces" type="VBoxContainer" parent="Panneau/VBox" unique_id=1793851289]
+layout_mode = 2
+alignment = 1
+
+[node name="BoutonContinuer" type="Button" parent="Panneau/VBox" unique_id=270143792]
+process_mode = 3
+layout_mode = 2
+text = "Continuer →"
