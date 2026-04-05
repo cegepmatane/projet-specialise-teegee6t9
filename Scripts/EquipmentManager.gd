@@ -125,6 +125,9 @@ func obtenir_argent() -> int:
 func ajouter_argent(montant: int) -> void:
 	_argent += montant
 	print("[EQUIPMENT] Argent ajouté : +", montant, " → total =", _argent)
+	var nouveaux := SuccessManager.verifier_succes_argent(_argent)
+	for id in nouveaux:
+		print("[SUCCESS] Succès argent débloqué : ", id)
 	sauver_sur_disque()
 
 

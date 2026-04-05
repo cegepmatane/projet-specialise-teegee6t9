@@ -123,6 +123,20 @@ func verifier_succes_parfaites() -> Array:
 					nouveaux.append(id)
 	return nouveaux
 
+func verifier_succes_argent(argent: int) -> Array:
+	var nouveaux: Array = []
+	var ids = _conditions.keys().duplicate()
+	for id in ids:
+		if est_debloque(id):
+			continue
+		var condition = _conditions[id]
+		if condition.has("type") and condition["type"] == "argent_total":
+			var seuil: int = int(condition.get("value", 0))
+			if argent >= seuil:
+				if debloquer(id):
+					nouveaux.append(id)
+	sauver_sur_disque()
+	return nouveaux
 
 func incrementer_et_verifier() -> Array:
 	_parties_reussies += 1

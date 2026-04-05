@@ -66,6 +66,29 @@
 	"type": "parties_parfaites",
 	"value": 10
   }
+},
+{
+  "id": "no_equipment",
+  "title": "Mains nues",
+  "description": "Terminer une partie sans preset actif"
+},
+{
+  "id": "rich",
+  "title": "Millionnaire",
+  "description": "Accumuler 500$ au total",
+  "condition": {
+	"type": "argent_total",
+	"value": 500
+  }
+},
+{
+  "id": "richer",
+  "title": "Milliardaire",
+  "description": "Accumuler 2000$ au total",
+  "condition": {
+	"type": "argent_total",
+	"value": 2000
+  }
 }
 ]
   

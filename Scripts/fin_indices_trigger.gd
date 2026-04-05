@@ -38,10 +38,15 @@ func _trigger_tp_async() -> void:
 	if forme:
 		forme.set_deferred("disabled", true)
 
+	# Collecter tous les nouveaux succès
+	var tous_nouveaux: Array = []
+
 	# Argent gagné
 	var argent_avant: int = EquipmentManager.obtenir_argent()
+	var nouveaux_argent := SuccessManager.verifier_succes_argent(argent_avant + EquipmentManager.GAIN_PARTIE)
 	EquipmentManager.gagner_argent_partie()
 	var argent_gagne: int = EquipmentManager.obtenir_argent() - argent_avant
+	tous_nouveaux.append_array(nouveaux_argent)
 
 	# Temps écoulé
 	var temps_ecoule: float = 0.0
@@ -60,9 +65,6 @@ func _trigger_tp_async() -> void:
 	else:
 		print("[DEBUG] TimerPartie introuvable")
 
-	# Collecter tous les nouveaux succès
-	var tous_nouveaux: Array = []
-
 	# Succès temps
 	var nouveaux_temps := SuccessManager.verifier_succes_temps_ecoule(temps_ecoule)
 	tous_nouveaux.append_array(nouveaux_temps)
@@ -80,6 +82,12 @@ func _trigger_tp_async() -> void:
 	var nouveaux: Array = SuccessManager.incrementer_et_verifier()
 	tous_nouveaux.append_array(nouveaux)
 	print("[DEBUG] Parties réussies =", SuccessManager.obtenir_parties_reussies())
+	
+	# Vérifier succès sans équipement
+	if EquipmentManager.obtenir_active_preset() == "":
+		if SuccessManager.debloquer("no_equipment"):
+			tous_nouveaux.append("no_equipment")
+			SuccessManager.sauver_sur_disque()
 
 	# Afficher l'écran de résultats
 	var racine := get_tree().current_scene
