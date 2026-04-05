@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c02v80e5cgg7a"]
+
+[ext_resource type="PackedScene" uid="uid://o8gyg41ax4h7" path="res://Assets/glTF/Prop_Locker.gltf" id="1_3k2m6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o4oa0"]
+size = Vector3(0.9916992, 1.1633301, 0.5064087)
+
+[node name="Prop_Locker2" unique_id=1972186089 instance=ExtResource("1_3k2m6")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=635133972]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=143296361]
+transform = Transform3D(1, 0, 0, 0, 2.2978914, 0, 0, 0, 1, 0.00024414063, 1.3337673, 0.017425537)
+shape = SubResource("BoxShape3D_o4oa0")

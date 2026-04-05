@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://3i47xxee1fma"]
+
+[ext_resource type="PackedScene" uid="uid://ctbssrgdpp4ci" path="res://Assets/glTF/Prop_Chest.gltf" id="1_ixco5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7wbjd"]
+size = Vector3(1.8493042, 0.9472351, 0.9830322)
+
+[node name="Prop_Chest2" unique_id=1823736022 instance=ExtResource("1_ixco5")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="2" unique_id=120602109]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1092600784]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010681152, 0.4827407, 0.05303955)
+shape = SubResource("BoxShape3D_7wbjd")

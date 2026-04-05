@@ -34,4 +34,4 @@ func interact() -> void:
 			push_warning("indice_scene doit avoir un Node3D comme racine")
 
 	# Suppression en toute fin
-	queue_free()
+	get_parent().queue_free()

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://mky6i31dl8i7"]
+
+[ext_resource type="PackedScene" uid="uid://bx5ct0d8vcrl1" path="res://Assets/glTF/Prop_Crate_Tarp.gltf" id="1_au5lh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fk8r7"]
+size = Vector3(0.98638916, 0.89941406, 0.980896)
+
+[node name="Prop_Crate_Tarp2" unique_id=2057032482 instance=ExtResource("1_au5lh")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=606560738]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=631081678]
+transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 0.00016021729, 0.77819824, -0.0022964478)
+shape = SubResource("BoxShape3D_fk8r7")

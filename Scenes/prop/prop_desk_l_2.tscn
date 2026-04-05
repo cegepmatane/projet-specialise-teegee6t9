@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://65xv54n7q0nb"]
+
+[ext_resource type="PackedScene" uid="uid://dfe1khxuufiuk" path="res://Assets/glTF/Prop_Desk_L.gltf" id="1_fr1g5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lfltb"]
+size = Vector3(2.2289734, 0.94421387, 1.0400085)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_flt0d"]
+size = Vector3(1.0355225, 0.9501953, 1.1924133)
+
+[node name="Prop_Desk_L2" unique_id=1817060263 instance=ExtResource("1_fr1g5")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=684597035]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=153139239]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31037056, 0.46883094, 0.28330815)
+shape = SubResource("BoxShape3D_lfltb")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" index="1" unique_id=1426772031]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28732437, 0.46931922, -0.82782996)
+shape = SubResource("BoxShape3D_flt0d")

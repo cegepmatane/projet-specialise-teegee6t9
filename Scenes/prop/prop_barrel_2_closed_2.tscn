@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bstnjie8552ev"]
+
+[ext_resource type="PackedScene" uid="uid://b40j38ionq18x" path="res://Assets/glTF/Prop_Barrel2_Closed.gltf" id="1_84ih2"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dmisp"]
+height = 0.66430664
+radius = 0.27246094
+
+[node name="Prop_Barrel2_Closed2" unique_id=489834936 instance=ExtResource("1_84ih2")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=1551395130]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1771932721]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32922363, 0)
+shape = SubResource("CylinderShape3D_dmisp")

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://d2kyra20g7bsh"]
+
+[ext_resource type="PackedScene" uid="uid://djxii4eka1i4" path="res://Assets/glTF/Prop_Shelves_WideShort.gltf" id="1_xfkxi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bmhsd"]
+size = Vector3(0.9876709, 1.214714, 0.5433216)
+
+[node name="Prop_Shelves_WideShort2" unique_id=2133755721 instance=ExtResource("1_xfkxi")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=1314358182]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1401732392]
+transform = Transform3D(2.0064507, 0, 0, 0, 1, 0, 0, 0, 1, -0.0015920326, 0.6068995, -8.869171e-05)
+shape = SubResource("BoxShape3D_bmhsd")

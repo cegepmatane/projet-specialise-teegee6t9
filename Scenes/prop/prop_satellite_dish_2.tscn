@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://b535movh088ek"]
+
+[ext_resource type="PackedScene" uid="uid://b7ocum1e808kw" path="res://Assets/glTF/glTF/Prop_SatelliteDish.gltf" id="1_skv07"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lyhw3"]
+size = Vector3(0.6053772, 0.22723389, 1.1481934)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qs8sa"]
+size = Vector3(0.32125092, 2.6808472, 0.3559265)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_44c1x"]
+
+[node name="Prop_SatelliteDish2" unique_id=658815090 instance=ExtResource("1_skv07")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=376708350]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1616863392]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5258789e-05, 0.07855737, 0.0013427734)
+shape = SubResource("BoxShape3D_lyhw3")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" index="1" unique_id=69224496]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00076675415, 1.5309345, -0.0008087158)
+shape = SubResource("BoxShape3D_qs8sa")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" index="2" unique_id=1012680923]
+transform = Transform3D(2.2259874, 0, 0, 0, 2.950338, 0, 0, 0, 3.0842235, 0, 4.326981, 0.15665102)
+shape = SubResource("SphereShape3D_44c1x")

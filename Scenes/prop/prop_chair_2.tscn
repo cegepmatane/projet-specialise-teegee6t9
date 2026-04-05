@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cu5oru5pwqvx7"]
+
+[ext_resource type="PackedScene" uid="uid://8dotgl7yqabr" path="res://Assets/glTF/Prop_Chair.gltf" id="1_yoj6i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bxd07"]
+size = Vector3(1, 0.6750488, 0.86898804)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pio0m"]
+size = Vector3(1.0942383, 1.1947021, 0.38275146)
+
+[node name="Prop_Chair2" unique_id=1222410008 instance=ExtResource("1_yoj6i")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=288706345]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1471272059]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32620358, -0.05784607)
+shape = SubResource("BoxShape3D_bxd07")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" index="1" unique_id=719198732]
+transform = Transform3D(0.81996983, 0, 0, 0, 0.9654044, -0.26075727, 0, 0.26075727, 0.9654044, -0.0010009408, 1.0803285, 0.34552652)
+shape = SubResource("BoxShape3D_pio0m")
