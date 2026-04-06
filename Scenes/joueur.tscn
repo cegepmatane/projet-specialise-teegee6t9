@@ -7,10 +7,27 @@
 [ext_resource type="Script" uid="uid://tl8r0lr3lu7c" path="res://Scripts/timer_partie.gd" id="5_umn3c"]
 [ext_resource type="Script" uid="uid://dedlhvy267ou0" path="res://Scripts/carnet_indices.gd" id="6_0wo10"]
 [ext_resource type="Script" uid="uid://baayf1lvcdpqf" path="res://Scripts/menu_pause.gd" id="7_jcd2x"]
+[ext_resource type="Script" uid="uid://n3rlv8uhkkk8" path="res://Scripts/hud_touches.gd" id="8_2b5l5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rf571"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kkerk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2b5l5"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 6.0
+expand_margin_top = 6.0
+expand_margin_right = 6.0
+expand_margin_bottom = 6.0
 
 [node name="Joueur" type="CharacterBody3D" unique_id=66292697 groups=["Joueur"]]
 script = ExtResource("1_kkerk")
@@ -171,7 +188,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="HUD/CanvasLayer/Panneau" unique_id=1543626317]
+[node name="Panel" type="PanelContainer" parent="HUD/CanvasLayer/Panneau" unique_id=783953824]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -185,55 +202,75 @@ offset_bottom = 91.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBox" type="VBoxContainer" parent="HUD/CanvasLayer/Panneau" unique_id=455052621]
+[node name="VBox" type="VBoxContainer" parent="HUD/CanvasLayer/Panneau/Panel" unique_id=455052621]
 process_mode = 3
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -156.0
-offset_top = -94.0
-offset_right = 160.0
-offset_bottom = 106.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="HUD/CanvasLayer/Panneau/VBox" unique_id=1292119872]
+[node name="Label" type="Label" parent="HUD/CanvasLayer/Panneau/Panel/VBox" unique_id=1292119872]
 process_mode = 3
 layout_mode = 2
 text = "PAUSE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BtnReprendre" type="Button" parent="HUD/CanvasLayer/Panneau/VBox" unique_id=133655751]
+[node name="BtnReprendre" type="Button" parent="HUD/CanvasLayer/Panneau/Panel/VBox" unique_id=133655751]
 process_mode = 3
 layout_mode = 2
 text = "▶ Reprendre"
 
-[node name="BtnLobby" type="Button" parent="HUD/CanvasLayer/Panneau/VBox" unique_id=425219460]
+[node name="BtnTouches" type="Button" parent="HUD/CanvasLayer/Panneau/Panel/VBox" unique_id=1177131182]
+process_mode = 3
+layout_mode = 2
+text = "🎮 Contrôles"
+
+[node name="BtnLobby" type="Button" parent="HUD/CanvasLayer/Panneau/Panel/VBox" unique_id=425219460]
 process_mode = 3
 layout_mode = 2
 text = "🏠 Retour au lobby"
 
-[node name="BtnQuitter" type="Button" parent="HUD/CanvasLayer/Panneau/VBox" unique_id=1248404108]
+[node name="BtnQuitter" type="Button" parent="HUD/CanvasLayer/Panneau/Panel/VBox" unique_id=1248404108]
 process_mode = 3
 layout_mode = 2
 text = "✖ Quitter"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/CanvasLayer/Panneau/VBox" unique_id=1377351292]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/CanvasLayer/Panneau/Panel/VBox" unique_id=1377351292]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="HUD/CanvasLayer/Panneau/VBox/HBoxContainer" unique_id=1949607495]
+[node name="Label2" type="Label" parent="HUD/CanvasLayer/Panneau/Panel/VBox/HBoxContainer" unique_id=1949607495]
 layout_mode = 2
 text = "🔊 Volume"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SliderVolume" type="HSlider" parent="HUD/CanvasLayer/Panneau/VBox/HBoxContainer" unique_id=1283064586]
+[node name="SliderVolume" type="HSlider" parent="HUD/CanvasLayer/Panneau/Panel/VBox/HBoxContainer" unique_id=1283064586]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 value = 50.0
+
+[node name="HUDTouches" type="Control" parent="HUD" unique_id=9547111]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -163.0
+offset_top = 12.0
+offset_right = -13.0
+offset_bottom = 52.0
+grow_horizontal = 0
+script = ExtResource("8_2b5l5")
+
+[node name="PanelContainer" type="PanelContainer" parent="HUD/HUDTouches" unique_id=1113226594]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -150.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2b5l5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/HUDTouches/PanelContainer" unique_id=1143075200]
+layout_mode = 2
+theme_override_constants/separation = 4

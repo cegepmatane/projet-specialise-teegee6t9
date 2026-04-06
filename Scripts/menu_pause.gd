@@ -3,10 +3,11 @@ extends CanvasLayer
 var _actif: bool = false
 
 @onready var panneau: Control = $Panneau
-@onready var btn_reprendre: Button = $Panneau/VBox/BtnReprendre
-@onready var btn_lobby: Button = $Panneau/VBox/BtnLobby
-@onready var btn_quitter: Button = $Panneau/VBox/BtnQuitter
-@onready var slider_volume: HSlider = $Panneau/VBox/HBoxContainer/SliderVolume
+@onready var btn_reprendre: Button = $Panneau/Panel/VBox/BtnReprendre
+@onready var btn_lobby: Button = $Panneau/Panel/VBox/BtnLobby
+@onready var btn_quitter: Button = $Panneau/Panel/VBox/BtnQuitter
+@onready var slider_volume: HSlider = $Panneau/Panel/VBox/HBoxContainer/SliderVolume
+@onready var btn_touches: Button = $Panneau/Panel/VBox/BtnTouches
 
 const VOLUME_BASE_LOBBY := -15.0
 const VOLUME_BASE_JEU := -20.0
@@ -33,14 +34,17 @@ func _ready() -> void:
 	if get_tree().current_scene.name == "lobby":
 		btn_lobby.visible = false
 		btn_reprendre.text = "Fermer"
+		
+	btn_touches.pressed.connect(_toggle_touches)
+	_mettre_a_jour_btn_touches()
 
 
 func _sur_changement_volume(valeur: float) -> void:
-	var offset: float = (valeur - 50.0) / 50.0 * OFFSET_MAX
+	var volume_offset: float = (valeur - 50.0) / 50.0 * OFFSET_MAX
 	var bus_lobby := AudioServer.get_bus_index("Lobby")
 	var bus_jeu := AudioServer.get_bus_index("Jeu")
-	AudioServer.set_bus_volume_db(bus_lobby, VOLUME_BASE_LOBBY + offset)
-	AudioServer.set_bus_volume_db(bus_jeu, VOLUME_BASE_JEU + offset)
+	AudioServer.set_bus_volume_db(bus_lobby, VOLUME_BASE_LOBBY + volume_offset)
+	AudioServer.set_bus_volume_db(bus_jeu, VOLUME_BASE_JEU + volume_offset)
 	
 	var cfg := ConfigFile.new()
 	cfg.load("user://save.cfg")
@@ -63,6 +67,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func pauser() -> void:
 	_actif = true
 	panneau.visible = true
+	_mettre_a_jour_btn_touches()
 	# Ne pas pauser dans le lobby pour garder la musique audible
 	if get_tree().current_scene.name != "lobby":
 		get_tree().paused = true
@@ -75,6 +80,32 @@ func reprendre() -> void:
 	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
+func _toggle_touches() -> void:
+	var joueurs := get_tree().get_nodes_in_group("Joueur")
+	if joueurs.size() > 0:
+		var hud := joueurs[0].get_node_or_null("HUD/HUDTouches")
+		if hud:
+			if hud.visible:
+				hud.cacher()
+				btn_touches.text = "Afficher les touches"
+			else:
+				hud.afficher()
+				btn_touches.text = "Cacher les touches"
+
+
+func _mettre_a_jour_btn_touches() -> void:
+	var joueurs := get_tree().get_nodes_in_group("Joueur")
+	if joueurs.size() > 0:
+		var hud := joueurs[0].get_node_or_null("HUD/HUDTouches")
+		if hud:
+			if hud.visible:
+				btn_touches.text = "Cacher les touches"
+			else:
+				btn_touches.text = "Afficher les touches"
+		else:
+			btn_touches.text = "Afficher les touches"
+	else:
+		btn_touches.text = "Afficher les touches"
 
 func _aller_lobby() -> void:
 	if get_tree().current_scene.name == "lobby":
