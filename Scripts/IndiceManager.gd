@@ -68,6 +68,14 @@ func _spawn_panneau() -> void:
 		var collision := panneau.get_node_or_null("CollisionShape3D")
 		if collision:
 			collision.disabled = false
+		var indicateur := panneau.get_node_or_null("Indicateur3D")
+		if indicateur:
+			var cfg := ConfigFile.new()
+			if cfg.load("user://save.cfg") == OK:
+				var parties: int = cfg.get_value("stats", "parties_reussies", 0)
+				indicateur.visible = parties == 0
+			else:
+				indicateur.visible = true
 		print("[DEBUG][IndiceManager] Panneau de code activé")
 	else:
 		push_warning("IndiceManager: PanneauCode introuvable dans la scène")

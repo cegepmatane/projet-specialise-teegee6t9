@@ -8,9 +8,9 @@ const SECTION_PRESETS := "presets"
 const SECTION_ACTIVE_PRESET := "active_preset"
 const SECTION_ARGENT := "argent"
 
-const GAIN_PARTIE := 25
+const GAIN_PARTIE := 35
 const BONUS_SECRET := 5
-const ITEM_GRATUIT := "lampe"
+const ITEM_GRATUIT := "lunettes"
 const NB_SLOTS := 3
 
 # Définitions chargées depuis le JSON

@@ -75,3 +75,7 @@ func interact() -> void:
 	await get_tree().create_timer(1.0).timeout
 	interactive = true
 	_en_traitement = false
+	
+	var indicateur := get_node_or_null("Indicateur3D")
+	if indicateur:
+		indicateur.cacher()

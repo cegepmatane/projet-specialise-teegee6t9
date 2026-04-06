@@ -1,5 +1,5 @@
 [
   { "id": "lampe", "nom": "Lampe de poche", "prix": 50, "stack_max": 3 },
-  { "id": "lunettes", "nom": "Lunettes de vision nocturne", "prix": 75, "stack_max": 1 },
+  { "id": "lunettes", "nom": "Lunettes de vision nocturne", "prix": 30, "stack_max": 1 },
   { "id": "chrono", "nom": "Chrono d'urgence", "prix": 200, "stack_max": 1 }
 ]

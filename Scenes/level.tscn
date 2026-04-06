@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://f31dmvp236xb" path="res://Assets/MetalPlates015A_8K-PNG_NormalDX.png" id="3_5o4ln"]
 [ext_resource type="Script" uid="uid://7c3pmeafxfb3" path="res://Scripts/boite_fouillable.gd" id="3_24uko"]
 [ext_resource type="Texture2D" uid="uid://4jnunimg4a36" path="res://Assets/glTF/T_Props_Crates_BaseColor.png" id="3_d3deu"]
+[ext_resource type="Script" uid="uid://dhem7mb7hrdj6" path="res://Scripts/indicateur_3d.gd" id="3_md013"]
 [ext_resource type="PackedScene" uid="uid://c66jo7yxv25dq" path="res://Scenes/joueur.tscn" id="4_81xng"]
 [ext_resource type="Texture2D" uid="uid://dl85upippqfg1" path="res://Assets/glTF/T_Props_Crates_ORM.png" id="4_csjfj"]
 [ext_resource type="PackedScene" uid="uid://cv7k6a5mblkx" path="res://Scenes/indices/indice_chiffre_1.tscn" id="4_ha31o"]
@@ -43,6 +44,7 @@
 [ext_resource type="PackedScene" uid="uid://be8k6ibcahddw" path="res://Scenes/prop/prop_desk_medium_2.tscn" id="35_fmtd1"]
 [ext_resource type="PackedScene" uid="uid://bwy3ek35dgq38" path="res://Scenes/prop/prop_barrel_12.tscn" id="37_fmtd1"]
 [ext_resource type="PackedScene" uid="uid://bstnjie8552ev" path="res://Scenes/prop/prop_barrel_2_closed_2.tscn" id="38_5o4ln"]
+[ext_resource type="PackedScene" uid="uid://c21rgpsoeqdtf" path="res://Scenes/indices/indice_chiffre_4.tscn" id="38_ogdfn"]
 [ext_resource type="AudioStream" uid="uid://b3yemaonuy1wv" path="res://Musiques/Game.mp3" id="45_md013"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sol"]
@@ -514,6 +516,12 @@ omni_attenuation = 0.4
 transform = Transform3D(0.6319765, 0, 0.08056279, 0, 1, 0, -0.4151309, 0, 0.12264513, -6.112117, 1.820651, -5.2211046)
 visible = false
 
+[node name="Indicateur3D" type="Label3D" parent="Structure/SalleCentrale/PanneauCode" unique_id=508841451]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9188664, 0)
+visible = false
+script = ExtResource("3_md013")
+texte = "Clic Gauche - Entrer le code"
+
 [node name="PointFinIndices" type="Marker3D" parent="Structure/SalleCentrale" unique_id=1135164999]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
 
@@ -642,6 +650,11 @@ indice_scene = ExtResource("11_2klc5")
 transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 0.00016021729, 0.77819824, -0.0022964478)
 shape = SubResource("BoxShape3D_fk8r7")
 
+[node name="Indicateur3D" type="Label3D" parent="Structure/SalleCentrale/CaisseHall_1" unique_id=1611936799]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0645807, 0)
+script = ExtResource("3_md013")
+texte = "Clic Gauche - Fouiller"
+
 [node name="CasierMetal" type="StaticBody3D" parent="Structure/SalleCentrale" unique_id=1425219784]
 transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -9.209439, 0.09999988, 9.053896)
 
@@ -710,6 +723,12 @@ point_spawn_secret = NodePath("../../../EtagereBas/Secret")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/SalleCentrale/CasierMetal/FaçadePorte/Pivot/PorteInteract" unique_id=1407086304]
 transform = Transform3D(0.03, 0, 0, 0, 2.3, 0, 0, 0, 0.75, 0.015, 0, 0)
 shape = SubResource("BoxShape3D_1k4di")
+
+[node name="Indicateur3D" type="Label3D" parent="Structure/SalleCentrale/CasierMetal/FaçadePorte/Pivot/PorteInteract" unique_id=426330741]
+transform = Transform3D(-4.3711378e-08, 0, 0.9999998, 0, 1, 0, -0.9999998, 0, -4.3711378e-08, 0.44449902, 1.4895976, -0.87331676)
+script = ExtResource("3_md013")
+texte = "Clic Gauche - Ouvrir"
+vitesse_bob = 3.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Structure/SalleCentrale/CasierMetal" unique_id=914186727]
 libraries/ = SubResource("8")
@@ -1913,7 +1932,7 @@ mesh = SubResource("ArrayMesh_ribkh")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Structure/AileOuest/SalleOuest1/Node3D/CaisseNord_1" unique_id=2063802773]
 script = ExtResource("3_24uko")
-indice_scene = ExtResource("4_ha31o")
+indice_scene = ExtResource("38_ogdfn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AileOuest/SalleOuest1/Node3D/CaisseNord_1/StaticBody3D" unique_id=1216254419]
 transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 0.00016021729, 0.77819824, -0.0022964478)
