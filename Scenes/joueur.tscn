@@ -30,7 +30,7 @@ script = ExtResource("2_b0ct8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1262995)
 
 [node name="RayCast3D" type="RayCast3D" parent="tete/Camera3D" unique_id=1069972518]
-transform = Transform3D(1.5, 0, 0, 0, -6.556708e-08, -1.5, 0, 1.5, -6.556708e-08, 0, 0, -0.2)
+transform = Transform3D(1.5, 0, 0, 0, -8.824283e-08, -1.5, 0, 2.0187607, -6.556708e-08, 0, 0, -0.24292678)
 script = ExtResource("3_8mied")
 
 [node name="LampePoche" type="SpotLight3D" parent="tete/Camera3D" unique_id=9319888]
@@ -171,6 +171,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Panel" type="Panel" parent="HUD/CanvasLayer/Panneau" unique_id=1543626317]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = -79.0
+offset_right = 174.0
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="VBox" type="VBoxContainer" parent="HUD/CanvasLayer/Panneau" unique_id=455052621]
 process_mode = 3
 layout_mode = 1
@@ -208,3 +222,18 @@ text = "🏠 Retour au lobby"
 process_mode = 3
 layout_mode = 2
 text = "✖ Quitter"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/CanvasLayer/Panneau/VBox" unique_id=1377351292]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="HUD/CanvasLayer/Panneau/VBox/HBoxContainer" unique_id=1949607495]
+layout_mode = 2
+text = "🔊 Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SliderVolume" type="HSlider" parent="HUD/CanvasLayer/Panneau/VBox/HBoxContainer" unique_id=1283064586]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 50.0

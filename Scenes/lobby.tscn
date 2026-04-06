@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://clnlgo1yvdqax" path="res://Scenes/success_ui.tscn" id="5_ruji2"]
 [ext_resource type="Script" uid="uid://bufomljtkjl75" path="res://Scripts/bouton_page_succes.gd" id="7_aghey"]
 [ext_resource type="Script" uid="uid://c1lew05r2uups" path="res://Scripts/boutique_ui.gd" id="7_bvheq"]
+[ext_resource type="AudioStream" uid="uid://6t6y4dhp2pmr" path="res://Musiques/Lobby.mp3" id="9_aghey"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vuo3o"]
 
@@ -242,3 +243,8 @@ shape = SubResource("BoxShape3D_1updj")
 text = "Suiv →"
 
 [node name="CanvasLayer" parent="." unique_id=249209227 instance=ExtResource("5_ruji2")]
+
+[node name="Musique" type="AudioStreamPlayer2D" parent="." unique_id=737727384]
+stream = ExtResource("9_aghey")
+autoplay = true
+bus = &"Lobby"

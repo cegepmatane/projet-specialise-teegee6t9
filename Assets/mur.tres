@@ -1,6 +1,0 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://bqloocrmv1ikm"]
-
-[ext_resource type="Texture2D" path="res://Assets/MetalPlates016A_8K-PNG_AmbientOcclusion.png" id="1_tmft4"]
-
-[resource]
-albedo_texture = ExtResource("1_tmft4")
