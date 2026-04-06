@@ -37,7 +37,7 @@ jobs:
 
       - name: Poster dans Discord
         env:
-          WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_SECURITE }}
         run: |
           MSG=$(cat resume.txt | head -10)
           DATE=$(date +%Y-%m-%d)
