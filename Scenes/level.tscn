@@ -4,9 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://d3766vnburrqt" path="res://Scenes/panneau_code.tscn" id="2_vofx3"]
 [ext_resource type="Script" uid="uid://7c3pmeafxfb3" path="res://Scripts/boite_fouillable.gd" id="3_24uko"]
 [ext_resource type="Texture2D" uid="uid://4jnunimg4a36" path="res://Assets/glTF/T_Props_Crates_BaseColor.png" id="3_d3deu"]
+[ext_resource type="Material" uid="uid://docm2a33wvghm" path="res://Assets/sol.tres" id="3_maxl3"]
 [ext_resource type="PackedScene" uid="uid://c66jo7yxv25dq" path="res://Scenes/joueur.tscn" id="4_81xng"]
 [ext_resource type="Texture2D" uid="uid://dl85upippqfg1" path="res://Assets/glTF/T_Props_Crates_ORM.png" id="4_csjfj"]
 [ext_resource type="PackedScene" uid="uid://cv7k6a5mblkx" path="res://Scenes/indices/indice_chiffre_1.tscn" id="4_ha31o"]
+[ext_resource type="Texture2D" path="res://Assets/MetalPlates016A_8K-PNG_AmbientOcclusion.png" id="4_maxl3"]
+[ext_resource type="Material" uid="uid://bqloocrmv1ikm" path="res://Assets/mur.tres" id="5_md013"]
 [ext_resource type="Texture2D" uid="uid://dxg2rapbjxxn4" path="res://Assets/glTF/T_Props_Crates_Normal.png" id="5_nkhef"]
 [ext_resource type="PackedScene" uid="uid://d5pramptt4rq" path="res://Scenes/indices/indice_chiffre_2.tscn" id="5_pa6b8"]
 [ext_resource type="Script" uid="uid://bhgv28bgqav2n" path="res://Scripts/casier_interactif_secret.gd" id="5_vofx3"]
@@ -48,7 +51,28 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mur"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m4bds"]
+albedo_texture = ExtResource("4_maxl3")
+
 [sub_resource type="BoxMesh" id="BoxMesh_mur"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uoc0b"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2lp24"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v15qs"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ubg6v"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ht0u2"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_23rfw"]
+albedo_texture = ExtResource("4_maxl3")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_va8bk"]
 resource_name = "MI_Props_Crates"
@@ -170,6 +194,33 @@ _data = {
 &"RESET": SubResource("Animation_wflhs")
 }
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ogdfn"]
+load_path = "res://.godot/imported/MetalPlates015A_8K-PNG_NormalDX.png-361699b58377749c7c9cf0fac4671295.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_md013"]
+albedo_texture = SubResource("CompressedTexture2D_ogdfn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_maxl3"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_icsqr"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ogdfn"]
+albedo_texture = SubResource("CompressedTexture2D_ogdfn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5oihu"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_16bfe"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6g3im"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8uds"]
+albedo_texture = ExtResource("4_maxl3")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_u0did"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_53r2q"]
@@ -241,10 +292,127 @@ _data = {
 &"RESET": SubResource("Animation_re0q2")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l1uqm"]
+albedo_texture = SubResource("CompressedTexture2D_ogdfn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uty0w"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8rl1s"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6tmo"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1wnhp"]
+albedo_texture = ExtResource("4_maxl3")
+
 [sub_resource type="StandardMaterial3D" id="Mat_baie_vitree"]
 transparency = 1
 albedo_color = Color(0.8, 0.9, 1, 0.2)
 roughness = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gx30c"]
+albedo_texture = SubResource("CompressedTexture2D_ogdfn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_py0mn"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fwhgd"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jmchl"]
+albedo_texture = SubResource("CompressedTexture2D_ogdfn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tcm81"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yv4qw"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vl2iv"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o16m1"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s14gf"]
+albedo_texture = SubResource("CompressedTexture2D_ogdfn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e3hal"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_luqfh"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bavf1"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cpxpw"]
+albedo_texture = SubResource("CompressedTexture2D_ogdfn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wbq00"]
+albedo_texture = SubResource("CompressedTexture2D_ogdfn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r74g4"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6dbqg"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jcoft"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o2uvi"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dx6so"]
+albedo_texture = SubResource("CompressedTexture2D_ogdfn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x3r1c"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r07lu"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e6a55"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nhhdd"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_54tli"]
+albedo_texture = SubResource("CompressedTexture2D_ogdfn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8huh7"]
+albedo_texture = SubResource("CompressedTexture2D_ogdfn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_043up"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tk00g"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i2khn"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eg0j0"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2veds"]
+albedo_texture = SubResource("CompressedTexture2D_ogdfn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_77r2g"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rg26e"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3yxbr"]
+albedo_texture = ExtResource("4_maxl3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6d7k"]
+albedo_texture = ExtResource("4_maxl3")
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_0cmrb"]
 panorama = ExtResource("20_3a44l")
@@ -347,6 +515,7 @@ transform = Transform3D(20, 0, 0, 0, 0.2, 0, 0, 0, 20, 0, 0, 0)
 shape = SubResource("BoxShape3D_sol")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/SalleCentrale/Sol" unique_id=1248814166]
+material_override = ExtResource("3_maxl3")
 mesh = SubResource("BoxMesh_sol")
 
 [node name="Toit" type="StaticBody3D" parent="Structure/SalleCentrale" unique_id=528426181]
@@ -365,6 +534,7 @@ transform = Transform3D(7, 0, 0, 0, 5, 0, 0, 0, 0.2, -6.5, 2.5, 10)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/SalleCentrale/MurNord_Gauche" unique_id=548724876]
+material_override = SubResource("StandardMaterial3D_m4bds")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurNord_Droit" type="StaticBody3D" parent="Structure/SalleCentrale" unique_id=96094702]
@@ -374,6 +544,7 @@ transform = Transform3D(7, 0, 0, 0, 5, 0, 0, 0, 0.2, 6.5, 2.5, 10)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/SalleCentrale/MurNord_Droit" unique_id=901473068]
+material_override = ExtResource("5_md013")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurSud_Gauche" type="StaticBody3D" parent="Structure/SalleCentrale" unique_id=28796992]
@@ -383,6 +554,7 @@ transform = Transform3D(7, 0, 0, 0, 5, 0, 0, 0, 0.2, -6.5, 2.5, -10)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/SalleCentrale/MurSud_Gauche" unique_id=935520599]
+material_override = SubResource("StandardMaterial3D_uoc0b")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurSud_Droit" type="StaticBody3D" parent="Structure/SalleCentrale" unique_id=370214138]
@@ -392,6 +564,7 @@ transform = Transform3D(7, 0, 0, 0, 5, 0, 0, 0, 0.2, 6.5, 2.5, -10)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/SalleCentrale/MurSud_Droit" unique_id=1005077140]
+material_override = SubResource("StandardMaterial3D_2lp24")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurEst_Bas" type="StaticBody3D" parent="Structure/SalleCentrale" unique_id=740845608]
@@ -401,6 +574,7 @@ transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 7, 10, 2.5, -6.5)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/SalleCentrale/MurEst_Bas" unique_id=1647697724]
+material_override = SubResource("StandardMaterial3D_v15qs")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurEst_Haut" type="StaticBody3D" parent="Structure/SalleCentrale" unique_id=1609875449]
@@ -410,6 +584,7 @@ transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 7, 10, 2.5, 6.5)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/SalleCentrale/MurEst_Haut" unique_id=297380777]
+material_override = SubResource("StandardMaterial3D_ubg6v")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurOuest_Bas" type="StaticBody3D" parent="Structure/SalleCentrale" unique_id=1303011467]
@@ -419,6 +594,7 @@ transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 7, -10, 2.5, -6.5)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/SalleCentrale/MurOuest_Bas" unique_id=64764732]
+material_override = SubResource("StandardMaterial3D_ht0u2")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurOuest_Haut" type="StaticBody3D" parent="Structure/SalleCentrale" unique_id=1669406668]
@@ -428,6 +604,7 @@ transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 7, -10, 2.5, 6.5)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/SalleCentrale/MurOuest_Haut" unique_id=1846407422]
+material_override = SubResource("StandardMaterial3D_23rfw")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="EmplacementPorteNord" type="Marker3D" parent="Structure/SalleCentrale" unique_id=169746008]
@@ -543,6 +720,7 @@ transform = Transform3D(6, 0, 0, 0, 0.2, 0, 0, 0, 24, 0, 0, 0)
 shape = SubResource("BoxShape3D_sol")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/CouloirNord/Sol" unique_id=1672182009]
+material_override = SubResource("StandardMaterial3D_md013")
 mesh = SubResource("BoxMesh_sol")
 
 [node name="Toit" type="StaticBody3D" parent="Structure/AileNord/CouloirNord" unique_id=587439747]
@@ -563,6 +741,7 @@ shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/CouloirNord/MurGauche" unique_id=1756993364]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.758, 0, 0, -0.125)
+material_override = SubResource("StandardMaterial3D_maxl3")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurDroit" type="StaticBody3D" parent="Structure/AileNord/CouloirNord" unique_id=1614181775]
@@ -574,6 +753,7 @@ shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/CouloirNord/MurDroit" unique_id=1482038977]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.758, 0, 0, -0.125)
+material_override = SubResource("StandardMaterial3D_icsqr")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="SalleNord1" type="Node3D" parent="Structure/AileNord" unique_id=85763546]
@@ -586,6 +766,7 @@ transform = Transform3D(12, 0, 0, 0, 0.2, 0, 0, 0, 12, 0, 0, 0)
 shape = SubResource("BoxShape3D_sol")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/SalleNord1/Sol" unique_id=284272338]
+material_override = SubResource("StandardMaterial3D_ogdfn")
 mesh = SubResource("BoxMesh_sol")
 
 [node name="Toit" type="StaticBody3D" parent="Structure/AileNord/SalleNord1" unique_id=1618735663]
@@ -604,6 +785,7 @@ transform = Transform3D(12, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, 6)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/SalleNord1/MurNord" unique_id=443271156]
+material_override = SubResource("StandardMaterial3D_5oihu")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurSud" type="StaticBody3D" parent="Structure/AileNord/SalleNord1" unique_id=41026853]
@@ -615,6 +797,7 @@ shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/SalleNord1/MurSud" unique_id=691770511]
 transform = Transform3D(0.925, 0, 0, 0, 1.023, 0, 0, 0, 1.023, -0.037, 0, 0)
+material_override = SubResource("StandardMaterial3D_16bfe")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurEst" type="StaticBody3D" parent="Structure/AileNord/SalleNord1" unique_id=2056048486]
@@ -626,6 +809,7 @@ shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/SalleNord1/MurEst" unique_id=1270260632]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.515, 0, 0, 0.25)
+material_override = SubResource("StandardMaterial3D_6g3im")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurOuest" type="StaticBody3D" parent="Structure/AileNord/SalleNord1" unique_id=833551249]
@@ -635,6 +819,7 @@ transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 12, -6, 2.5, 0)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/SalleNord1/MurOuest" unique_id=585002061]
+material_override = SubResource("StandardMaterial3D_w8uds")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="EmplacementPorteSud" type="Marker3D" parent="Structure/AileNord/SalleNord1" unique_id=956410040]
@@ -717,6 +902,7 @@ transform = Transform3D(12, 0, 0, 0, 0.2, 0, 0, 0, 12, 0, 0, 0)
 shape = SubResource("BoxShape3D_sol")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/SalleNord2/Sol" unique_id=94509077]
+material_override = SubResource("StandardMaterial3D_l1uqm")
 mesh = SubResource("BoxMesh_sol")
 
 [node name="Toit" type="StaticBody3D" parent="Structure/AileNord/SalleNord2" unique_id=1564835099]
@@ -735,6 +921,7 @@ transform = Transform3D(12, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, 6)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/SalleNord2/MurNord" unique_id=1193134145]
+material_override = SubResource("StandardMaterial3D_uty0w")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurSud" type="StaticBody3D" parent="Structure/AileNord/SalleNord2" unique_id=868569102]
@@ -746,6 +933,7 @@ shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/SalleNord2/MurSud" unique_id=1026312151]
 transform = Transform3D(0.939, 0, 0, 0, 1.023, 0, 0, 0, 1.023, 0.044, 0, 0)
+material_override = SubResource("StandardMaterial3D_8rl1s")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurEst" type="StaticBody3D" parent="Structure/AileNord/SalleNord2" unique_id=1044161962]
@@ -755,6 +943,7 @@ transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 12, 6, 2.5, 0)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/SalleNord2/MurEst" unique_id=915264764]
+material_override = SubResource("StandardMaterial3D_y6tmo")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurOuest" type="StaticBody3D" parent="Structure/AileNord/SalleNord2" unique_id=1846722598]
@@ -766,6 +955,7 @@ shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileNord/SalleNord2/MurOuest" unique_id=1279878739]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.515, 0, 0, 0.25)
+material_override = SubResource("StandardMaterial3D_1wnhp")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="EmplacementPorteSud" type="Marker3D" parent="Structure/AileNord/SalleNord2" unique_id=1567506092]
@@ -821,6 +1011,7 @@ transform = Transform3D(6, 0, 0, 0, 0.2, 0, 0, 0, 24, 0, 0, 0)
 shape = SubResource("BoxShape3D_sol")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/CouloirSud/Sol" unique_id=453997192]
+material_override = SubResource("StandardMaterial3D_gx30c")
 mesh = SubResource("BoxMesh_sol")
 
 [node name="Toit" type="StaticBody3D" parent="Structure/AileSud/CouloirSud" unique_id=1443102462]
@@ -841,6 +1032,7 @@ shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/CouloirSud/MurGauche" unique_id=529772308]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.758, 0, 0, 0.125)
+material_override = SubResource("StandardMaterial3D_py0mn")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurDroit" type="StaticBody3D" parent="Structure/AileSud/CouloirSud" unique_id=13277405]
@@ -852,6 +1044,7 @@ shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/CouloirSud/MurDroit" unique_id=995385542]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.758, 0, 0, 0.125)
+material_override = SubResource("StandardMaterial3D_fwhgd")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="SalleSud1" type="Node3D" parent="Structure/AileSud" unique_id=1376640607]
@@ -870,6 +1063,7 @@ transform = Transform3D(12, 0, 0, 0, 0.2, 0, 0, 0, 12, 0, 0, 0)
 shape = SubResource("BoxShape3D_sol")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/SalleSud1/Sol" unique_id=1033363338]
+material_override = SubResource("StandardMaterial3D_jmchl")
 mesh = SubResource("BoxMesh_sol")
 
 [node name="Toit" type="StaticBody3D" parent="Structure/AileSud/SalleSud1" unique_id=691971420]
@@ -890,6 +1084,7 @@ shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/SalleSud1/MurNord" unique_id=302747865]
 transform = Transform3D(0.939, 0, 0, 0, 1.023, 0, 0, 0, 1.023, -0.044, 0, 0)
+material_override = SubResource("StandardMaterial3D_tcm81")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurSud" type="StaticBody3D" parent="Structure/AileSud/SalleSud1" unique_id=483936215]
@@ -899,6 +1094,7 @@ transform = Transform3D(12, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, -6)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/SalleSud1/MurSud" unique_id=1354796779]
+material_override = SubResource("StandardMaterial3D_yv4qw")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurEst" type="StaticBody3D" parent="Structure/AileSud/SalleSud1" unique_id=1758962129]
@@ -910,6 +1106,7 @@ shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/SalleSud1/MurEst" unique_id=373360249]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.515, 0, 0, -0.25)
+material_override = SubResource("StandardMaterial3D_vl2iv")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurOuest" type="StaticBody3D" parent="Structure/AileSud/SalleSud1" unique_id=1140058551]
@@ -919,6 +1116,7 @@ transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 12, -6, 2.5, 0)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/SalleSud1/MurOuest" unique_id=525207830]
+material_override = SubResource("StandardMaterial3D_o16m1")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="EmplacementPorteNord" type="Marker3D" parent="Structure/AileSud/SalleSud1" unique_id=235678207]
@@ -1102,6 +1300,7 @@ transform = Transform3D(12, 0, 0, 0, 0.2, 0, 0, 0, 12, 0, 0, 0)
 shape = SubResource("BoxShape3D_sol")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/SalleSud2/Sol" unique_id=1584620163]
+material_override = SubResource("StandardMaterial3D_s14gf")
 mesh = SubResource("BoxMesh_sol")
 
 [node name="Toit" type="StaticBody3D" parent="Structure/AileSud/SalleSud2" unique_id=294363436]
@@ -1122,6 +1321,7 @@ shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/SalleSud2/MurNord" unique_id=305686770]
 transform = Transform3D(0.925, 0, 0, 0, 1.023, 0, 0, 0, 1.023, 0.037, 0, 0)
+material_override = SubResource("StandardMaterial3D_e3hal")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurSud" type="StaticBody3D" parent="Structure/AileSud/SalleSud2" unique_id=1673801376]
@@ -1131,6 +1331,7 @@ transform = Transform3D(12, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, -6)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/SalleSud2/MurSud" unique_id=1301507533]
+material_override = SubResource("StandardMaterial3D_luqfh")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurEst" type="StaticBody3D" parent="Structure/AileSud/SalleSud2" unique_id=1814919796]
@@ -1140,6 +1341,7 @@ transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 12, 6, 2.5, 0)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/SalleSud2/MurEst" unique_id=1082386290]
+material_override = SubResource("StandardMaterial3D_bavf1")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurOuest" type="StaticBody3D" parent="Structure/AileSud/SalleSud2" unique_id=1210500263]
@@ -1151,6 +1353,7 @@ shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileSud/SalleSud2/MurOuest" unique_id=861899640]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.515, 0, 0, -0.25)
+material_override = ExtResource("5_md013")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="EmplacementPorteNord" type="Marker3D" parent="Structure/AileSud/SalleSud2" unique_id=797408052]
@@ -1180,6 +1383,7 @@ transform = Transform3D(24, 0, 0, 0, 0.2, 0, 0, 0, 6, 0, 0, 0)
 shape = SubResource("BoxShape3D_sol")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileEst/CouloirEst/Sol" unique_id=1515629041]
+material_override = SubResource("StandardMaterial3D_cpxpw")
 mesh = SubResource("BoxMesh_sol")
 
 [node name="Toit" type="StaticBody3D" parent="Structure/AileEst/CouloirEst" unique_id=1921356719]
@@ -1240,6 +1444,7 @@ transform = Transform3D(12, 0, 0, 0, 0.2, 0, 0, 0, 12, 0, 0, 0)
 shape = SubResource("BoxShape3D_sol")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileEst/SalleEst1/Sol" unique_id=1463913470]
+material_override = SubResource("StandardMaterial3D_wbq00")
 mesh = SubResource("BoxMesh_sol")
 
 [node name="Toit" type="StaticBody3D" parent="Structure/AileEst/SalleEst1" unique_id=725019507]
@@ -1260,6 +1465,7 @@ shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileEst/SalleEst1/MurNord" unique_id=1347294872]
 transform = Transform3D(0.515, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
+material_override = SubResource("StandardMaterial3D_r74g4")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurSud" type="StaticBody3D" parent="Structure/AileEst/SalleEst1" unique_id=1052477233]
@@ -1269,6 +1475,7 @@ transform = Transform3D(12, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, -6)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileEst/SalleEst1/MurSud" unique_id=1578034815]
+material_override = SubResource("StandardMaterial3D_6dbqg")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurEst" type="StaticBody3D" parent="Structure/AileEst/SalleEst1" unique_id=1627019052]
@@ -1278,6 +1485,7 @@ transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 12, 6, 2.5, 0)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileEst/SalleEst1/MurEst" unique_id=1656135923]
+material_override = SubResource("StandardMaterial3D_jcoft")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurOuest" type="StaticBody3D" parent="Structure/AileEst/SalleEst1" unique_id=1156154225]
@@ -1289,6 +1497,7 @@ shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileEst/SalleEst1/MurOuest" unique_id=1334290780]
 transform = Transform3D(1.0231141, 0, 0, 0, 1.0231142, 0, 0, 0, 0.9392187, 0, 0, -0.042336285)
+material_override = SubResource("StandardMaterial3D_o2uvi")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="EmplacementPorteOuest" type="Marker3D" parent="Structure/AileEst/SalleEst1" unique_id=1359774900]
@@ -1318,6 +1527,7 @@ transform = Transform3D(12, 0, 0, 0, 0.2, 0, 0, 0, 12, 0, 0, 0)
 shape = SubResource("BoxShape3D_sol")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileEst/SalleEst2/Sol" unique_id=1800738593]
+material_override = SubResource("StandardMaterial3D_dx6so")
 mesh = SubResource("BoxMesh_sol")
 
 [node name="Toit" type="StaticBody3D" parent="Structure/AileEst/SalleEst2" unique_id=1772593108]
@@ -1336,6 +1546,7 @@ transform = Transform3D(12, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, 6)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileEst/SalleEst2/MurNord" unique_id=1807762385]
+material_override = SubResource("StandardMaterial3D_x3r1c")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurSud" type="StaticBody3D" parent="Structure/AileEst/SalleEst2" unique_id=824159373]
@@ -1347,6 +1558,7 @@ shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileEst/SalleEst2/MurSud" unique_id=1633815887]
 transform = Transform3D(0.515, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
+material_override = SubResource("StandardMaterial3D_r07lu")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurEst" type="StaticBody3D" parent="Structure/AileEst/SalleEst2" unique_id=1582661633]
@@ -1356,6 +1568,7 @@ transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 12, 6, 2.5, 0)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileEst/SalleEst2/MurEst" unique_id=1702333058]
+material_override = SubResource("StandardMaterial3D_e6a55")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurOuest" type="StaticBody3D" parent="Structure/AileEst/SalleEst2" unique_id=784616747]
@@ -1367,6 +1580,7 @@ shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileEst/SalleEst2/MurOuest" unique_id=1736324375]
 transform = Transform3D(1.023, 0, 0, 0, 1.023, 0, 0, 0, 0.925, 0, 0, 0.035)
+material_override = SubResource("StandardMaterial3D_nhhdd")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="EmplacementPorteOuest" type="Marker3D" parent="Structure/AileEst/SalleEst2" unique_id=968689920]
@@ -1463,6 +1677,7 @@ transform = Transform3D(24, 0, 0, 0, 0.2, 0, 0, 0, 6, 0, 0, 0)
 shape = SubResource("BoxShape3D_sol")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileOuest/CouloirOuest/Sol" unique_id=346091933]
+material_override = SubResource("StandardMaterial3D_54tli")
 mesh = SubResource("BoxMesh_sol")
 
 [node name="Toit" type="StaticBody3D" parent="Structure/AileOuest/CouloirOuest" unique_id=1972181220]
@@ -1541,6 +1756,7 @@ transform = Transform3D(12, 0, 0, 0, 0.2, 0, 0, 0, 12, 0, 0, 0)
 shape = SubResource("BoxShape3D_sol")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileOuest/SalleOuest1/Sol" unique_id=1249624735]
+material_override = SubResource("StandardMaterial3D_8huh7")
 mesh = SubResource("BoxMesh_sol")
 
 [node name="Toit" type="StaticBody3D" parent="Structure/AileOuest/SalleOuest1" unique_id=1041326949]
@@ -1561,6 +1777,7 @@ shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileOuest/SalleOuest1/MurNord" unique_id=972994568]
 transform = Transform3D(0.515, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, 0)
+material_override = SubResource("StandardMaterial3D_043up")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurSud" type="StaticBody3D" parent="Structure/AileOuest/SalleOuest1" unique_id=1351428993]
@@ -1570,6 +1787,7 @@ transform = Transform3D(12, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, -6)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileOuest/SalleOuest1/MurSud" unique_id=934688683]
+material_override = SubResource("StandardMaterial3D_tk00g")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurEst" type="StaticBody3D" parent="Structure/AileOuest/SalleOuest1" unique_id=1735186422]
@@ -1581,6 +1799,7 @@ shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileOuest/SalleOuest1/MurEst" unique_id=577585751]
 transform = Transform3D(1.023, 0, 0, 0, 1.023, 0, 0, 0, 0.925, 0, 0, -0.035)
+material_override = SubResource("StandardMaterial3D_i2khn")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurOuest" type="StaticBody3D" parent="Structure/AileOuest/SalleOuest1" unique_id=188555921]
@@ -1590,6 +1809,7 @@ transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 12, -6, 2.5, 0)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileOuest/SalleOuest1/MurOuest" unique_id=672924421]
+material_override = SubResource("StandardMaterial3D_eg0j0")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="EmplacementPorteEst" type="Marker3D" parent="Structure/AileOuest/SalleOuest1" unique_id=1318239556]
@@ -1778,6 +1998,7 @@ transform = Transform3D(12, 0, 0, 0, 0.2, 0, 0, 0, 12, 0, 0, 0)
 shape = SubResource("BoxShape3D_sol")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileOuest/SalleOuest2/Sol" unique_id=1320948475]
+material_override = SubResource("StandardMaterial3D_2veds")
 mesh = SubResource("BoxMesh_sol")
 
 [node name="Enemy_QuadShell2" parent="Structure/AileOuest/SalleOuest2/Sol" unique_id=1552289963 instance=ExtResource("31_ag4x3")]
@@ -1799,6 +2020,7 @@ transform = Transform3D(12, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.5, 6)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileOuest/SalleOuest2/MurNord" unique_id=899020403]
+material_override = SubResource("StandardMaterial3D_77r2g")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurSud" type="StaticBody3D" parent="Structure/AileOuest/SalleOuest2" unique_id=2010521494]
@@ -1810,6 +2032,7 @@ shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileOuest/SalleOuest2/MurSud" unique_id=1742005190]
 transform = Transform3D(0.515, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, 0)
+material_override = SubResource("StandardMaterial3D_rg26e")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurEst" type="StaticBody3D" parent="Structure/AileOuest/SalleOuest2" unique_id=1649954410]
@@ -1821,6 +2044,7 @@ shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileOuest/SalleOuest2/MurEst" unique_id=1232127735]
 transform = Transform3D(1.023, 0, 0, 0, 1.023, 0, 0, 0, 0.939, 0, 0, 0.042)
+material_override = SubResource("StandardMaterial3D_3yxbr")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="MurOuest" type="StaticBody3D" parent="Structure/AileOuest/SalleOuest2" unique_id=289398138]
@@ -1830,6 +2054,7 @@ transform = Transform3D(0.2, 0, 0, 0, 5, 0, 0, 0, 12, -6, 2.5, 0)
 shape = SubResource("BoxShape3D_mur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AileOuest/SalleOuest2/MurOuest" unique_id=985394414]
+material_override = SubResource("StandardMaterial3D_s6d7k")
 mesh = SubResource("BoxMesh_mur")
 
 [node name="EmplacementPorteEst" type="Marker3D" parent="Structure/AileOuest/SalleOuest2" unique_id=1034559219]

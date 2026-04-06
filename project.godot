@@ -25,6 +25,10 @@ EquipmentManager="*uid://1sr5ityh06yv"
 
 version_control/autoload_on_startup=true
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 avancer={

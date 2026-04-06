@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://docm2a33wvghm"]
+
+[ext_resource type="Texture2D" uid="uid://f31dmvp236xb" path="res://Assets/MetalPlates015A_8K-PNG_NormalDX.png" id="1_pq6wm"]
+
+[resource]
+albedo_texture = ExtResource("1_pq6wm")
