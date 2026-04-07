@@ -47,7 +47,7 @@ jobs:
 
       - name: Poster dans Discord
         env:
-          WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_VEILLE }}
         run: |
           VERSION="${{ steps.check.outputs.version }}"
           URL="${{ steps.check.outputs.url }}"

@@ -1,0 +1,46 @@
+name: Veille CVE
+
+on:
+  schedule:
+    - cron: '0 10 * * 1'
+  workflow_dispatch:
+
+jobs:
+  cve-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Chercher les CVE Godot
+        run: |
+          KEYWORD="godot"
+          JOURS=30
+          FIN=$(date -u +%Y-%m-%dT%H:%M:%S.000)
+          DEBUT=$(date -u -d "$JOURS days ago" +%Y-%m-%dT%H:%M:%S.000)
+          curl -s "https://services.nvd.nist.gov/rest/json/cves/2.0?keywordSearch=$KEYWORD&pubStartDate=$DEBUT&pubEndDate=$FIN" > cves.json
+          COUNT=$(jq '.totalResults' cves.json)
+          echo "count=$COUNT" >> $GITHUB_ENV
+          jq -r '.vulnerabilities[:5][] | "**\(.cve.id)** \(.cve.descriptions[0].value[:120])"' cves.json > resume.txt || echo "Aucune CVE trouvée" > resume.txt
+
+      - name: Créer Issue GitHub
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const rapport = fs.readFileSync('resume.txt', 'utf8');
+            const date = new Date().toISOString().split('T')[0];
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Veille CVE Godot - ${date}`,
+              body: `# Vulnérabilités CVE détectées (30 derniers jours)\n\n${rapport}`,
+              labels: ['veille-auto']
+            });
+
+      - name: Poster dans Discord
+        env:
+          WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_SECURITE }}
+        run: |
+          MSG=$(cat resume.txt | head -10)
+          DATE=$(date +%Y-%m-%d)
+          curl -H "Content-Type: application/json" \
+            -d "{\"content\":\"⚠️ **Veille CVE Godot - $DATE**\n$MSG\"}" \
+            $WEBHOOK
