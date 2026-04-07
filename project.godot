@@ -25,6 +25,12 @@ IndiceManager="*uid://b4hikvqe70a7"
 SuccessManager="*uid://ctulphskp715y"
 EquipmentManager="*uid://1sr5ityh06yv"
 
+[display]
+
+window/size/mode=4
+window/size/initial_position_type=4
+window/size/borderless=true
+
 [editor]
 
 version_control/autoload_on_startup=true
