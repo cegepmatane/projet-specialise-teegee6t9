@@ -21,7 +21,7 @@ jobs:
           jq -r '.vulnerabilities[:5][] | "**\(.cve.id)** \(.cve.descriptions[0].value[:120])"' cves.json > resume.txt || echo "Aucune CVE trouvée" > resume.txt
 
       - name: Créer Issue GitHub
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const fs = require('fs');
